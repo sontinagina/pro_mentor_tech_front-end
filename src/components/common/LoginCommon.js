@@ -4,6 +4,8 @@ function LoginCommon() {
    return (
       <div className="common1">
          <div className="logopage"></div>
+
+         <div className="logopage"></div>
          <div className="commonpagelinks">
             <div className="l1">
                <Link to="/home">Home</Link>
