@@ -1,8 +1,8 @@
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import { Carousel } from "react-bootstrap";
 import image1 from "../images/Dashboard-1.png";
-import { Button } from "bootstrap";
-function Home() {
+import { Button } from "react-bootstrap";
+function Home(props) {
    return (
       <div className="home">
          <div className="both">
@@ -12,9 +12,26 @@ function Home() {
                </div>
                <div className="linkshome">
                   <div className="l1">
-                     <Link to="/sign_in">Sign In</Link>
-
-                     <Link to="/sign_up">Join For Free</Link>
+                     {" "}
+                     <Link
+                        onClick={() => {
+                           props.loginHandler("signin");
+                        }}
+                        to="/signin"
+                     >
+                        <Button variant="btn btn-outline-light">Sign In</Button>
+                     </Link>
+                     <Link
+                        onClick={() => {
+                           props.loginHandler("signup");
+                        }}
+                        to="/signup"
+                     >
+                        {" "}
+                        <Button variant="btn btn-outline-light">
+                           Join For Free{" "}
+                        </Button>
+                     </Link>
                   </div>
                </div>
             </div>

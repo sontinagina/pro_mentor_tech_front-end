@@ -1,38 +1,199 @@
-.App {
-  text-align: center;
+/*!!!!!!! homw page css*/
+.home{
+  background: linear-gradient(
+  180deg
+  , rgba(34,46,64,1) 0%, rgba(81,195,184,1) 100%);
+     height: 100vh;
+     width: 100vw;
+     /* border: 2px solid red; */
+     display: flex;
+     flex-direction: column;
+     
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.upperpart{
+  /* border: 2px solid yellow; */
+  width: 90vw;
+  height: 30vh;
+  margin-left: 40px;
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  flex-direction: row;
+}
+.downpart{
+  /* border: 2px solid white; */
+  width: 90vw;
+  height: 70vh;
+  margin-left: 40px;
+  margin-left: 40px;
+  display: flex;
+  flex-direction: row;
+}
+.image1{
+  /* border: 2px solid purple; */
+  height: 100%;
+  width: 50%;
+}
+.linkshome{
+  /* border: 2px solid black; */
+  height: 100%;
+  width: 50%;
+  /* margin-left: 490px; */
+  display: flex;
+  justify-content: space-between;
+  
+  
+}
+.slidwrapo{
+  height: 100%;
+  width: 50%;
+  /* border: 2px solid rgb(184, 43, 43); */
+}
+.image2{
+  height: 100%;
+  width: 50%;
+  /* border: 2px solid rgb(35, 228, 60); */
+}
+
+.cr{
+  height: 200px;
+}
+.img-responsive{
+  height: 100%;
+width: 300px;
+/* border: 2px solid navy; */
+}
+.l1{
+  width: 50%;
+  margin-left: 200px;
+  display: flex;
+  justify-content: space-between;
+  font-family: Nunito;
+  text-transform: uppercase;
+  letter-spacing: 0;
+  font-size: 14px;
+  line-height: 14px;
+  font-weight: 900;
+  padding-left: 20px;
+    padding-right: 20px;
+    opacity: 0.75;
+     margin-top: 40px; 
+    /* margin-right: 20px;  */
+    z-index: 10;
+    color: white;
+    /* border: 2px solid #fff; */
+}
+/*!!!!!!!!!!!!!!!!!!!!logincommon page css*/
+.common1{
+  background: linear-gradient(
+    180deg
+    , rgba(34,46,64,1) 0%, rgba(81,195,184,1) 100%);
+  width: 100vw;
+  height: 100vh;
   color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+  display: flex;
+  flex-direction: row;
   }
-  to {
-    transform: rotate(360deg);
+  .logopage{
+    width: 30vw;
+    height: 50vw;
+    border: 2px solid white;
   }
-}
+  .commonpagelinks{
+    width: 70vw;
+    height: 50vw;
+    border: 2px solid white;
+position: static;
+  }
+  /* !!!!!sign in page css*/
+  .signinpage{
+    background: linear-gradient(
+    180deg
+    , rgba(34,46,64,1) 0%, rgba(81,195,184,1) 100%);
+  width: 100vw;
+  height: 110vh;
+  color: white;
+  display: flex;
+  flex-direction: row;
+  }
+  .inputmails{
+    display: flex;
+    flex-direction: column;
+    width: 70vw;
+    height: 50vw;
+    border: 2px solid white;
+  }
+  .input{
+    background: linear-gradient(
+    180deg
+    , rgba(34,46,64,1) 0%, rgba(81,195,184,1) 100%);
+    color:white;
+    outline: none;
+    width: 40vw;
+    height: 50px;
+    margin-top: 20px;
+    border-top: none;
+
+  }
+  .inputboth{
+    margin-top: 20px;
+    margin-left: 100px;
+  }
+  .formBasicPassword{
+    color: white;
+  }
+  .forgetlink{
+    display: flex;
+    flex-direction: column;
+    color: aliceblue;
+    width: 150px;
+    
+  }
+  .forgotindex{
+    color: white;
+  }
+  /* !!!!dashboard page css */
+  .dashboard{
+    background: linear-gradient(
+      180deg
+      , rgba(34,46,64,1) 0%, rgba(81,195,184,1) 100%);
+      width: 100vw;
+      height: 100%;
+      
+     
+  }
+  .navbar{
+    width: 100vw;
+    
+  }
+  /*!!!!! mentor divs css  */
+  .m1{
+    border: 2px solid white;
+    width: 200px;
+    height: 150px;
+  }
+  .m2{
+    border: 2px solid white;
+    width: 200px;
+    height: 150px;
+  }
+  .m3{
+    border: 2px solid white;
+    width: 200px;
+    height: 150px;
+  }
+  .searchForm{
+    display: flex;
+    flex-direction: row;
+    }
+    .subheader{
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+    }
+    .accountType{
+      margin-top: 10px;
+      margin-bottom: 10px;
+    }
+    .accB2{
+      margin-left: 10px;
+    }
