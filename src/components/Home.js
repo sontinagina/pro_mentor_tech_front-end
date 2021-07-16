@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { Carousel } from "react-bootstrap";
 import image1 from "../images/Dashboard-1.png";
 import { Button } from "react-bootstrap";

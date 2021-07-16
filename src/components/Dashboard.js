@@ -15,12 +15,12 @@ class Dashboard extends React.Component {
          show2: false,
       };
    }
-   showDropdown = (para) => {
+   showDropdown = () => {
       this.setState({
          show: !this.state.show,
       });
    };
-   showDropdown2 = (para) => {
+   showDropdown2 = () => {
       this.setState({
          show2: !this.state.show2,
       });

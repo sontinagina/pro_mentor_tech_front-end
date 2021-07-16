@@ -1,5 +1,5 @@
 // import React, { Component } from "react";
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Form, Button } from "react-bootstrap";
@@ -9,6 +9,15 @@ function Signin(props) {
    const [click1, setClick1] = useState("btn btn-light");
    const [click2, setClick2] = useState("btn btn-outline-light");
    let temp = "";
+   const [userName, setUserName] = useState("");
+   const [userEmail, setUserEmail] = useState("");
+   const [userPassword, setUserPassword] = useState("");
+
+   function submitHandler(e) {
+      e.preventDefault();
+      console.log("submit handler called");
+      console.log(userEmail, userName, userPassword);
+   }
    return (
       <div className="signinpage">
          <div className="logopage"></div>
@@ -17,8 +26,11 @@ function Signin(props) {
                {props.flag === "signin" ? <h3>Sign In</h3> : <h3>Sign Up</h3>}
 
                <Link
-                  to={(props.flag === "signup" ? "/signin" : "/signup") || "/"}
+                  to={props.flag === "signup" ? "/signin" : "/signup"}
                   onClick={() => {
+                     setUserName("");
+                     setUserEmail("");
+                     setUserPassword("");
                      props.flag === "signin"
                         ? props.loginHandler("signup")
                         : props.loginHandler("signin");
@@ -37,7 +49,6 @@ function Signin(props) {
                      temp = click1;
                      setClick1(click2);
                      setClick2(temp);
-                     console.log(click1, click2);
                   }}
                   size="sm"
                >
@@ -49,7 +60,6 @@ function Signin(props) {
                      temp = click2;
                      setClick2(click1);
                      setClick1(temp);
-                     console.log(click1, click2);
                   }}
                   size="sm"
                   className="accB2"
@@ -57,19 +67,31 @@ function Signin(props) {
                   Mentee
                </Button>
             </div>
-            <Form>
+            <Form onSubmit={submitHandler}>
                {props.flag === "signup" ? (
                   <Form.Group controlId="formBasicEmail">
                      <Form.Label>User Name</Form.Label>
-                     <Form.Control className="input" type="text" />
+                     <Form.Control
+                        className="input"
+                        type="text"
+                        onChange={(e) => {
+                           setUserName(e.target.value);
+                        }}
+                     />
                   </Form.Group>
                ) : null}
                <Form.Group controlId="formBasicEmail">
-                  <Form.Label>Email address</Form.Label>
+                  <div className="psslbl">
+                     <Form.Label>Email address</Form.Label>
+                  </div>
                   <Form.Control
                      className="input"
                      type="email"
-                     // placeholder="Enter email"
+                     placeholder="Enter email"
+                     value={userEmail}
+                     onChange={(e) => {
+                        setUserEmail(e.target.value);
+                     }}
                   />
                   <Form.Text className="text-muted">
                      <div className="forgotindex">
@@ -79,11 +101,16 @@ function Signin(props) {
                </Form.Group>
 
                <Form.Group controlId="formBasicPassword">
-                  <Form.Label>Password</Form.Label>
+                  <div className="psslbl">
+                     <Form.Label>Password</Form.Label>
+                  </div>
                   <Form.Control
                      type="password"
                      placeholder="Password"
                      className="input"
+                     onChange={(e) => {
+                        setUserPassword(e.target.value);
+                     }}
                   />
                </Form.Group>
                <Form.Group controlId="formBasicCheckbox">
@@ -98,18 +125,18 @@ function Signin(props) {
                      Sign Up
                   </Button>
                )}
-
-               <Form.Text className="text-muted">
-                  <div className="forgotindex">
-                     If you forgot your username/password click here{" "}
-                  </div>
-               </Form.Text>
-
-               <Link to="/signin" className="forgetlink">
-                  Forgot Password
-               </Link>
-
-               <Link />
+               {props.flag === "signin" ? (
+                  <Form.Text className="text-muted">
+                     <div className="forgotindex">
+                        If you forgot your username/password click here{" "}
+                     </div>
+                  </Form.Text>
+               ) : null}
+               {props.flag === "signin" ? (
+                  <Link to="/signin" className="forgetlink">
+                     Forgot Password
+                  </Link>
+               ) : null}
             </Form>
          </div>
       </div>

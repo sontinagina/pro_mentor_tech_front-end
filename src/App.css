@@ -1,3 +1,6 @@
+.form-control::placeholder { color: white;} /* Chrome, Firefox, Opera*/
+:-ms-input-placeholder.form-control { color: white; }  /* Internet Explorer*/
+.form-control::-ms-input-placeholder { color: white; }  /* Microsoft Edge*/
 /*!!!!!!! homw page css*/
 .home{
   background: linear-gradient(
@@ -109,11 +112,14 @@ position: static;
     background: linear-gradient(
     180deg
     , rgba(34,46,64,1) 0%, rgba(81,195,184,1) 100%);
-  width: 100vw;
-  height: 110vh;
-  color: white;
+  width: 100%;
+  height: 100%;
+  color: white !important;
   display: flex;
   flex-direction: row;
+  }
+  .labell{
+    margin-top: 10px;
   }
   .inputmails{
     display: flex;
@@ -121,21 +127,27 @@ position: static;
     width: 70vw;
     height: 50vw;
     border: 2px solid white;
+    color: white !important;
+    /* margin: 5px; */
+
+  }
+  .psslbl{
+    margin-top: 20px;
+
   }
   .input{
     background: linear-gradient(
     180deg
     , rgba(34,46,64,1) 0%, rgba(81,195,184,1) 100%);
-    color:white;
     outline: none;
     width: 40vw;
     height: 50px;
-    margin-top: 20px;
+    margin-top: 5px;
     border-top: none;
-
+    color:ghostwhite !important;
   }
   .inputboth{
-    margin-top: 20px;
+    margin-top: 30px;
     margin-left: 100px;
   }
   .formBasicPassword{
