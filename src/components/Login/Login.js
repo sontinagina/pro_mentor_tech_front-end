@@ -1,9 +1,8 @@
-// import React, { Component } from "react";
 import { Link } from "react-router-dom";
-
-import "bootstrap/dist/css/bootstrap.min.css";
-import { Form, Button } from "react-bootstrap";
+import { Form, Button, Modal } from "react-bootstrap";
 import { useState } from "react";
+import { useEffect } from "react";
+import FGPModal from "../ModalPage";
 
 function Signin(props) {
    const [click1, setClick1] = useState("btn btn-light");
@@ -12,11 +11,72 @@ function Signin(props) {
    const [userName, setUserName] = useState("");
    const [userEmail, setUserEmail] = useState("");
    const [userPassword, setUserPassword] = useState("");
+   const [error, setError] = useState({});
+   const [info, setInfo] = useState({});
+   const [smShow, setSmShow] = useState(false);
+   const [fgShow, setfgShow] = useState(false);
+   const [filedColor, setFieldColor] = useState({});
+   const [modalEmail, setModalEmail] = useState("");
+   const [modalEmailError, setModalEmailError] = useState("");
+   useEffect(() => {
+      console.log("use effect executed");
+      let newInfo = {};
+      let newFieldColor = {};
+      newInfo["emailInfo"] = "We'll never share your email with anyone else ";
+      newInfo["passwordInfo"] = "Password should be according to the policy";
+      newFieldColor["nameColor"] = "white";
+      newFieldColor["emailColor"] = "white";
+      newFieldColor["passwordColor"] = "white";
+      setInfo(newInfo);
+      setFieldColor(newFieldColor);
+   }, []);
 
    function submitHandler(e) {
+      console.log(info);
+      console.log(error);
       e.preventDefault();
-      console.log("submit handler called");
-      console.log(userEmail, userName, userPassword);
+      let tempError = {};
+      let newErrorColor = {};
+
+      if (props.flag === "signup") {
+         var nameRegex = /^[a-zA-Z ]{2,30}$/;
+         if (nameRegex.test(userName) === false) {
+            tempError["nameError"] = "invalid Name ";
+            newErrorColor["nameColor"] = "red";
+         }
+
+         if (userName === "" || userName === null || userName.length === 0) {
+            var nameErr = tempError["nameError"];
+            tempError["nameError"] =
+               nameErr.length > 0
+                  ? tempError["nameError"] + ", name can't be null"
+                  : "Name can't be null";
+            newErrorColor["nameColor"] = "red";
+         }
+      }
+      if (userEmail === "" || userEmail === null || userEmail.length === 0) {
+         tempError["emailError"] = "invalid email";
+         newErrorColor["emailColor"] = "red";
+      }
+      var passRegix = new RegExp(
+         "^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*])(?=.{8,})"
+      );
+
+      if (passRegix.test(userPassword) === false) {
+         tempError["passwordError"] = "Invalid password";
+         newErrorColor["passwordColor"] = "red";
+      }
+      setError(tempError);
+      setFieldColor(newErrorColor);
+      if (
+         tempError.nameError ||
+         tempError.emailError ||
+         tempError.passwordError
+      ) {
+         console.log("error");
+      } else {
+         alert("success");
+      }
    }
    return (
       <div className="signinpage">
@@ -28,9 +88,15 @@ function Signin(props) {
                <Link
                   to={props.flag === "signup" ? "/signin" : "/signup"}
                   onClick={() => {
+                     let colorChange = {};
+                     colorChange["nameColor"] = "white";
+                     colorChange["emailColor"] = "white";
+                     colorChange["passwordColor"] = "white";
+                     setFieldColor(colorChange);
                      setUserName("");
                      setUserEmail("");
                      setUserPassword("");
+                     setError({});
                      props.flag === "signin"
                         ? props.loginHandler("signup")
                         : props.loginHandler("signin");
@@ -78,6 +144,16 @@ function Signin(props) {
                            setUserName(e.target.value);
                         }}
                      />
+                     <Form.Text className="text-muted">
+                        <div
+                           className="forgotindex"
+                           style={{ color: filedColor.nameColor }}
+                        >
+                           {error["nameError"] !== undefined
+                              ? error["nameError"]
+                              : null}
+                        </div>
+                     </Form.Text>
                   </Form.Group>
                ) : null}
                <Form.Group controlId="formBasicEmail">
@@ -94,8 +170,14 @@ function Signin(props) {
                      }}
                   />
                   <Form.Text className="text-muted">
-                     <div className="forgotindex">
-                        We'll never share your email with anyone else.
+                     <div
+                        className="forgotindex"
+                        value="nothing"
+                        style={{ color: filedColor.emailColor }}
+                     >
+                        {error.emailError !== undefined
+                           ? error.emailError
+                           : info.emailInfo}
                      </div>
                   </Form.Text>
                </Form.Group>
@@ -108,10 +190,31 @@ function Signin(props) {
                      type="password"
                      placeholder="Password"
                      className="input"
+                     value={userPassword}
                      onChange={(e) => {
                         setUserPassword(e.target.value);
                      }}
                   />
+                  <Form.Text className="text-muted">
+                     <div
+                        className="forgotindex"
+                        style={{ color: filedColor.passwordColor }}
+                     >
+                        {error.passwordError !== undefined
+                           ? error.passwordError
+                           : info.passwordInfo}
+                        {"    "}
+                        {error.passwordError !== undefined ? (
+                           <Button
+                              onClick={() => setSmShow(!smShow)}
+                              variant="outline-warning"
+                              size="sm"
+                           >
+                              policy
+                           </Button>
+                        ) : null}
+                     </div>
+                  </Form.Text>
                </Form.Group>
                <Form.Group controlId="formBasicCheckbox">
                   <Form.Check type="checkbox" label="Remember me" />
@@ -133,12 +236,48 @@ function Signin(props) {
                   </Form.Text>
                ) : null}
                {props.flag === "signin" ? (
-                  <Link to="/signin" className="forgetlink">
+                  <Button
+                     onClick={() => {
+                        setModalEmail();
+                        setModalEmailError();
+                        setfgShow(true);
+                     }}
+                     className="forgetlink"
+                     variant="link"
+                  >
                      Forgot Password
-                  </Link>
+                  </Button>
                ) : null}
             </Form>
          </div>
+         <FGPModal
+            show={fgShow}
+            setShow={setfgShow}
+            email={modalEmail}
+            setEmail={setModalEmail}
+            emailError={modalEmailError}
+            setEmailError={setModalEmailError}
+         />
+
+         <Modal
+            size="sm"
+            show={smShow}
+            onHide={() => {
+               setSmShow(!smShow);
+            }}
+            aria-labelledby="example-modal-sizes-title-sm"
+         >
+            <Modal.Header closeButton>
+               <Modal.Title id="example-modal-sizes-title-sm">
+                  password policy
+               </Modal.Title>
+            </Modal.Header>
+            <Modal.Body>
+               Passwords must have upper and lower case letters, at least 1
+               number and special character, not match or contain email, and be
+               at least 8 characters long.
+            </Modal.Body>
+         </Modal>
       </div>
    );
 }

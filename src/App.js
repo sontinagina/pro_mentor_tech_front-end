@@ -26,10 +26,6 @@ class App extends React.Component {
             <Router>
                <div>
                   <Switch>
-                     <Route exact path="/">
-                        <Home loginHandler={this.changeLoginFlag}></Home>
-                     </Route>
-
                      <Route exact path="/Signin">
                         <Signin
                            loginHandler={this.changeLoginFlag}
@@ -44,6 +40,9 @@ class App extends React.Component {
                      </Route>
                      <Route exact path="/Dashboard">
                         <Dashboard></Dashboard>
+                     </Route>
+                     <Route exact path="/">
+                        <Home loginHandler={this.changeLoginFlag}></Home>
                      </Route>
                   </Switch>
                </div>
