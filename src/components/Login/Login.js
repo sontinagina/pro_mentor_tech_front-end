@@ -17,7 +17,11 @@ function Signin(props) {
    const [fgShow, setfgShow] = useState(false);
    const [filedColor, setFieldColor] = useState({});
    const [modalEmail, setModalEmail] = useState("");
-   const [modalEmailError, setModalEmailError] = useState("");
+   const [modalError, setModalError] = useState({});
+   const [modalPage, setModalPage] = useState(false);
+   const [otp, setOtp] = useState();
+   const [newPassword1, setNewPassword1] = useState();
+   const [newPassword2, setNewPassword2] = useState();
    useEffect(() => {
       console.log("use effect executed");
       let newInfo = {};
@@ -108,7 +112,7 @@ function Signin(props) {
                </Link>
             </div>
             <div className="accountType">
-               <h3>Account type</h3>
+               <h4>Account type</h4>
                <Button
                   variant={click1}
                   onClick={() => {
@@ -238,8 +242,11 @@ function Signin(props) {
                {props.flag === "signin" ? (
                   <Button
                      onClick={() => {
+                        setModalError({});
+
+                        setModalPage("email");
                         setModalEmail();
-                        setModalEmailError();
+                        setModalError({});
                         setfgShow(true);
                      }}
                      className="forgetlink"
@@ -255,8 +262,16 @@ function Signin(props) {
             setShow={setfgShow}
             email={modalEmail}
             setEmail={setModalEmail}
-            emailError={modalEmailError}
-            setEmailError={setModalEmailError}
+            page={modalPage}
+            setPage={setModalPage}
+            otp={otp}
+            setOtp={setOtp}
+            pass1={newPassword1}
+            setPass1={setNewPassword1}
+            pass2={newPassword2}
+            setPass2={setNewPassword2}
+            error={modalError}
+            setError={setModalError}
          />
 
          <Modal
