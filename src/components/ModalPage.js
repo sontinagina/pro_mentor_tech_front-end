@@ -85,6 +85,8 @@ function FGPModal(props) {
             } else {
                tempError["passwordError"] = "";
                setActiveBtn(false);
+               handleClose();
+               props.setShow(!props.show);
             }
          }
          props.setError(tempError);
