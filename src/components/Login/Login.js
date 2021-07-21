@@ -19,9 +19,10 @@ function Signin(props) {
    const [modalEmail, setModalEmail] = useState("");
    const [modalError, setModalError] = useState({});
    const [modalPage, setModalPage] = useState("email");
-   const [otp, setOtp] = useState();
-   const [newPassword1, setNewPassword1] = useState();
-   const [newPassword2, setNewPassword2] = useState();
+   const [otp, setOtp] = useState("");
+   const [newPassword1, setNewPassword1] = useState("");
+   const [newPassword2, setNewPassword2] = useState("");
+   const [match, setMatch] = useState("");
    useEffect(() => {
       console.log("use effect executed");
       let newInfo = {};
@@ -211,7 +212,7 @@ function Signin(props) {
                         {error.passwordError !== undefined ? (
                            <Button
                               onClick={() => setSmShow(!smShow)}
-                              variant="outline-warning"
+                              variant="warning"
                               size="sm"
                            >
                               policy
@@ -244,12 +245,13 @@ function Signin(props) {
                      onClick={() => {
                         setModalError({});
                         setModalPage("email");
-                        setModalEmail();
+                        setModalEmail("");
                         setModalError({});
                         setfgShow(true);
-                        setOtp();
-                        setNewPassword1();
-                        setNewPassword2();
+                        setOtp("");
+                        setNewPassword1("");
+                        setNewPassword2("");
+                        setMatch("");
                      }}
                      className="forgetlink"
                      variant="link"
@@ -274,6 +276,10 @@ function Signin(props) {
             setPass2={setNewPassword2}
             error={modalError}
             setError={setModalError}
+            info={info}
+            setInfo={setInfo}
+            match={match}
+            setMatch={setMatch}
          />
 
          <Modal
