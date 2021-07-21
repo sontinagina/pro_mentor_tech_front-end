@@ -18,7 +18,7 @@ function Signin(props) {
    const [filedColor, setFieldColor] = useState({});
    const [modalEmail, setModalEmail] = useState("");
    const [modalError, setModalError] = useState({});
-   const [modalPage, setModalPage] = useState(false);
+   const [modalPage, setModalPage] = useState("email");
    const [otp, setOtp] = useState();
    const [newPassword1, setNewPassword1] = useState();
    const [newPassword2, setNewPassword2] = useState();
@@ -53,7 +53,7 @@ function Signin(props) {
             var nameErr = tempError["nameError"];
             tempError["nameError"] =
                nameErr.length > 0
-                  ? tempError["nameError"] + ", name can't be null"
+                  ? tempError["nameError"] + ", Name can't be null"
                   : "Name can't be null";
             newErrorColor["nameColor"] = "red";
          }
@@ -243,11 +243,13 @@ function Signin(props) {
                   <Button
                      onClick={() => {
                         setModalError({});
-
                         setModalPage("email");
                         setModalEmail();
                         setModalError({});
                         setfgShow(true);
+                        setOtp();
+                        setNewPassword1();
+                        setNewPassword2();
                      }}
                      className="forgetlink"
                      variant="link"

@@ -1,32 +1,84 @@
-import { useEffect } from "react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Button, Modal, Form } from "react-bootstrap";
 function FGPModal(props) {
+   const [sec, setSeconds] = useState(59);
+   const [min, setMinutes] = useState(0);
+   const [stopper, setStopper] = useState(false);
+
    useEffect(() => {
       props.setError({});
       props.setEmail({});
    }, []);
-   function Validate(e) {
+   useEffect(() => {
+      if (stopper) {
+         const intervalId = setInterval(() => {
+            tick();
+            console.log("useeffect of timer");
+         }, 1000);
+         return () => {
+            clearInterval(intervalId);
+         };
+      }
+      console.log("new console");
+   }, [sec]);
+
+   function tick() {
+      if (sec == 0 && min > 0) {
+         console.log("1-->", min, sec);
+         setMinutes((min) => parseInt(min) - 1);
+         setSeconds((sec) => parseInt(sec) + 59);
+      } else if (sec > 0) {
+         //setMinutes((min) => parseInt(min) - 1);
+         setSeconds((sec) => parseInt(sec) - 1);
+         console.log("2-->", min, sec);
+      }
+
+      if (min <= 0 && sec <= 0) {
+         setStopper(false);
+      }
+   }
+   const Validate = (e) => {
       e.preventDefault();
       if (props.page === "email") {
          let emailErr = {};
          if (
-            props.email === "" ||
+            props.email === " " ||
             props.email === null ||
             props.email === undefined
          ) {
             emailErr["emailError"] = "Invalid email";
+         } else {
+            props.setPage("otp");
+            setStopper(true);
          }
          props.setError(emailErr);
       }
       //otp validation
-   }
+   };
+   const OtpHandler = (e) => {
+      props.setOtp(e.target.value);
+
+      // console.log(e.target.value);
+      if (props.otp !== null && props.otp !== undefined) {
+         console.log("this line executed" + e.target.value.length);
+
+         if (e.target.value.length == 4) {
+            props.setPage("pass");
+         }
+      }
+   };
+   const handleClose = () => {
+      console.log("modal page");
+   };
+   // props.setShow(false);
+   // const handleShow = () => props.setShow(true);
    return (
       <div className="modalpage">
          <div>
             <Modal
                show={props.show}
                onHide={() => {
+                  handleClose();
                   props.setShow(!props.show);
                }}
                dialogClassName="modal-90w"
@@ -67,26 +119,43 @@ function FGPModal(props) {
                               <Button variant="warning" size="sm" type="submit">
                                  send otp
                               </Button>
-                              <Form.Group
-                                 className="mb-3"
-                                 controlId="formBasicOtp"
-                              >
-                                 <Form.Label>OTP field</Form.Label>
-                                 <Form.Control
-                                    min="0"
-                                    type="number"
-                                    placeholder="Enter OTP"
-                                    value={props.otp}
-                                    onChange={(e) =>
-                                       props.setOtp(e.target.value)
-                                    }
-                                 />
-                                 <Form.Text className="text-muted">
-                                    <div style={{ color: "red" }}>
-                                       {props.error["otpError"]}
-                                    </div>
-                                 </Form.Text>
-                              </Form.Group>
+                           </div>
+                        ) : null}
+
+                        {props.page === "otp" ? (
+                           <Form.Group
+                              className="mb-3"
+                              controlId="formBasicOtp"
+                           >
+                              <div style={{ float: "right" }}>
+                                 <div
+                                    style={{
+                                       color: "green",
+                                       width: "10%",
+                                    }}
+                                 >
+                                    {min}:{sec}
+                                 </div>
+                              </div>
+                              <Form.Label>Enter otp </Form.Label>
+                              <Form.Control
+                                 min="0"
+                                 type="number"
+                                 placeholder="Enter OTP"
+                                 value={props.otp}
+                                 onChange={(e) => {
+                                    OtpHandler(e);
+                                 }}
+                              />
+                              <Form.Text className="text-muted">
+                                 <div style={{ color: "red" }}>
+                                    {props.error["otpError"]}
+                                 </div>
+                              </Form.Text>
+                           </Form.Group>
+                        ) : null}
+                        {props.page === "pass" ? (
+                           <>
                               <Form.Group
                                  className="mb-3"
                                  controlId="formBasicpasswors1"
@@ -95,14 +164,14 @@ function FGPModal(props) {
                                  <Form.Control
                                     type="text"
                                     placeholder="Enter password"
-                                    value={props.email}
+                                    value={props.pass1}
                                     onChange={(e) =>
-                                       props.setEmail(e.target.value)
+                                       props.setPass1(e.target.value)
                                     }
                                  />
                                  <Form.Text className="text-muted">
                                     <div style={{ color: "red" }}>
-                                       {props.emailError}
+                                       {props.passwordError}
                                     </div>
                                  </Form.Text>
                               </Form.Group>
@@ -128,7 +197,7 @@ function FGPModal(props) {
                               <Button variant="warning" size="sm" type="submit">
                                  confirm
                               </Button>
-                           </div>
+                           </>
                         ) : null}
                      </Form>
                   </div>
