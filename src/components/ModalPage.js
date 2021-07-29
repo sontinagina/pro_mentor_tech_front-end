@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Button, Modal, Form } from "react-bootstrap";
+import { Button, Modal, Form, Spinner } from "react-bootstrap";
 function FGPModal(props) {
    const stmin = 1;
    const stsec = 59;
@@ -8,6 +8,8 @@ function FGPModal(props) {
    const [stopper, setStopper] = useState(false);
    const [policy, setPolicy] = useState(false);
    const [activeBtn, setActiveBtn] = useState(true);
+   const [nextbtn, setNextbtn] = useState(true);
+   const [spinnerbtn, setSpinnerbtn] = useState(false);
 
    useEffect(() => {
       props.setError({});
@@ -41,12 +43,14 @@ function FGPModal(props) {
       if (min <= 0 && sec <= 0) {
          setStopper(false);
          props.setPage("email");
+         props.setOtp("");
+         props.setError({});
+         props.setEmail(props.email);
       }
    }
    const Validate = (e) => {
       e.preventDefault();
       let tempError = {};
-      let newErrorColor = {};
       if (props.page === "email") {
          console.log("1");
          console.log(props.email);
@@ -59,16 +63,85 @@ function FGPModal(props) {
             emailErr["emailError"] = "Invalid email";
          } else {
             console.log("else email console");
-
-            props.setPage("otp");
-            setStopper(true);
-            setMinutes(stmin);
-            setSeconds(stsec);
+            setSpinnerbtn(true);
+            // --------------------
+            const params = "type=email";
+            fetch("http://localhost:8081/forgotpass?" + params, {
+               method: "POST",
+               headers: {
+                  "Content-Type": "application/json",
+               },
+               body: JSON.stringify({
+                  email: props.email,
+               }),
+               credentials: "include",
+            })
+               .then((r) => {
+                  setSpinnerbtn(false);
+                  return r.json();
+               })
+               .then((r) => {
+                  console.log("email1: " + r);
+                  if (r.err) {
+                     let tempErr = {
+                        emailError: r.err,
+                     };
+                     props.setError({ ...tempErr });
+                  }
+                  if (r.msg) {
+                     console.log(r.msg);
+                     props.setError({});
+                     props.setPage("otp");
+                     setStopper(true);
+                     setMinutes(stmin);
+                     setSeconds(stsec);
+                  }
+               });
          }
          console.log(emailErr);
          props.setError({ ...emailErr });
          console.log("2");
       }
+      if (props.page === "otp") {
+         let params = "type=otp";
+         console.log("======================", props.otp);
+
+         fetch("http://localhost:8081/forgotpass?" + params, {
+            method: "POST",
+            headers: {
+               "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+               email: props.email,
+               otp: props.otp,
+            }),
+            credentials: "include",
+         })
+            .then((r) => {
+               return r.json();
+            })
+            .then((r) => {
+               console.log("opt1");
+               console.log(r);
+               if (r.err) {
+                  let tempErr = {
+                     otpError: r.err,
+                  };
+                  props.setError({ ...tempErr });
+               }
+               if (r.msg) {
+                  console.log(r.msg);
+                  props.setError({});
+                  props.setPage("pass");
+                  setActiveBtn(true);
+
+                  setStopper(false);
+                  setMinutes(stmin);
+                  setSeconds(stsec);
+               }
+            });
+      }
+
       if (props.page === "pass") {
          var passRegix = new RegExp(
             "^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*])(?=.{8,})"
@@ -83,29 +156,56 @@ function FGPModal(props) {
                props.setPass2("");
                setActiveBtn(true);
             } else {
-               tempError["passwordError"] = "";
-               setActiveBtn(false);
-               handleClose();
-               props.setShow(!props.show);
+               // ---------------
+               const params = "type=confirmpass";
+               fetch("http://localhost:8081/forgotpass?" + params, {
+                  method: "POST",
+                  headers: {
+                     "Content-Type": "application/json",
+                  },
+                  body: JSON.stringify({
+                     email: props.email,
+                     password: props.pass2,
+                  }),
+                  credentials: "include",
+               })
+                  .then((r) => {
+                     console.log("pass1: " + r);
+                     console.log(r);
+                     if (r.ok) {
+                        // return r.json();
+                        tempError["passwordError"] = "";
+                        setActiveBtn(false);
+                        handleClose();
+                        props.setShow(!props.show);
+                        return r.json();
+                     } else {
+                        return r.json();
+                     }
+                  })
+                  .then((r) => {
+                     if (r.msg) {
+                        console.log(r.msg);
+                     }
+                     if (r.err) {
+                        alert(r.err);
+                     }
+                  });
+
+               // ------------
             }
          }
          props.setError(tempError);
       }
       //otp validation
    };
-   const OtpHandler = (e) => {
+   const onChangeHandler = (e) => {
       props.setOtp(e.target.value);
-
-      // console.log(e.target.value);
       if (props.otp !== null && props.otp !== undefined) {
-         console.log("this line executed" + e.target.value.length);
-
          if (e.target.value.length === 4) {
-            props.setPage("pass");
-            setActiveBtn(true);
-            setStopper(false);
-            setMinutes(stmin);
-            setSeconds(stsec);
+            setNextbtn(false);
+         } else {
+            setNextbtn(true);
          }
       }
    };
@@ -159,9 +259,26 @@ function FGPModal(props) {
                                     </div>
                                  </Form.Text>
                               </Form.Group>
-                              <Button variant="warning" size="sm" type="submit">
-                                 send otp
-                              </Button>
+                              {spinnerbtn === false ? (
+                                 <Button
+                                    variant="warning"
+                                    size="sm"
+                                    type="submit"
+                                 >
+                                    send otp
+                                 </Button>
+                              ) : (
+                                 <Button variant="primary" disabled>
+                                    <Spinner
+                                       as="span"
+                                       animation="grow"
+                                       size="sm"
+                                       role="status"
+                                       aria-hidden="true"
+                                    />
+                                    Sending...
+                                 </Button>
+                              )}
                            </div>
                         ) : null}
 
@@ -187,7 +304,7 @@ function FGPModal(props) {
                                  placeholder="Enter OTP"
                                  value={props.otp}
                                  onChange={(e) => {
-                                    OtpHandler(e);
+                                    onChangeHandler(e);
                                  }}
                               />
                               <Form.Text className="text-muted">
@@ -195,6 +312,14 @@ function FGPModal(props) {
                                     {props.error["otpError"]}
                                  </div>
                               </Form.Text>
+                              <br />
+                              <Button
+                                 variant="warning"
+                                 disabled={nextbtn}
+                                 type="submit"
+                              >
+                                 next
+                              </Button>
                            </Form.Group>
                         ) : null}
                         {props.page === "pass" ? (

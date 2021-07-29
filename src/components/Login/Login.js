@@ -1,8 +1,9 @@
 import { Link } from "react-router-dom";
-import { Form, Button, Modal } from "react-bootstrap";
+import { Form, Button, Modal, Alert, Toast } from "react-bootstrap";
 import { useState } from "react";
 import { useEffect } from "react";
 import FGPModal from "../ModalPage";
+import { useHistory } from "react-router-dom";
 
 function Signin(props) {
    const [click1, setClick1] = useState("btn btn-light");
@@ -23,6 +24,10 @@ function Signin(props) {
    const [newPassword1, setNewPassword1] = useState("");
    const [newPassword2, setNewPassword2] = useState("");
    const [match, setMatch] = useState("");
+   const [showPopover, setShowPopover] = useState(false);
+   const [colorPopover, setColorPopover] = useState("forestgreen");
+   const [valuePopover, setValuePopover] = useState("success");
+   let history = useHistory();
    useEffect(() => {
       console.log("use effect executed");
       let newInfo = {};
@@ -34,6 +39,7 @@ function Signin(props) {
       newFieldColor["passwordColor"] = "white";
       setInfo(newInfo);
       setFieldColor(newFieldColor);
+      history.push("/signin");
    }, []);
 
    function submitHandler(e) {
@@ -80,12 +86,80 @@ function Signin(props) {
       ) {
          console.log("error");
       } else {
-         alert("success");
+         if (props.flag === "signup") {
+            fetch("http://localhost:8081/signup", {
+               method: "POST",
+               headers: {
+                  "Content-Type": "application/json",
+               },
+               body: JSON.stringify({
+                  username: userName,
+                  email: userEmail,
+                  password: userPassword,
+               }),
+               credentials: "include",
+            })
+               .then((r) => {
+                  return r.json();
+               })
+               .then((r) => {
+                  if (r.err) {
+                     setShowPopover(true);
+                     setColorPopover("red");
+                     setValuePopover("Invalid usename/password");
+                     setTimeout(() => {
+                        setShowPopover(false);
+                     }, 4000);
+                  }
+                  if (r.msg) {
+                     props.loginHandler("signin");
+                     history.push("/signin");
+
+                     setShowPopover(true);
+                     setColorPopover("forestgreen");
+                     setValuePopover("Signup Successfully");
+                     setTimeout(() => {
+                        setShowPopover(false);
+                     }, 4000);
+                  }
+               });
+         }
+         if (props.flag === "signin") {
+            fetch("http://localhost:8081/signin", {
+               method: "POST",
+               headers: {
+                  "Content-Type": "application/json",
+               },
+               body: JSON.stringify({
+                  email: userEmail,
+                  password: userPassword,
+               }),
+               credentials: "include",
+            })
+               .then((r) => {
+                  return r.json();
+               })
+               .then((r) => {
+                  console.log(r);
+                  if (r.err) {
+                     setShowPopover(true);
+                     setColorPopover("red");
+                     setValuePopover("Invalid usename/password");
+                     setTimeout(() => {
+                        setShowPopover(false);
+                     }, 4000);
+                  }
+                  if (r.msg) {
+                     history.push("/Dashboard");
+                  }
+               });
+         }
       }
    }
    return (
       <div className="signinpage">
          <div className="logopage"></div>
+
          <div className="inputboth">
             <div className="subheader">
                {props.flag === "signin" ? <h3>Sign In</h3> : <h3>Sign Up</h3>}
@@ -224,15 +298,19 @@ function Signin(props) {
                <Form.Group controlId="formBasicCheckbox">
                   <Form.Check type="checkbox" label="Remember me" />
                </Form.Group>
-               {props.flag === "signin" ? (
-                  <Button variant="primary" type="submit">
-                     Sign In
-                  </Button>
-               ) : (
-                  <Button variant="primary" type="submit">
-                     Sign Up
-                  </Button>
-               )}
+               <div className="mystyle">
+                  <div>
+                     {props.flag === "signin" ? (
+                        <Button variant="primary" type="submit">
+                           Sign In
+                        </Button>
+                     ) : (
+                        <Button variant="primary" type="submit">
+                           Sign Up
+                        </Button>
+                     )}
+                  </div>
+               </div>
                {props.flag === "signin" ? (
                   <Form.Text className="text-muted">
                      <div className="forgotindex">
@@ -243,7 +321,6 @@ function Signin(props) {
                {props.flag === "signin" ? (
                   <Button
                      onClick={() => {
-                        setModalError({});
                         setModalPage("email");
                         setModalEmail("");
                         setModalError({});
@@ -260,6 +337,19 @@ function Signin(props) {
                   </Button>
                ) : null}
             </Form>
+         </div>
+         <div className="mystyle">
+            {" "}
+            {showPopover ? (
+               <Alert
+                  key="idx"
+                  variant={colorPopover}
+                  style={{ backgroundColor: colorPopover }}
+                  className="alerIn"
+               >
+                  {valuePopover}
+               </Alert>
+            ) : null}
          </div>
          <FGPModal
             show={fgShow}
@@ -281,13 +371,13 @@ function Signin(props) {
             match={match}
             setMatch={setMatch}
          />
-
          <Modal
             size="sm"
             show={smShow}
             onHide={() => {
                setSmShow(!smShow);
             }}
+            className="modalshow"
             aria-labelledby="example-modal-sizes-title-sm"
          >
             <Modal.Header closeButton>
@@ -296,9 +386,9 @@ function Signin(props) {
                </Modal.Title>
             </Modal.Header>
             <Modal.Body>
-               Passwords must have upper and lower case letters, at least 1
-               number and special character, not match or contain email, and be
-               at least 8 characters long.
+               Passwords must have upper and lower case, at least 1 number and
+               special character, not match or contain email, and be at least 8
+               characters long.
             </Modal.Body>
          </Modal>
       </div>

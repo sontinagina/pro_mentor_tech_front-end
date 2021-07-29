@@ -117,6 +117,7 @@ position: static;
   color: white !important;
   display: flex;
   flex-direction: row;
+  border: 2px solid yellow;
   }
   .labell{
     margin-top: 10px;
@@ -147,8 +148,9 @@ position: static;
     color:ghostwhite !important;
   }
   .inputboth{
-    margin-top: 30px;
+    margin-top: 60px;
     margin-left: 100px;
+    /* border: 2px solid red; */
   }
   .formBasicPassword{
     color: white;
@@ -208,4 +210,20 @@ position: static;
     }
     .accB2{
       margin-left: 10px;
+    }
+    .mystyle{
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      height: 55px;
+      width:240px;
+      border:0;
+      margin-right: 2px;
+/* background-color: darkgreen; */
+    }
+    .alerIn{
+      height: 100%;
+      width:100%;
+      /* background-color:forestgreen  ; */
+       color: white;
     }

@@ -1,4 +1,5 @@
 import React from "react";
+
 import {
    Button,
    Form,
@@ -14,6 +15,7 @@ class Dashboard extends React.Component {
          show: false,
          show2: false,
       };
+      console.log("dashboard constructor");
    }
    showDropdown = () => {
       this.setState({
@@ -100,6 +102,16 @@ class Dashboard extends React.Component {
                            style={{ marginLeft: "5px" }}
                         >
                            Search
+                        </Button>
+                        {"  "}
+                        <Button
+                           variant="dark"
+                           style={{ marginLeft: "300px" }}
+                           onClick={() => {
+                              this.props.logout();
+                           }}
+                        >
+                           Logout
                         </Button>
                      </Form>
                   </Navbar.Collapse>
