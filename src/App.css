@@ -7,13 +7,32 @@
   180deg
   , rgba(34,46,64,1) 0%, rgba(81,195,184,1) 100%);
      height: 100vh;
-     width: 100vw;
+     width: 100%;
      /* border: 2px solid red; */
      display: flex;
      flex-direction: column;
      
 }
-
+.homewhite{
+  height: 100%;
+  word-wrap: break-word;
+  margin: 50px;
+  padding: 20px;
+  text-align: center;
+}
+.homehero{
+  width: 100%;
+}
+.homecontent{
+  text-align: center;
+  text-decoration: dashed;
+  height: 20%;
+  border: 2px solid black;
+}
+.homemid{
+  text-align: center;
+font-family: arial;
+}
 .upperpart{
   /* border: 2px solid yellow; */
   width: 90vw;
@@ -33,13 +52,14 @@
 }
 .image1{
   /* border: 2px solid purple; */
-  height: 100%;
-  width: 50%;
+  height: 30%;
+  width: 25%;
+  margin: 10px;
 }
 .linkshome{
   /* border: 2px solid black; */
   height: 100%;
-  width: 50%;
+  width: 70%;
   /* margin-left: 490px; */
   display: flex;
   justify-content: space-between;
@@ -58,11 +78,20 @@
 }
 
 .cr{
-  height: 200px;
+  height: 300px;
+  /* border: 2px solid rgb(184, 43, 43); */
+}
+.crimg{
+  margin-left:75px;
+  margin-top:90px;
+  height: 160px;
+  width:72%;
+  /* border: 2px solid rgb(184, 43, 43); */
+
 }
 .img-responsive{
   height: 100%;
-width: 300px;
+width: 100%;
 /* border: 2px solid navy; */
 }
 .l1{
@@ -85,29 +114,35 @@ width: 300px;
     color: white;
     /* border: 2px solid #fff; */
 }
-/*!!!!!!!!!!!!!!!!!!!!logincommon page css*/
-.common1{
-  background: linear-gradient(
-    180deg
-    , rgba(34,46,64,1) 0%, rgba(81,195,184,1) 100%);
-  width: 100vw;
-  height: 100vh;
-  color: white;
+.threeimages{
   display: flex;
   flex-direction: row;
-  }
-  .logopage{
-    width: 30vw;
-    height: 50vw;
-    border: 2px solid white;
-  }
-  .commonpagelinks{
-    width: 70vw;
-    height: 50vw;
-    border: 2px solid white;
-position: static;
-  }
-  /* !!!!!sign in page css*/
+justify-content: space-between;
+margin: 30px;
+align-items: center;
+}
+.home1{
+  /* border: 2px solid black; */
+    width: 250px;
+    height: 220px;
+}
+.findmento{
+  width: 130px;
+    height: 170px;
+    margin: 5px;
+}
+.home2{
+  /* border: 2px solid black; */
+    width: 250px;
+    height: 220px;
+}
+.home3{
+  /* border: 2px solid black; */
+    width: 250px;
+    height: 220px;
+}
+
+  /********** !!!!!sign in page css*/
   .signinpage{
     background: linear-gradient(
     180deg
@@ -117,7 +152,34 @@ position: static;
   color: white !important;
   display: flex;
   flex-direction: row;
-  border: 2px solid yellow;
+  /* border: 2px solid yellow; */
+  }
+  .logopagesignin{
+    width: 50vw;
+    height: 100%;
+    /* border:2px solid red; */
+  }
+  .signimg33{
+    margin-bottom:20px;
+    margin-left:20px;
+    margin-top:85px;
+    width: 40vw;
+    height: 40vw;
+    /* border:2px solid red; */
+
+  }
+  .signlogo{
+    width: 30vw;
+    height: 5vw;
+    margin: 20px;
+        /* border:2px solid red; */
+
+  }
+  .img-responsive1{
+    margin:5px;
+    width: 22vw;
+    height: 4.3vw;
+  /* border: 2px solid navy; */
   }
   .labell{
     margin-top: 10px;
@@ -125,7 +187,7 @@ position: static;
   .inputmails{
     display: flex;
     flex-direction: column;
-    width: 70vw;
+    width: 50vw;
     height: 50vw;
     border: 2px solid white;
     color: white !important;
@@ -167,11 +229,13 @@ position: static;
   }
   /* !!!!dashboard page css */
   .dashboard{
-    background: linear-gradient(
+    background-image: url("../src/images/whitecity2.png");
+    /* background: linear-gradient(
       180deg
-      , rgba(34,46,64,1) 0%, rgba(81,195,184,1) 100%);
-      width: 100vw;
-      height: 100%;
+      , rgba(34,46,64,1) 0%, rgba(81,195,184,1) 100%); */
+      width: 100%;
+      height: 500px;
+      background-repeat: no-repeat;
       
      
   }

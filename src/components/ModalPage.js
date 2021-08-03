@@ -134,7 +134,6 @@ function FGPModal(props) {
                   props.setError({});
                   props.setPage("pass");
                   setActiveBtn(true);
-
                   setStopper(false);
                   setMinutes(stmin);
                   setSeconds(stsec);
@@ -147,9 +146,9 @@ function FGPModal(props) {
             "^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*])(?=.{8,})"
          );
          if (
-            props.pass1 != undefined ||
-            props.pass1 != null ||
-            props.pass1 != ""
+            props.pass1 !== undefined ||
+            props.pass1 !== null ||
+            props.pass1 !== ""
          ) {
             if (passRegix.test(props.pass1) === false) {
                tempError["passwordError"] = "Invalid password";
@@ -214,6 +213,7 @@ function FGPModal(props) {
       setStopper(false);
       setMinutes(stmin);
       setSeconds(stsec);
+      setSpinnerbtn(false);
    }
    return (
       <div className="modalpage">
@@ -338,7 +338,7 @@ function FGPModal(props) {
                                     }}
                                  />
                                  <Form.Text className="text-muted">
-                                    <div style={{ color: "blue" }}>
+                                    <div style={{ color: "red" }}>
                                        {props.error["passwordError"] !==
                                        undefined
                                           ? props.error["passwordError"]
@@ -396,7 +396,7 @@ function FGPModal(props) {
                                  />
                                  <Form.Text className="text-muted">
                                     <div style={{ color: "red" }}>
-                                       {props.match != undefined
+                                       {props.match !== undefined
                                           ? props.match
                                           : null}
                                     </div>

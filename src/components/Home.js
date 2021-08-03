@@ -1,6 +1,15 @@
 import { Link } from "react-router-dom";
 import { Carousel } from "react-bootstrap";
-import image1 from "../images/Dashboard-1.png";
+import image1 from "../images/dribbble-2.jpg";
+import weblogo from "../images/newone.jpg";
+import homehero from "../images/home_hero.png";
+import coachmento from "../images/mobileshot.png";
+import trilogy from "../images/StarCircle.png";
+import mento from "../images/home_hero.webp";
+import findmentor from "../images/find-mentor.webp";
+import aplymentor from "../images/aply-mentor.webp";
+import skillsup from "../images/skillsup.webp";
+
 import { Button } from "react-bootstrap";
 function Home(props) {
    return (
@@ -8,7 +17,12 @@ function Home(props) {
          <div className="both">
             <div className="upperpart">
                <div className="image1">
-                  <img src={image1} alt="/" className="img-responsive" />
+                  <img
+                     src={weblogo}
+                     alt="/"
+                     className="img-responsive"
+                     onClick={"/"}
+                  />
                </div>
                <div className="linkshome">
                   <div className="l1">
@@ -45,12 +59,17 @@ function Home(props) {
                            alt="First slide"
                         /> */}
                         <Carousel.Caption>
-                           <h3>First slide label</h3>
+                           <h3>With Pro-Mentor-Techs</h3>
                            <p>
-                              Nulla vitae elit libero, a pharetra augue mollis
-                              interdum.
+                              Mentoring from the best mentors anytime,anywhere|
+                              Achieve your personal and professional
+                              goals.Personalised attention from Mentors| clarity
+                              solutions to your problems
                            </p>
                         </Carousel.Caption>
+                     </Carousel.Item>
+                     <Carousel.Item className="cr">
+                        <img className="crimg" src={mento} alt="not found" />
                      </Carousel.Item>
                      <Carousel.Item className="cr">
                         {/* <img
@@ -60,12 +79,16 @@ function Home(props) {
                         /> */}
 
                         <Carousel.Caption>
-                           <h3>Second slide label</h3>
+                           <h3>Get Instant Access to </h3>
                            <p>
-                              Lorem ipsum dolor sit amet, consectetur adipiscing
-                              elit.
+                              Special Mentorship programs | video calls,live
+                              session and Group chats| Masterclasses|
+                              Audiobooks| MentorTalks| Self-Assesment
                            </p>
                         </Carousel.Caption>
+                     </Carousel.Item>
+                     <Carousel.Item className="cr">
+                        <img className="crimg" src={trilogy} alt="not found" />
                      </Carousel.Item>
                      <Carousel.Item className="cr">
                         {/* <img
@@ -75,12 +98,19 @@ function Home(props) {
                         /> */}
 
                         <Carousel.Caption>
-                           <h3>Third slide label</h3>
+                           <h3>Get Mentorship from the best</h3>
                            <p>
-                              Praesent commodo cursus magna, vel scelerisque
-                              nisl consectetur.
+                              Life coachs| Industry coachs| Business Mentors|
+                              career Mentors| coach buddy
                            </p>
                         </Carousel.Caption>
+                     </Carousel.Item>
+                     <Carousel.Item className="cr">
+                        <img
+                           className="crimg"
+                           src={coachmento}
+                           alt="not found"
+                        />
                      </Carousel.Item>
                   </Carousel>
                </div>
@@ -90,6 +120,81 @@ function Home(props) {
                      src={image1}
                      alt="not found"
                   />
+               </div>
+            </div>
+         </div>
+         <div className="homewhite">
+            <pre>
+               <h1 style={{ background: "	#20B2AA", color: "white" }}>
+                  1-on-1 Subjective Mentorship
+               </h1>
+
+               <p>
+                  {" "}
+                  Work with leading tech mentors and gain access to <br />
+                  personalized guidance to reach your potential.
+                  <br />
+                  Ongoing sessions and expert advice, on your terms,
+                  <br /> all for a flat monthly price.
+               </p>
+            </pre>
+         </div>
+         <div>
+            <img src={homehero} className="homehero"></img>
+         </div>
+         <div className="homecontent">
+            <b>GET MENTORED BY INDUSTRY VETERANS</b>
+            <br />
+            <Link to="http://google.com">
+               <Button variant="light">Google</Button>
+            </Link>
+         </div>
+         <div className="homemid">
+            <h1>
+               <b>
+                  Accessing a personal career coach
+                  <br /> has never been simpler.
+               </b>
+            </h1>{" "}
+            The road to career success is often a bumpy one.
+            <br /> But imagine how much easier it would be if you had an <br />
+            experienced industry leader available anytime to <br />
+            offer advice and expert guidance.{" "}
+         </div>
+         <div></div>
+         <div className="threeimages">
+            <div className="home1">
+               <h5>
+                  <b>Find your Mentor</b>
+               </h5>
+               <img
+                  src={findmentor}
+                  alt="not found"
+                  className="findmento"
+               ></img>
+               <div>
+                  Explore our growing catalogue of experienced mentors until you
+                  find the perfect fit.
+               </div>
+            </div>
+            <div className="home2">
+               <h5>
+                  <b>Apply for Mentorship</b>
+               </h5>
+               <img src={aplymentor} alt="" className="findmento"></img>
+               <div>
+                  Fill in an application, and if you’re a match with your chosen
+                  mentor you can start your free 7-day trial.
+               </div>
+            </div>
+            <div className="home3">
+               <h5>
+                  <b>Level up your skills</b>
+               </h5>
+               <img src={skillsup} alt="" className="findmento"></img>
+               <div>
+                  From personal chats to hands-on support, each mentor offers
+                  different services to help you skyrocket your career.
                </div>
             </div>
          </div>

@@ -1,15 +1,18 @@
 import { Link } from "react-router-dom";
-import { Form, Button, Modal, Alert, Toast } from "react-bootstrap";
+import { Form, Button, Modal, Alert } from "react-bootstrap";
 import { useState } from "react";
 import { useEffect } from "react";
 import FGPModal from "../ModalPage";
 import { useHistory } from "react-router-dom";
+import image1 from "../../images/dribbble-2.jpg";
+import weblogo from "../../images/newone.jpg";
 
 function Signin(props) {
    const [click1, setClick1] = useState("btn btn-light");
    const [click2, setClick2] = useState("btn btn-outline-light");
    let temp = "";
    const [userName, setUserName] = useState("");
+   const [userAccountType, setUserAccountType] = useState("mentor");
    const [userEmail, setUserEmail] = useState("");
    const [userPassword, setUserPassword] = useState("");
    const [error, setError] = useState({});
@@ -93,6 +96,7 @@ function Signin(props) {
                   "Content-Type": "application/json",
                },
                body: JSON.stringify({
+                  accounttype: userAccountType,
                   username: userName,
                   email: userEmail,
                   password: userPassword,
@@ -106,7 +110,7 @@ function Signin(props) {
                   if (r.err) {
                      setShowPopover(true);
                      setColorPopover("red");
-                     setValuePopover("Invalid usename/password");
+                     setValuePopover("Invalid username/password");
                      setTimeout(() => {
                         setShowPopover(false);
                      }, 4000);
@@ -131,6 +135,7 @@ function Signin(props) {
                   "Content-Type": "application/json",
                },
                body: JSON.stringify({
+                  accounttype: userAccountType,
                   email: userEmail,
                   password: userPassword,
                }),
@@ -144,7 +149,7 @@ function Signin(props) {
                   if (r.err) {
                      setShowPopover(true);
                      setColorPopover("red");
-                     setValuePopover("Invalid usename/password");
+                     setValuePopover("Invalid username/password");
                      setTimeout(() => {
                         setShowPopover(false);
                      }, 4000);
@@ -158,7 +163,14 @@ function Signin(props) {
    }
    return (
       <div className="signinpage">
-         <div className="logopage"></div>
+         <div className="logopagesignin">
+          <div className="signlogo">
+                  <img src={weblogo} alt="/" className="img-responsive1" />
+               </div><img
+                     className="signimg33"
+                     src={image1}
+                     alt="not found"
+                  /></div>
 
          <div className="inputboth">
             <div className="subheader">
@@ -189,8 +201,10 @@ function Signin(props) {
             <div className="accountType">
                <h4>Account type</h4>
                <Button
+                  value={userAccountType}
                   variant={click1}
                   onClick={() => {
+                     setUserAccountType("mentor");
                      temp = click1;
                      setClick1(click2);
                      setClick2(temp);
@@ -202,6 +216,8 @@ function Signin(props) {
                <Button
                   variant={click2}
                   onClick={() => {
+                     setUserAccountType("mentee");
+
                      temp = click2;
                      setClick2(click1);
                      setClick1(temp);

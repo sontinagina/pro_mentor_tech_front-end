@@ -1,4 +1,5 @@
 import React from "react";
+// import skillsup from "../images/hyyy.jpeg";
 
 import {
    Button,
@@ -29,7 +30,11 @@ class Dashboard extends React.Component {
    };
    render() {
       return (
-         <div className="dashboard">
+         <div
+            className="dashboard"
+            // style={backgroundImage: url( skillsup ) }
+         >
+            {/* <img src={skillsup} className="dashboard"></img> */}
             <div className="navbar">
                <Navbar bg="light" expand="lg">
                   <Navbar.Brand href="#home">ProMentorTechs</Navbar.Brand>
@@ -117,14 +122,14 @@ class Dashboard extends React.Component {
                   </Navbar.Collapse>
                </Navbar>
             </div>
-            <div className="m1"></div>
+            {/* <div className="m1"></div>
             <div className="m2"></div>
             <div className="m3"></div>
             <div className="m4"></div>
             <div className="m5"></div>
             <div className="m6"></div>
             <div className="m7"></div>
-            <div className="m8"></div>
+            <div className="m8"></div> */}
          </div>
       );
    }
