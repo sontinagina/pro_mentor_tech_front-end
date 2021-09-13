@@ -1,5 +1,6 @@
 import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
+import "./Dashboard.css";
 
 import { Route } from "react-router";
 import Home from "./components/Home";
@@ -24,13 +25,14 @@ class App extends React.Component {
       this.getUserInfo();
    }
    logout() {
-      fetch("http://localhost:8081/logout", { credentials: "include" }).then(
-         (r) => {
-            if (r.ok) {
-               this.props.history.push("/");
-            }
+      fetch("http://localhost:8081/logout", {
+         method: "GET",
+         credentials: "include",
+      }).then((r) => {
+         if (r.ok) {
+            this.props.history.push("/");
          }
-      );
+      });
    }
    getUserInfo() {
       fetch("http://localhost:8081/userinfo", { credentials: "include" }).then(
@@ -75,6 +77,12 @@ class App extends React.Component {
                      flag={this.state.loginFlag}
                   ></Signin>
                </Route>
+               {/* <Route exact path="/Profile">
+                  <Profile
+                     loginHandler={this.changeLoginFlag}
+                     flag={this.state.loginFlag}
+                  ></Profile>
+               </Route> */}
             </div>
          </div>
       );

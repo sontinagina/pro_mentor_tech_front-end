@@ -141,6 +141,73 @@ align-items: center;
     width: 250px;
     height: 220px;
 }
+.fbtn{
+  justify-content:space-between;
+  margin-left:300px;
+  margin-top: 100px;
+  margin-bottom: 90px;
+
+}
+.homelastdiv{
+  width: 50%;
+  margin-left: 300px;
+  justify-content: center;
+  text-align: center;
+}
+.home22{
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+}
+.enddiv{
+  text-align: center;
+  width: 40%;
+  margin-top: 55px;
+}
+.endimg{
+width: 60%;
+height: 300px;
+}
+/*  FOoter page css_____________
+________________________________*/
+.footer{
+  width: 100%;
+  height: 100%;
+  background-color:rgb(0, 0, 0);
+  /* background: linear-gradient(
+  180deg
+  , rgba(34,46,64,1) 0%, rgba(81,195,184,1) 100%); */
+  display: flex;
+  flex-direction: column;
+  color: white;
+}
+.footerhead{
+  text-align: center;
+}
+.footerimg{
+  height:300px ;
+  width: 100%;
+}
+.link{
+  color: aliceblue;
+}
+.footerd1{
+  /* margin: 40px; */
+
+display: flex;
+flex-direction: column;
+}
+.img-responsive2{
+  height: 100%;
+width: 100%;
+/* border: 2px solid navy; */
+}
+.image111{
+  /* border: 2px solid purple; */
+  height: 11%;
+  width: 21%;
+  margin: 14px;
+}
 
   /********** !!!!!sign in page css*/
   .signinpage{
@@ -227,67 +294,4 @@ align-items: center;
   .forgotindex{
     color: white;
   }
-  /* !!!!dashboard page css */
-  .dashboard{
-    background-image: url("../src/images/whitecity2.png");
-    /* background: linear-gradient(
-      180deg
-      , rgba(34,46,64,1) 0%, rgba(81,195,184,1) 100%); */
-      width: 100%;
-      height: 500px;
-      background-repeat: no-repeat;
-      
-     
-  }
-  .navbar{
-    width: 100vw;
-    
-  }
-  /*!!!!! mentor divs css  */
-  .m1{
-    border: 2px solid white;
-    width: 200px;
-    height: 150px;
-  }
-  .m2{
-    border: 2px solid white;
-    width: 200px;
-    height: 150px;
-  }
-  .m3{
-    border: 2px solid white;
-    width: 200px;
-    height: 150px;
-  }
-  .searchForm{
-    display: flex;
-    flex-direction: row;
-    }
-    .subheader{
-      display: flex;
-      flex-direction: row;
-      justify-content: space-between;
-    }
-    .accountType{
-      margin-top: 10px;
-      margin-bottom: 10px;
-    }
-    .accB2{
-      margin-left: 10px;
-    }
-    .mystyle{
-      display: flex;
-      flex-direction: row;
-      justify-content: space-between;
-      height: 55px;
-      width:240px;
-      border:0;
-      margin-right: 2px;
-/* background-color: darkgreen; */
-    }
-    .alerIn{
-      height: 100%;
-      width:100%;
-      /* background-color:forestgreen  ; */
-       color: white;
-    }
+  

@@ -9,6 +9,8 @@ import mento from "../images/home_hero.webp";
 import findmentor from "../images/find-mentor.webp";
 import aplymentor from "../images/aply-mentor.webp";
 import skillsup from "../images/skillsup.webp";
+import end11 from "../images/end11.webp";
+import footer1 from "../images/1final.jpg";
 
 import { Button } from "react-bootstrap";
 function Home(props) {
@@ -196,6 +198,81 @@ function Home(props) {
                   From personal chats to hands-on support, each mentor offers
                   different services to help you skyrocket your career.
                </div>
+            </div>
+         </div>
+         <div className="fbtn">
+            <Button variant="info">Find Mentor</Button>
+            {"  "} <Button variant="link">Become a Mentor</Button>
+         </div>
+
+         <div className="homelastdiv">
+            <h3>
+               Learn that new skill, launch that project, land your dream
+               career.
+            </h3>
+            With unlimited messaging, regular check-ins and personal study
+            plans,
+            <br /> your mentor can help you with actionable
+            <br /> support, or simply be there to listen.
+         </div>
+         <div className="home22">
+            <div className="enddiv">
+               <p>
+                  <h3>
+                     Expert guidance. Right when you
+                     <br /> need it most.
+                  </h3>
+                  With a direct 1-on-1 link to your mentor,
+                  <br /> you’ll be able to ask questions, discuss <br />{" "}
+                  progress, or just kick the tyres on a new idea.
+                  <br /> Got an upcoming interview you need to nail?
+                  <br />
+                  Drop your mentor a message and they can help.
+                  <br /> Unlimited messaging means you can ask <br />
+                  them anything and they’ll respond as soon as they can.
+                  <br /> (They’re only human, after all).
+               </p>
+            </div>
+            <div className="endimg">
+               <img src={end11} className="endimg"></img>
+            </div>
+         </div>
+         <div className="footer">
+            <div className="footerhead">
+               {" "}
+               <h4>
+                  Your trusted source to find highly-vetted mentors & industry
+                  professionals to move your career ahead.
+               </h4>
+            </div>
+            <div className="image111">
+               <img
+                  src={weblogo}
+                  alt="/"
+                  className="img-responsive2"
+                  onClick={"/"}
+               />
+            </div>
+            <div className="footerd1">
+               <ul>
+                  <Button variant="light">Home</Button>
+               </ul>
+               <Link to="/">home</Link>
+
+               <Link to="/">home</Link>
+
+               <Link to="/">home</Link>
+
+               <Link to="/">home</Link>
+
+               <Link to="/">home</Link>
+
+               <Link to="/">home</Link>
+            </div>
+            <div></div>
+            <div></div>
+            <div>
+               <img src={footer1} alt="/" className="footerimg" onClick={"/"} />
             </div>
          </div>
       </div>

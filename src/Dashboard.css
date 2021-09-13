@@ -1,0 +1,166 @@
+/*dashboard  css_________________________________kkkkkkkkkkk*/
+.dashboard{
+  /* background-image: url("../src/images/whitecity2.png"); */
+  
+  background: linear-gradient(
+    180deg
+    , rgba(34,46,64,1) 0%, rgba(81,195,184,1) 100%);
+    width: 100%;
+    height: 100%;
+    /* background-repeat: no-repeat; */
+    
+   
+}
+.dash2{
+  background-image: url("../src/images/dash12.png");
+  width: 100%;
+  height: 350px;
+  background-repeat: no-repeat;
+  
+  
+}
+.dash3{
+  color:rgb(8, 8, 8);
+  text-align:center ;
+  color: rgba(255, 255, 255, 0.986);
+}
+.navbar{
+  width: 100%;
+  
+}
+/*!!!!! mentor divs css  */
+.m1{
+  border: 2px solid white;
+  width: 90%;
+  height: 150px;
+  margin: 50px;
+  /* text-align: center; */
+  color: white;
+}
+.m2{
+  border: 2px solid white;
+  width:90%;
+  height: 150px;
+  margin: 50px;
+
+}
+.m3{
+  border: 2px solid white;
+  width: 90%;
+  height: 150px;
+  margin: 50px;
+  /* margin-right: 50px; */
+
+}
+.m4{
+  border: 2px solid white;
+  width: 90%;
+  height: 150px;
+  margin: 50px;
+}
+.m5{
+  border: 2px solid white;
+  width: 90%;
+  height: 150px;
+  margin: 50px;
+}
+.m6{
+  border: 2px solid white;
+  width: 90%;
+  height: 150px;
+  margin: 50px;
+}
+.m7{
+  border: 2px solid white;
+  width: 90%;
+  height: 150px;
+  margin: 50px;
+}
+.m8{
+  border: 2px solid white;
+  width: 90%;
+  height: 150px;
+  margin: 50px;
+}
+.m9{
+  border: 2px solid white;
+  width: 90%;
+  height: 150px;
+  margin: 50px;
+}
+.m10{
+  border: 2px solid white;
+  width: 90%;
+  height: 150px;
+  margin: 50px;
+}
+.searchForm{
+  display: flex;
+  flex-direction: row;
+  }
+  .subheader{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  .accountType{
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+  .accB2{
+    margin-left: 10px;
+  }
+  .mystyle{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    height: 55px;
+    width:240px;
+    border:0;
+    margin-right: 2px;
+/* background-color: darkgreen; */
+  }
+  .alerIn{
+    height: 100%;
+    width:100%;
+    /* background-color:forestgreen  ; */
+     color: white;
+  }
+.profile{
+  display: flex;
+  flex-direction: row;
+}
+.profiledropdown{
+  display: flex;
+  flex-direction: column;
+  
+}
+.dashcarousel{
+  width: 90%;
+  margin: 20px;
+}
+/*profile component css*/
+.odal{
+  background: linear-gradient(
+    180deg
+    , rgba(34,46,64,1) 0%, rgba(81,195,184,1) 100%);
+    width: 100%;
+    height: 100%;
+    color: white;
+}
+.profileFooter{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.nextbtn{
+  margin-left: 300px;
+}
+.imgcar{
+  width:20%;
+}
+.progresstrack{
+  margin-top: 10px;
+  margin-bottom: 10px;
+
+}
