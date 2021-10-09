@@ -6,13 +6,11 @@ import reportWebVitals from './reportWebVitals';
 import "bootstrap/dist/css/bootstrap.min.css";
 import { BrowserRouter as Router, Switch } from "react-router-dom";
 ReactDOM.render(
-   <React.StrictMode>
-      <Router>
-         <Switch>
-            <App />
-         </Switch>
-      </Router>
-   </React.StrictMode>,
+   <Router>
+      <Switch>
+         <App />
+      </Switch>
+   </Router>,
 
    document.getElementById("root")
 );

@@ -1,7 +1,7 @@
 import React from "react";
-import { Button } from "semantic-ui-react";
+// import {  } from "semantic-ui-react";
 
-import { Modal, ProgressBar } from "react-bootstrap";
+import { Modal, ProgressBar ,Button} from "react-bootstrap";
 import {
    CustomInput,
    FormGroup,
@@ -29,12 +29,14 @@ import {
    ModalFooter,
 } from "reactstrap";
 class Profile extends React.Component {
-   constructor() {
-      super();
+   constructor(props) {
+      super(props);
+      console.log("my constructor is callling................");
       this.state = {
          fullscreen: true,
-         show: false,
+         // show: false,
          editProfileFields: "page1",
+         profileName: "",
          profileModalEmail: "",
       };
    }
@@ -42,25 +44,23 @@ class Profile extends React.Component {
       e.preventDefault();
       let tmpError = {};
       if (this.state.editProfileFields === "page1") {
-         let emlError = {};
+         let nameError = {};
          if (
-            this.state.profileModalEmail === "" ||
-            this.state.profileModalEmail === null ||
-            this.state.profileModalEmail === undefined
+            this.state.profileName === "" ||
+            this.state.profileName === null ||
+            this.state.profileName === undefined
          ) {
-            emlError["emailError"] = "Invalid Email";
+            nameError["emailError"] = "Invalid Name";
+         } else {
+            nameError["emailError"] = "";
          }
       }
    };
    handleShow = () => {
-      this.setState({
-         show: true,
-      });
+      // this.props.showProfile();
    };
    handleClose = () => {
-      this.setState({
-         show: false,
-      });
+      // this.props.showProfile();
    };
    EditProfile = () => {
       this.setState({
@@ -72,18 +72,21 @@ class Profile extends React.Component {
          <div className="profileModal">
             <div>
                <div>
-                  <Button
+                  {/* <Button
                      size="small"
                      circular
                      color="blue"
                      icon="user"
-                     onClick={this.handleShow}
+                     onClick={this.props.showProfile}
                   ></Button>
-                  Profile
+                  Profile */}
                   <div className="modal">
                      <Modal
-                        show={this.state.show}
-                        onHide={this.handleClose}
+                        // show={this.props.showModalProfile}
+                        show={this.props.show}
+                        onHide={() => {
+                           this.props.setShow(false);
+                        }}
                         animation={false}
                      >
                         <Modal.Header closeButton>
@@ -115,6 +118,7 @@ class Profile extends React.Component {
                                           id="examplePassword"
                                           placeholder="Ane sinha placeholder"
                                        />
+                                      
                                     </FormGroup>
                                     <br />
 
@@ -158,7 +162,9 @@ class Profile extends React.Component {
                                           <Modal.Footer>
                                              {" "}
                                              <Button
-                                                onClick={this.handleClose}
+                                                onClick={() => {
+                                                   this.props.setShow(false);
+                                                }}
                                                 color="black"
                                              >
                                                 Close
@@ -309,7 +315,7 @@ class Profile extends React.Component {
                                           type="number"
                                           name="number"
                                           id="exampleNumber"
-                                          value="number placeholder"
+                                          // value="number placeholder"
                                        />
                                     </FormGroup>
                                     <div className="profileFooter">
@@ -387,10 +393,14 @@ class Profile extends React.Component {
                                        <Modal.Footer>
                                           {" "}
                                           <Button
-                                             onClick={this.handleClose}
+                                             onClick={() =>
+                                                this.setState({
+                                                   editProfileFields: "page3",
+                                                })
+                                             }
                                              color="black"
                                           >
-                                             Cancel
+                                             Back
                                           </Button>
                                           <div className="nextbtn">
                                              <Button
