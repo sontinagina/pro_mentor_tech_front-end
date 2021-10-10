@@ -164,3 +164,11 @@
   margin-bottom: 10px;
 
 }
+.has-error{
+  color:rgb(30, 16, 223);
+}
+.imgProfile{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}

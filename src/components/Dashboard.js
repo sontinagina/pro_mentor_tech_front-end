@@ -22,7 +22,7 @@ class Dashboard extends React.Component {
          userEmailId: undefined,
          showProfile: true,
          progress: 10,
-         show3:false,
+         show3: false,
       };
       console.log("dashboard constructor");
    }
@@ -43,31 +43,6 @@ class Dashboard extends React.Component {
       });
    };
 
-   // componentDidUpdate() {
-   //    console.log(this.state.userInfo);
-   //    <Profile show={this.state.show3} setShow={(val)=>{
-   //       this.setState({
-   //          show3:val
-   //       })
-   //    }}/>     
-   // }
-   // componentDidMount(){
-   //    <Profile show={this.state.show3} setShow={(val)=>{
-   //       this.setState({
-   //          show3:val
-   //       })
-   //    }}/>    
-   // }
-   // showProfileModal1(){
-   //    // <Profile show={this.state.show3} setShow={(val)=>{
-   //    //    this.setState({
-   //    //       show3:val
-   //    //    })
-   //    // }}/>  
-   //    this.setState({
-   //       show3:true
-   //    }) 
-   // }
    componentDidMount() {
       fetch("http://localhost:8081/getUsername", {
          method: "GET",
@@ -81,7 +56,6 @@ class Dashboard extends React.Component {
          })
          .then((r) => {
             console.log("get username value: ", r.user.length);
-            // console.log(r.user);
             this.setState({
                userInfo: [...r.user],
                userEmailId: [...r.user],
@@ -91,8 +65,6 @@ class Dashboard extends React.Component {
    render() {
       return (
          <div className="dashboard">
-
-            {/* <img src={skillsup} className="dashboard"></img> */}
             <div className="navbar">
                <Navbar bg="light" expand="lg">
                   <Navbar.Brand href="#home">ProMentorTechs</Navbar.Brand>
@@ -109,26 +81,18 @@ class Dashboard extends React.Component {
                            id="basic-nav-dropdown"
                            // this.show:{!show}
                         >
-                           <NavDropdown.Item >
-                              Python Mentor
-                           </NavDropdown.Item>
-                           <NavDropdown.Item >
-                              React js Mentor
-                           </NavDropdown.Item>
-                           <NavDropdown.Item >
-                              Java Mentor
-                           </NavDropdown.Item>
-                           <NavDropdown.Item >
+                           <NavDropdown.Item>Python Mentor</NavDropdown.Item>
+                           <NavDropdown.Item>React js Mentor</NavDropdown.Item>
+                           <NavDropdown.Item>Java Mentor</NavDropdown.Item>
+                           <NavDropdown.Item>
                               JavaScript Mentor
                            </NavDropdown.Item>
                            {/* <NavDropdown.Divider /> */}
                            <NavDropdown.Item>
                               Full Stack Mentor
                            </NavDropdown.Item>
-                           <NavDropdown.Item >
-                              NodeJS Mentor
-                           </NavDropdown.Item>
-                           <NavDropdown.Item >
+                           <NavDropdown.Item>NodeJS Mentor</NavDropdown.Item>
+                           <NavDropdown.Item>
                               Machine Learning Mentor
                            </NavDropdown.Item>
                         </NavDropdown>
@@ -139,19 +103,17 @@ class Dashboard extends React.Component {
                            show={this.state.show2}
                            id="basic-nav-dropdown"
                         >
-                           <NavDropdown.Item >
+                           <NavDropdown.Item>
                               Mentorship For Teams
                            </NavDropdown.Item>
-                           <NavDropdown.Item >
+                           <NavDropdown.Item>
                               Mentors For Startups
                            </NavDropdown.Item>
-                           <NavDropdown.Item >
+                           <NavDropdown.Item>
                               For School and Bootcamps
                            </NavDropdown.Item>
-                           {/* <NavDropdown.Divider /> */}
-                           <NavDropdown.Item >
-                              Expert Coaches
-                           </NavDropdown.Item>
+
+                           <NavDropdown.Item>Expert Coaches</NavDropdown.Item>
                         </NavDropdown>
                      </Nav>
                      <Form className="searchForm">
@@ -173,7 +135,7 @@ class Dashboard extends React.Component {
                                  className="ml-auto paddingLeft5"
                                  id="dropdown-menu-align-right"
                               >
-                                 <NavDropdown.Item >
+                                 <NavDropdown.Item>
                                     <Button
                                        size="small"
                                        circular
@@ -189,7 +151,7 @@ class Dashboard extends React.Component {
                                        : "not found"}
                                  </NavDropdown.Item>
                                  <NavDropdown.Divider />
-                                 <NavDropdown.Item >
+                                 <NavDropdown.Item>
                                     <Button
                                        size="small"
                                        circular
@@ -198,7 +160,7 @@ class Dashboard extends React.Component {
                                     ></Button>{" "}
                                     Setting
                                  </NavDropdown.Item>
-                                 <NavDropdown.Item >
+                                 <NavDropdown.Item>
                                     <Button
                                        size="small"
                                        circular
@@ -207,7 +169,7 @@ class Dashboard extends React.Component {
                                     ></Button>{" "}
                                     Help
                                  </NavDropdown.Item>
-                                 <NavDropdown.Item >
+                                 <NavDropdown.Item>
                                     <Button
                                        size="small"
                                        circular
@@ -216,7 +178,7 @@ class Dashboard extends React.Component {
                                     ></Button>{" "}
                                     Chat
                                  </NavDropdown.Item>
-                                 <NavDropdown.Item >
+                                 <NavDropdown.Item>
                                     <Button
                                        size="small"
                                        circular
@@ -232,45 +194,29 @@ class Dashboard extends React.Component {
                                        now={this.state.progress}
                                        size="sm"
                                        label={`${this.state.progress}%`}
-                                 
-                                 />
+                                    />
                                  </NavDropdown.Item>
-                                    <br />
-                                    {/* <div
-                                       // size="small"
-                                       // circular
-                                       // color="instagram"
-                                       // icon="user"
-                                    >
-                                        <Button
-                     size="small"
-                     circular
-                     color="blue"
-                     icon="user"
-                   onClick={this.showProfileModal}
+                                 <br />
 
-                  ></Button>
-                  Profile
-                                      
-                                    </div>{" "} */}
-                                    <NavDropdown.Item >
-                                    
+                                 <NavDropdown.Item  onClick={() => {
+                                          this.setState({
+                                             show3: true,
+                                          });
+                                       }}>
                                     <Button
                                        size="small"
                                        circular
                                        color="blue"
                                        icon="user"
-                                          onClick={()=>{ 
-                                           this.setState({
-                                              show3:true,
-                                           })    
-                                        
-
-                                    }}
+                                       // onClick={() => {
+                                       //    this.setState({
+                                       //       show3: true,
+                                       //    });
+                                       // }}
                                     ></Button>{" "}
                                     Profile
                                  </NavDropdown.Item>
-                                 <NavDropdown.Item >
+                                 <NavDropdown.Item>
                                     <Button
                                        size="small"
                                        circular
@@ -280,9 +226,8 @@ class Dashboard extends React.Component {
                                     Plan
                                  </NavDropdown.Item>
 
-                                    {/*  */}
-                                  
-                                
+                                 {/*  */}
+
                                  <NavDropdown.Item>
                                     <Button
                                        color="brown"
@@ -303,9 +248,7 @@ class Dashboard extends React.Component {
                               color="blue"
                               icon="user"
                               size="large"
-                           >
-                              {/* <img src="/static/media/profile_icon.5bc3688e.svg" /> */}
-                           </Button>
+                           ></Button>
                         </div>
                         {/* ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; */}
                      </Form>
@@ -320,7 +263,10 @@ class Dashboard extends React.Component {
                         Providing Continual Guidance as Mentees Advance towards
                         their Goals
                         <br />
-                        <i className="window minimize outline icon" size="big"></i>
+                        <i
+                           className="window minimize outline icon"
+                           size="big"
+                        ></i>
                         <i className="thumbs up icon"></i>
                         <i className="window minimize outline icon"></i>
                      </h4>
@@ -372,12 +318,14 @@ class Dashboard extends React.Component {
             <div className="m9"></div>
             <div className="m10"></div>
 
-            
-            <Profile show={this.state.show3} setShow={(val)=>{
-                                       this.setState({
-                                          show3:val
-                                       })
-                                    }}/>                   
+            <Profile
+               show={this.state.show3}
+               setShow={(val) => {
+                  this.setState({
+                     show3: val,
+                  });
+               }}
+            />
          </div>
       );
    }

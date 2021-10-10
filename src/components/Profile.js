@@ -1,10 +1,11 @@
 import React from "react";
 // import {  } from "semantic-ui-react";
 
-import { Modal, ProgressBar ,Button} from "react-bootstrap";
+import { Modal, ProgressBar, Button } from "react-bootstrap";
 import {
    CustomInput,
    FormGroup,
+   FormText,
    Row,
    Col,
    Input,
@@ -38,23 +39,72 @@ class Profile extends React.Component {
          editProfileFields: "page1",
          profileName: "",
          profileModalEmail: "",
+         userName: "",
+         userEmail: "",
+         genderError: " ",
+         imgPrevSrc: "#",
+         progressPercent: "0%",
       };
+   }
+   componentDidMount() {
+      // if (this.state.editProfileFields == "page1") {
+      //    this.setState({
+      //       progressPercent: "0%",
+      //    });
+      // }
+      // if (this.state.editProfileFields == "page2") {
+      //    this.setState({
+      //       progressPercent: "25%",
+      //    });
+      // }
+      // if (this.state.editProfileFields == "page3") {
+      //    this.setState({
+      //       progressPercent: "50%",
+      //    });
+      // }
+      // if (this.state.editProfileFields == "page4") {
+      //    this.setState({
+      //       progressPercent: "75%",
+      //    });
+      // }
    }
    Validation = (e) => {
       e.preventDefault();
-      let tmpError = {};
+      let tempError = {};
+      let newErrorColor = {};
       if (this.state.editProfileFields === "page1") {
-         let nameError = {};
+         var nameRegex = /^[a-zA-Z ]{2,30}$/;
+         if (nameRegex.test(this.userName) === false) {
+            tempError["nameError"] = "invalid Name ";
+            newErrorColor["nameColor"] = "red";
+         }
+
          if (
-            this.state.profileName === "" ||
-            this.state.profileName === null ||
-            this.state.profileName === undefined
+            this.userName === "" ||
+            this.userName === null ||
+            this.userName.length === 0
          ) {
-            nameError["emailError"] = "Invalid Name";
-         } else {
-            nameError["emailError"] = "";
+            var nameErr = tempError["nameError"];
+            tempError["nameError"] =
+               nameErr.length > 0
+                  ? tempError["nameError"] + ", Name can't be null"
+                  : "Name can't be null";
+            newErrorColor["nameColor"] = "red";
+         }
+         //changes......
+
+         let name = e.target.name;
+         let errors = this.state.errors;
+         if (!e.target.checked) {
+            errors[name] = true;
+            this.setState({ errors: errors });
          }
       }
+
+      // if (this.userEmail === "" ||this. userEmail === null ||this. userEmail.length === 0) {
+      //    tempError["emailError"] = "invalid email";
+      //    newErrorColor["emailColor"] = "red";
+      // }
    };
    handleShow = () => {
       // this.props.showProfile();
@@ -67,19 +117,14 @@ class Profile extends React.Component {
          editProfileFields: "page2",
       });
    };
+
    render() {
+      let genderError;
+
       return (
          <div className="profileModal">
             <div>
                <div>
-                  {/* <Button
-                     size="small"
-                     circular
-                     color="blue"
-                     icon="user"
-                     onClick={this.props.showProfile}
-                  ></Button>
-                  Profile */}
                   <div className="modal">
                      <Modal
                         // show={this.props.showModalProfile}
@@ -97,8 +142,8 @@ class Profile extends React.Component {
                            <Form onSubmit={this.Validation}>
                               {this.state.editProfileFields === "page1" ? (
                                  <>
-                                    <div className="imgcar">
-                                       <Card>
+                                    <div className="imgProfile">
+                                       {/* <Card>
                                           <CardImg
                                              top
                                              width="50%"
@@ -106,7 +151,29 @@ class Profile extends React.Component {
                                              alt="upload image"
                                           />
                                           <CardBody></CardBody>
-                                       </Card>
+                                       </Card> */}
+
+                                       <input
+                                          id="imgFile"
+                                          type="file"
+                                          accept=".png, .jpg, .jpeg"
+                                          onChange={(e) => {
+                                             console.log(e);
+                                             let file = e.target.files[0];
+                                             this.setState({
+                                                imgPrevSrc:
+                                                   URL.createObjectURL(file),
+                                             });
+                                          }}
+                                       />
+                                       <img
+                                          id="imgPrev"
+                                          src={this.state.imgPrevSrc}
+                                          alt="your image"
+                                          width="150px"
+                                          height="80px"
+                                          class="img-fluid"
+                                       />
                                     </div>
                                     <FormGroup>
                                        <Label for="examplePassword">
@@ -118,26 +185,42 @@ class Profile extends React.Component {
                                           id="examplePassword"
                                           placeholder="Ane sinha placeholder"
                                        />
-                                      
                                     </FormGroup>
                                     <br />
-
+                                    {/* onChange={ function() {
+                                                this.setState({checked: !this.state.checked})
+                                              }} */}
                                     <FormGroup>
                                        <Label for="exampleCheckbox">
                                           Gender
                                        </Label>
                                        <div>
                                           <CustomInput
+                                             required
                                              type="radio"
                                              id="exampleCustomRadio"
                                              name="customRadio"
                                              label="Male"
+                                             //changes................
+                                             //                                        let genderError;
+                                             //   if(this.props.errors.gender) {
+                                             //       genderError = <span className="has-error">Gender is required</span>
+                                             //   } else {
+                                             //       genderError = null;
+                                             //   }
+                                             // onChange={ function() {
+                                             //    this.setState({checked: !this.state.checked})
+                                             //  }}
+                                             ///chnaged.....
                                           />
                                           <CustomInput
                                              type="radio"
                                              id="exampleCustomRadio2"
                                              name="customRadio"
                                              label="Female"
+                                             // onChange={ function() {
+                                             //    this.setState({checked: !this.state.checked})
+                                             //  }}
                                           />
                                           <CustomInput
                                              type="radio"
@@ -146,6 +229,12 @@ class Profile extends React.Component {
                                              label="Other"
                                           />
                                        </div>
+
+                                       <FormText>
+                                          <span className="has-error">
+                                             Gender is required
+                                          </span>
+                                       </FormText>
                                     </FormGroup>
                                     <br />
                                     <FormGroup>
@@ -172,12 +261,16 @@ class Profile extends React.Component {
                                              <div className="nextbtn">
                                                 <Button
                                                    color="blue"
-                                                   onClick={() =>
+                                                   onClick={() => {
+                                                      this.setState({
+                                                         progressPercent: 40,
+                                                      });
+
                                                       this.setState({
                                                          editProfileFields:
                                                             "page2",
-                                                      })
-                                                   }
+                                                      });
+                                                   }}
                                                 >
                                                    Next
                                                 </Button>{" "}
@@ -193,9 +286,9 @@ class Profile extends React.Component {
                                     <ProgressBar
                                        className="progresstrack"
                                        variant="success"
-                                       now={this.state.progress}
                                        size="sm"
-                                       label={`${40}%`}
+                                       now={this.state.progressPercent}
+                                       label={`${this.state.progressPercent}%`}
                                     />
                                     <FormGroup>
                                        <Label for="exampleEmail">Email</Label>
@@ -239,11 +332,14 @@ class Profile extends React.Component {
                                        <Modal.Footer>
                                           {" "}
                                           <Button
-                                             onClick={() =>
+                                             onClick={() => {
+                                                this.setState({
+                                                   progressPercent: 40,
+                                                });
                                                 this.setState({
                                                    editProfileFields: "page1",
-                                                })
-                                             }
+                                                });
+                                             }}
                                              color="black"
                                           >
                                              Back
@@ -251,12 +347,15 @@ class Profile extends React.Component {
                                           <div className="nextbtn">
                                              <Button
                                                 color="blue"
-                                                onClick={() =>
+                                                onClick={() => {
+                                                   this.setState({
+                                                      progressPercent: 80,
+                                                   });
                                                    this.setState({
                                                       editProfileFields:
                                                          "page3",
-                                                   })
-                                                }
+                                                   });
+                                                }}
                                              >
                                                 Next
                                              </Button>{" "}
@@ -270,9 +369,9 @@ class Profile extends React.Component {
                                     <ProgressBar
                                        className="progresstrack"
                                        variant="success"
-                                       now={this.state.progress}
+                                       now={this.state.progressPercent}
                                        size="sm"
-                                       label={`${80}%`}
+                                       label={`${this.state.progressPercent}%`}
                                     />
                                     <FormGroup>
                                        <Label for="exampleAddress">
@@ -283,14 +382,6 @@ class Profile extends React.Component {
                                           name="address"
                                           id="exampleAddress"
                                           placeholder="1234 Main St"
-                                       />
-                                    </FormGroup>
-                                    <FormGroup>
-                                       <Label for="exampleCity">City</Label>
-                                       <Input
-                                          type="text"
-                                          name="city"
-                                          id="exampleCity"
                                        />
                                     </FormGroup>
                                     <FormGroup>
@@ -308,6 +399,15 @@ class Profile extends React.Component {
                                        </Input>
                                     </FormGroup>
                                     <FormGroup>
+                                       <Label for="exampleCity">City</Label>
+                                       <Input
+                                          type="text"
+                                          name="city"
+                                          id="exampleCity"
+                                       />
+                                    </FormGroup>
+
+                                    <FormGroup>
                                        <Label for="exampleNumber">
                                           Experience
                                        </Label>
@@ -322,11 +422,14 @@ class Profile extends React.Component {
                                        <Modal.Footer>
                                           {" "}
                                           <Button
-                                             onClick={() =>
+                                             onClick={() => {
+                                                this.setState({
+                                                   progressPercent: 40,
+                                                });
                                                 this.setState({
                                                    editProfileFields: "page2",
-                                                })
-                                             }
+                                                });
+                                             }}
                                              color="black"
                                           >
                                              Back
@@ -334,12 +437,15 @@ class Profile extends React.Component {
                                           <div className="nextbtn">
                                              <Button
                                                 color="blue"
-                                                onClick={() =>
+                                                onClick={() => {
+                                                   this.setState({
+                                                      progressPercent: 100,
+                                                   });
                                                    this.setState({
                                                       editProfileFields:
                                                          "page4",
-                                                   })
-                                                }
+                                                   });
+                                                }}
                                              >
                                                 Next
                                              </Button>{" "}
@@ -353,9 +459,9 @@ class Profile extends React.Component {
                                     <ProgressBar
                                        className="progresstrack"
                                        variant="success"
-                                       now={this.state.progress}
+                                       now={this.state.progressPercent}
                                        size="sm"
-                                       label={`${100}%`}
+                                       label={`${this.state.progressPercent}%`}
                                     />
                                     {/* </FormGroup row> */}
                                     <FormGroup>
@@ -393,17 +499,21 @@ class Profile extends React.Component {
                                        <Modal.Footer>
                                           {" "}
                                           <Button
-                                             onClick={() =>
+                                             onClick={() => {
+                                                this.setState({
+                                                   progressPercent: 80,
+                                                });
                                                 this.setState({
                                                    editProfileFields: "page3",
-                                                })
-                                             }
+                                                });
+                                             }}
                                              color="black"
                                           >
                                              Back
                                           </Button>
                                           <div className="nextbtn">
                                              <Button
+                                                type="submit"
                                                 color="green"
                                                 onClick={() =>
                                                    this.setState({
@@ -421,22 +531,6 @@ class Profile extends React.Component {
                               ) : null}
                            </Form>
                         </Modal.Body>
-                        {/* <div className="profileFooter">
-                           <Modal.Footer>
-                              {" "}
-                              <Button onClick={this.handleClose} color="black">
-                                 Close
-                              </Button>
-                              <div className="nextbtn">
-                                 <Button
-                                    color="blue"
-                                    onClick={this.handleClose}
-                                 >
-                                    Next
-                                 </Button>{" "}
-                              </div>
-                           </Modal.Footer>
-                        </div> */}
                      </Modal>
                   </div>
                </div>
