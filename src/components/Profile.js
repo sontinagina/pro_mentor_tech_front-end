@@ -44,67 +44,81 @@ class Profile extends React.Component {
          genderError: " ",
          imgPrevSrc: "#",
          progressPercent: "0%",
+         pimg:"",
+         pfullName:"",
+         pgender:"",
+         pemail:"",
+         plinkedin:"",
+         pgithub:"",
+         paddress:"",
+         pstate:"",
+         pcity:"",
+         pjobType:"",
+         pexperience:"",
+         pcurrentDeg:"",
+         pbio:"",
+         pdob:"",
+         pmobileno:"",
+         fieldError:{},
+
       };
-   }
-   componentDidMount() {
-      // if (this.state.editProfileFields == "page1") {
-      //    this.setState({
-      //       progressPercent: "0%",
-      //    });
-      // }
-      // if (this.state.editProfileFields == "page2") {
-      //    this.setState({
-      //       progressPercent: "25%",
-      //    });
-      // }
-      // if (this.state.editProfileFields == "page3") {
-      //    this.setState({
-      //       progressPercent: "50%",
-      //    });
-      // }
-      // if (this.state.editProfileFields == "page4") {
-      //    this.setState({
-      //       progressPercent: "75%",
-      //    });
-      // }
-   }
-   Validation = (e) => {
-      e.preventDefault();
-      let tempError = {};
-      let newErrorColor = {};
-      if (this.state.editProfileFields === "page1") {
-         var nameRegex = /^[a-zA-Z ]{2,30}$/;
-         if (nameRegex.test(this.userName) === false) {
-            tempError["nameError"] = "invalid Name ";
-            newErrorColor["nameColor"] = "red";
-         }
 
-         if (
-            this.userName === "" ||
-            this.userName === null ||
-            this.userName.length === 0
-         ) {
-            var nameErr = tempError["nameError"];
-            tempError["nameError"] =
-               nameErr.length > 0
-                  ? tempError["nameError"] + ", Name can't be null"
-                  : "Name can't be null";
-            newErrorColor["nameColor"] = "red";
+   }
+   isNullOrUndefined(val){
+      return val==null||val==undefined ||val==""?false:true;
+      
+   }
+   Validation = () => {
+      if(this.state.editProfileFields=="page1"){
+        let isERR=false;
+         let myerror={};
+         console.log(this.state.pimg);
+         console.log(!this.isNullOrUndefined(this.state.pimg));
+         if(!this.isNullOrUndefined(this.state.pimg)){
+            myerror["pimg"]="Select profile image";
+            isERR=true;
          }
-         //changes......
+         if(!this.isNullOrUndefined(this.state.pfullName)){
+            
+            myerror["pfullName"]="Enter your full name";
+            isERR=true;
 
-         let name = e.target.name;
-         let errors = this.state.errors;
-         if (!e.target.checked) {
-            errors[name] = true;
-            this.setState({ errors: errors });
          }
+         if(!this.isNullOrUndefined(this.state.pgender)){
+            
+            myerror["pgender"]="Select gender";
+            isERR=true;
+
+         }
+         if(!this.isNullOrUndefined(this.state.pdob)){
+           
+            myerror["pdob"]="Enter your DOB";
+            isERR=true;
+
+
+         }
+         console.log(myerror);
+         this.setState({
+            fieldError:myerror
+         })
+         if(isERR){
+            console.log("aayayay");
+            return false;
+         }else
+         return true;
+      }
+      if(this.state.editProfileFields=="page2"){
+         let isValidData=false;
+         isValidData=((this.isNullOrUndefined(this.state.pimg))&&(this.isNullOrUndefined(this.state.pfullName))&&(this.isNullOrUndefined(this.state.pgender))&&(this.isNullOrUndefined(this.state.pdob)))?true:false;
+      }
+      if(this.state.editProfileFields=="page3"){
+         
+      }
+      if(this.state.editProfileFields=="page4"){
+         
       }
 
-      // if (this.userEmail === "" ||this. userEmail === null ||this. userEmail.length === 0) {
-      //    tempError["emailError"] = "invalid email";
-      //    newErrorColor["emailColor"] = "red";
-      // }
+      
    };
    handleShow = () => {
       // this.props.showProfile();
@@ -153,7 +167,7 @@ class Profile extends React.Component {
                                           <CardBody></CardBody>
                                        </Card> */}
 
-                                       <input
+                                       <Input
                                           id="imgFile"
                                           type="file"
                                           accept=".png, .jpg, .jpeg"
@@ -161,20 +175,32 @@ class Profile extends React.Component {
                                              console.log(e);
                                              let file = e.target.files[0];
                                              this.setState({
+                                                pimg:file
+                                             })
+                                             if(file){
+                                             this.setState({
                                                 imgPrevSrc:
                                                    URL.createObjectURL(file),
                                              });
+                                          }
                                           }}
                                        />
                                        <img
                                           id="imgPrev"
                                           src={this.state.imgPrevSrc}
-                                          alt="your image"
+                                          alt="Upload your profile"
                                           width="150px"
                                           height="80px"
-                                          class="img-fluid"
+                                          className="img-fluid"
                                        />
                                     </div>
+                                    {
+                                          (this.isNullOrUndefined(this.state.fieldError["pimg"]))?(<FormText>
+                                             <span className="has-error">
+                                               { this.state.fieldError["pimg"]}
+                                             </span>
+                                          </FormText>):null
+                                       }
                                     <FormGroup>
                                        <Label for="examplePassword">
                                           Your FullName
@@ -183,8 +209,20 @@ class Profile extends React.Component {
                                           type="text"
                                           name="Fullname"
                                           id="examplePassword"
-                                          placeholder="Ane sinha placeholder"
+                                          placeholder="Enter your name"
+                                          onChange={(e)=>{
+                                             this.setState({
+                                                pfullName:e.target.value
+                                             })
+                                          }}
                                        />
+                                        {
+                                          (this.isNullOrUndefined(this.state.fieldError["pfullName"]))?(<FormText>
+                                             <span className="has-error">
+                                               { this.state.fieldError["pfullName"]}
+                                             </span>
+                                          </FormText>):null
+                                       }
                                     </FormGroup>
                                     <br />
                                     {/* onChange={ function() {
@@ -196,55 +234,74 @@ class Profile extends React.Component {
                                        </Label>
                                        <div>
                                           <CustomInput
-                                             required
+                                          
                                              type="radio"
                                              id="exampleCustomRadio"
-                                             name="customRadio"
+                                             name="gender"
                                              label="Male"
-                                             //changes................
-                                             //                                        let genderError;
-                                             //   if(this.props.errors.gender) {
-                                             //       genderError = <span className="has-error">Gender is required</span>
-                                             //   } else {
-                                             //       genderError = null;
-                                             //   }
-                                             // onChange={ function() {
-                                             //    this.setState({checked: !this.state.checked})
-                                             //  }}
-                                             ///chnaged.....
+                                             value="male"
+                                             onChange={(e)=>{
+                                                this.setState({
+                                                   pgender:e.target.value
+                                                })
+                                             }}
                                           />
                                           <CustomInput
                                              type="radio"
                                              id="exampleCustomRadio2"
-                                             name="customRadio"
+                                             name="gender"
                                              label="Female"
-                                             // onChange={ function() {
-                                             //    this.setState({checked: !this.state.checked})
-                                             //  }}
+                                            value="female"
+                                            onChange={(e)=>{
+                                             this.setState({
+                                             pgender:e.target.value
+                                             })
+                                          }}
                                           />
                                           <CustomInput
                                              type="radio"
-                                             id="exampleCustomRadio"
-                                             name="customRadio"
+                                             id="exampleCustomRadio3"
+                                             name="gender"
                                              label="Other"
+                                             value="other"
+                                             onChange={(e)=>{
+                                             this.setState({
+                                                pgender:e.target.value
+                                             })
+                                             }}
                                           />
+                                       {
+                                          (this.isNullOrUndefined(this.state.fieldError["pgender"]))?(<FormText>
+                                             <span className="has-error">
+                                               { this.state.fieldError["pgender"]}
+                                             </span>
+                                          </FormText>):null
+                                       }
                                        </div>
-
-                                       <FormText>
-                                          <span className="has-error">
-                                             Gender is required
-                                          </span>
-                                       </FormText>
+                                      
+                                       
                                     </FormGroup>
                                     <br />
                                     <FormGroup>
-                                       <Label for="exampleDate">Date</Label>
+                                       <Label for="exampleDate">Date Of Birth</Label>
                                        <Input
                                           type="date"
                                           name="date"
                                           id="exampleDate"
                                           placeholder="date placeholder"
+                                          onChange={(e)=>{
+                                             this.setState({
+                                                pdob:e.target.value
+                                             })
+                                          }}
                                        />
+                                        {
+                                          (this.isNullOrUndefined(this.state.fieldError["pdob"]))?(<FormText>
+                                             <span className="has-error">
+                                               { this.state.fieldError["pdob"]}
+                                             </span>
+                                          </FormText>):null
+                                       }
                                     </FormGroup>
                                     <FormGroup>
                                        <div className="profileFooter">
@@ -262,6 +319,11 @@ class Profile extends React.Component {
                                                 <Button
                                                    color="blue"
                                                    onClick={() => {
+                                                      let isValid=false;
+                                                      isValid=this.Validation(this);
+                                                      console.log(isValid)
+                                                      if(isValid){
+                                                         console.log(isValid)
                                                       this.setState({
                                                          progressPercent: 40,
                                                       });
@@ -270,6 +332,7 @@ class Profile extends React.Component {
                                                          editProfileFields:
                                                             "page2",
                                                       });
+                                                   }
                                                    }}
                                                 >
                                                    Next
@@ -297,6 +360,11 @@ class Profile extends React.Component {
                                           name="email"
                                           id="exampleEmail"
                                           placeholder="with a placeholder"
+                                          onChange={(e)=>{
+                                             this.setState({
+                                                pemail:e.target.value
+                                             })
+                                          }}
                                        />
                                     </FormGroup>
 
@@ -307,6 +375,11 @@ class Profile extends React.Component {
                                           name="url"
                                           id="exampleUrl"
                                           placeholder="http://linkedin.com"
+                                          onChange={(e)=>{
+                                             this.setState({
+                                                plinkedin:e.target.value
+                                             })
+                                          }}
                                        />
                                     </FormGroup>
                                     <FormGroup>
@@ -316,6 +389,11 @@ class Profile extends React.Component {
                                           name="url"
                                           id="exampleUrl"
                                           placeholder="http://github.com"
+                                          onChange={(e)=>{
+                                             this.setState({
+                                                pgithub:e.target.value
+                                             })
+                                          }}
                                        />
                                     </FormGroup>
 
@@ -325,7 +403,12 @@ class Profile extends React.Component {
                                           type="number"
                                           name="number"
                                           id="exampleNumber"
-                                          placeholder="12345678910"
+                                          placeholder="e.g. 9837378788"
+                                          onChange={(e)=>{
+                                             this.setState({
+                                                pmobileno:e.target.value
+                                             })
+                                          }}
                                        />
                                     </FormGroup>
                                     <div className="profileFooter">
@@ -382,6 +465,11 @@ class Profile extends React.Component {
                                           name="address"
                                           id="exampleAddress"
                                           placeholder="1234 Main St"
+                                          onChange={(e)=>{
+                                             this.setState({
+                                                paddress:e.target.value
+                                             })
+                                          }}
                                        />
                                     </FormGroup>
                                     <FormGroup>
@@ -390,6 +478,11 @@ class Profile extends React.Component {
                                           type="select"
                                           name="select"
                                           id="exampleSelect"
+                                          onChange={(e)=>{
+                                             this.setState({
+                                                pstate:e.target.value
+                                             })
+                                          }}
                                        >
                                           <option>Select</option>
                                           <option>Delhi</option>
@@ -404,7 +497,18 @@ class Profile extends React.Component {
                                           type="text"
                                           name="city"
                                           id="exampleCity"
-                                       />
+                                          onChange={(e)=>{
+                                             this.setState({
+                                                pcity:e.target.value
+                                             })
+                                          }}
+                                       >
+                                           <option>Select</option>
+                                          <option>Sonkatch</option>
+                                          <option>Dewas</option>
+                                          <option>bawai</option>
+                                          <option>Kheriya</option>
+                                          </Input>
                                     </FormGroup>
 
                                     <FormGroup>
@@ -416,6 +520,11 @@ class Profile extends React.Component {
                                           name="number"
                                           id="exampleNumber"
                                           // value="number placeholder"
+                                          onChange={(e)=>{
+                                             this.setState({
+                                                pexperience:e.target.value
+                                             })
+                                          }}
                                        />
                                     </FormGroup>
                                     <div className="profileFooter">
@@ -468,6 +577,16 @@ class Profile extends React.Component {
                                        <Label for="exampleEmail">
                                           About Your Designation
                                        </Label>
+                                       <Input
+                                          type="text"
+                                          name="yourDeg"
+                                          id="pyourDeg"
+                                          onChange={(e)=>{
+                                             this.setState({
+                                                pcurrentDeg:e.target.value
+                                             })
+                                          }}
+                                       />
                                     </FormGroup>
                                     <FormGroup>
                                        <Label for="exampleSelect">
@@ -477,6 +596,11 @@ class Profile extends React.Component {
                                           type="select"
                                           name="select"
                                           id="exampleSelect"
+                                          onChange={(e)=>{
+                                             this.setState({
+                                                pjobType:e.target.value
+                                             })
+                                          }}
                                        >
                                           <option>Select</option>
                                           <option>Full time </option>
@@ -493,6 +617,11 @@ class Profile extends React.Component {
                                           type="textarea"
                                           name="text"
                                           id="exampleText"
+                                          onChange={(e)=>{
+                                             this.setState({
+                                                pbio:e.target.value
+                                             })
+                                          }}
                                        />
                                     </FormGroup>
                                     <div className="profileFooter">

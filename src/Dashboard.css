@@ -165,7 +165,7 @@
 
 }
 .has-error{
-  color:rgb(30, 16, 223);
+  color:red;
 }
 .imgProfile{
   display: flex;
