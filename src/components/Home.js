@@ -12,6 +12,14 @@ import skillsup from "../images/skillsup.webp";
 import end11 from "../images/end11.webp";
 import footer1 from "../images/1final.jpg";
 
+import { IoLogoInstagram } from "react-icons/io";
+import { IoMdCreate } from "react-icons/io";
+import { IoLogoFacebook } from "react-icons/io";
+import { IoLogoFirefox } from "react-icons/io5";
+import { IoLogoGithub } from "react-icons/io5";
+import { IoLogoTwitter } from "react-icons/io5";
+import { IoLogoLinkedin } from "react-icons/io5";
+import { MdOutlineSettings } from "react-icons/md";
 import { Button } from "react-bootstrap";
 function Home(props) {
    return (
@@ -55,11 +63,6 @@ function Home(props) {
                <div className="slidwrapo">
                   <Carousel>
                      <Carousel.Item className="cr">
-                        {/* <img
-                           className="d-block w-100"
-                           src="https://unsplash.com/t/wallpapers"
-                           alt="First slide"
-                        /> */}
                         <Carousel.Caption>
                            <h3>With Pro-Mentor-Techs</h3>
                            <p>
@@ -74,12 +77,6 @@ function Home(props) {
                         <img className="crimg" src={mento} alt="not found" />
                      </Carousel.Item>
                      <Carousel.Item className="cr">
-                        {/* <img
-                           className="d-block w-100"
-                           src="https://api.unsplash.com/photos,nature?"
-                           alt="Second slide"
-                        /> */}
-
                         <Carousel.Caption>
                            <h3>Get Instant Access to </h3>
                            <p>
@@ -93,12 +90,6 @@ function Home(props) {
                         <img className="crimg" src={trilogy} alt="not found" />
                      </Carousel.Item>
                      <Carousel.Item className="cr">
-                        {/* <img
-                           className="d-block w-100"
-                           src="https://unsplash.com/? nature,technology"
-                           alt="Third slide"
-                        /> */}
-
                         <Carousel.Caption>
                            <h3>Get Mentorship from the best</h3>
                            <p>
@@ -174,7 +165,7 @@ function Home(props) {
                   alt="not found"
                   className="findmento"
                ></img>
-               <div>
+               <div className="homeDiv">
                   Explore our growing catalogue of experienced mentors until you
                   find the perfect fit.
                </div>
@@ -184,7 +175,7 @@ function Home(props) {
                   <b>Apply for Mentorship</b>
                </h5>
                <img src={aplymentor} alt="" className="findmento"></img>
-               <div>
+               <div className="homeDiv">
                   Fill in an application, and if you’re a match with your chosen
                   mentor you can start your free 7-day trial.
                </div>
@@ -194,7 +185,7 @@ function Home(props) {
                   <b>Level up your skills</b>
                </h5>
                <img src={skillsup} alt="" className="findmento"></img>
-               <div>
+               <div className="homeDiv">
                   From personal chats to hands-on support, each mentor offers
                   different services to help you skyrocket your career.
                </div>
@@ -202,7 +193,7 @@ function Home(props) {
          </div>
          <div className="fbtn">
             <Button variant="info">Find Mentor</Button>
-            {"  "} <Button variant="link">Become a Mentor</Button>
+            {"  "} <Button variant="info">Become a Mentor</Button>
          </div>
 
          <div className="homelastdiv">
@@ -237,39 +228,132 @@ function Home(props) {
                <img src={end11} className="endimg"></img>
             </div>
          </div>
+         {/**footer page started */}
          <div className="footer">
             <div className="footerhead">
                {" "}
-               <h4>
-                  Your trusted source to find highly-vetted mentors & industry
-                  professionals to move your career ahead.
-               </h4>
+               Your trusted source to find highly-vetted mentors & industry
+               professionals to move your career ahead.
             </div>
-            <div className="image111">
-               <img
-                  src={weblogo}
-                  alt="/"
-                  className="img-responsive2"
-                  onClick={"/"}
-               />
+            <div className="Uper_Logo-Div">
+               <div className="image111">
+                  <img
+                     src={weblogo}
+                     alt="/"
+                     className="img-responsive2"
+                     onClick={"/"}
+                  />
+               </div>
+               <div className="all-Social-media">
+                  <Link to="">
+                     <div className="button_div_footer">
+                        <IoMdCreate />
+                     </div>
+                  </Link>
+                  <Link to="">
+                     <div className="button_div_footer">
+                        <IoLogoFacebook />
+                     </div>
+                  </Link>
+                  <Link to="">
+                     <div className="button_div_footer">
+                        <IoLogoTwitter />
+                     </div>
+                  </Link>
+                  <Link to="">
+                     <div className="button_div_footer">
+                        <IoLogoLinkedin />
+                     </div>
+                  </Link>
+                  <Link to="">
+                     <div className="button_div_footer">
+                        <IoLogoInstagram />
+                     </div>
+                  </Link>
+                  <Link to="">
+                     <div className="button_div_footer">
+                        <IoLogoGithub />
+                     </div>
+                  </Link>
+               </div>
             </div>
-            <div className="footerd1">
-               <ul>
-                  <Button variant="light">Home</Button>
-               </ul>
-               <Link to="/">home</Link>
-
-               <Link to="/">home</Link>
-
-               <Link to="/">home</Link>
-
-               <Link to="/">home</Link>
-
-               <Link to="/">home</Link>
-
-               <Link to="/">home</Link>
+            <div className="all_footer_Links">
+               <div className="footerd1">
+                  {" "}
+                  <h4>PRO-MENTOR-TECHS</h4>
+                  <Link to="">
+                     <div className="button_div_footer">Questions</div>
+                  </Link>
+                  <Link to="/">
+                     <div className="button_div_footer">Jobs</div>
+                  </Link>{" "}
+                  <Link to="/">
+                     <div className="button_div_footer">Review</div>
+                  </Link>{" "}
+                  <Link to="/">
+                     <div className="button_div_footer">Help</div>
+                  </Link>{" "}
+                  <Link to="/">
+                     <div className="button_div_footer">Mobile</div>
+                  </Link>
+               </div>
+               <div className="footerd1">
+                  <div>
+                     <h4>PRODUCTS</h4>
+                  </div>
+                  <Link to="/">
+                     <div className="button_div_footer">Teams</div>
+                  </Link>
+                  <Link to="/">
+                     <div className="button_div_footer">Talent</div>
+                  </Link>{" "}
+                  <Link to="/">
+                     <div className="button_div_footer">Advertise</div>
+                  </Link>{" "}
+                  <Link to="/">
+                     <div className="button_div_footer">Enterprise</div>
+                  </Link>{" "}
+                  <Link to="/">
+                     <div className="button_div_footer">Experience</div>
+                  </Link>
+               </div>
+               <div className="footerd1">
+                  <h4>COMPANY</h4>
+                  <Link to="">
+                     <div className="button_div_footer">About</div>
+                  </Link>
+                  <Link to="/">
+                     <div className="button_div_footer">Press</div>
+                  </Link>{" "}
+                  <Link to="/">
+                     <div className="button_div_footer">Work here</div>
+                  </Link>{" "}
+                  <Link to="/">
+                     <div className="button_div_footer">Legal</div>
+                  </Link>{" "}
+                  <Link to="/">
+                     <div className="button_div_footer">Privacy Policy</div>
+                  </Link>
+               </div>
+               <div className="footerd1">
+                  <h4>MENTOR EXCHANGE NETWORK</h4>
+                  <Link to="">
+                     <div className="button_div_footer">Technology</div>
+                  </Link>
+                  <Link to="/">
+                     <div className="button_div_footer">Life Arts</div>
+                  </Link>{" "}
+                  <Link to="/">
+                     <div className="button_div_footer">Culture & Reaction</div>
+                  </Link>{" "}
+                  <Link to="/">
+                     <div className="button_div_footer">Science</div>
+                  </Link>{" "}
+                  <Link to="/">
+                     <div className="button_div_footer">Prefessional</div>
+                  </Link>
+               </div>
             </div>
-            <div></div>
             <div></div>
             <div>
                <img src={footer1} alt="/" className="footerimg" onClick={"/"} />

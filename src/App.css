@@ -3,15 +3,21 @@
 .form-control::-ms-input-placeholder { color: white; }  /* Microsoft Edge*/
 /*!!!!!!! homw page css*/
 .home{
-  background: linear-gradient(
+  /* background: linear-gradient(
   180deg
-  , rgba(34,46,64,1) 0%, rgba(81,195,184,1) 100%);
-     height: 100vh;
+  , rgba(34,46,64,1) 0%, rgba(81,195,184,1) 100%); */
+  background-color: rgb(249, 251, 252);
+     height: 100%;
      width: 100%;
      /* border: 2px solid red; */
      display: flex;
      flex-direction: column;
      
+}
+.both{
+  background: linear-gradient(
+  180deg
+  , rgba(34,46,64,1) 0%, rgba(81,195,184,1) 100%);
 }
 .homewhite{
   height: 100%;
@@ -19,6 +25,7 @@
   margin: 50px;
   padding: 20px;
   text-align: center;
+  background-color: aliceblue;
 }
 .homehero{
   width: 100%;
@@ -28,10 +35,13 @@
   text-decoration: dashed;
   height: 20%;
   border: 2px solid black;
+  background-color: white;
 }
 .homemid{
   text-align: center;
 font-family: arial;
+background-color: white;
+
 }
 .upperpart{
   /* border: 2px solid yellow; */
@@ -120,6 +130,11 @@ width: 100%;
 justify-content: space-between;
 margin: 30px;
 align-items: center;
+background-color: white;
+}
+.homeDiv{
+background-color: white;
+
 }
 .home1{
   /* border: 2px solid black; */
@@ -179,23 +194,55 @@ ________________________________*/
   , rgba(34,46,64,1) 0%, rgba(81,195,184,1) 100%); */
   display: flex;
   flex-direction: column;
-  color: white;
+  color: rgb(160, 155, 155);
+  justify-content: center;
+}
+.footerHome{
+  width: 100vw;
+  height: 100vh;
+  background-color:rgb(0, 0, 0);
+  /* background: linear-gradient(
+  180deg
+  , rgba(34,46,64,1) 0%, rgba(81,195,184,1) 100%); */
+  display: flex;
+  flex-direction: column;
+  color: rgb(160, 155, 155);
+  justify-content: center;
+}
+.fooEnd{
+  height:100vh;
 }
 .footerhead{
   text-align: center;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-size: 1.5rem;
 }
 .footerimg{
   height:300px ;
   width: 100%;
 }
+.Uper_Logo-Div{
+display: flex;
+flex-direction: row;
+/* justify-content: space-between; */
+}
+.all-Social-media{
+  display: flex;
+  flex-direction: row;
+  /* justify-content: center; */
+  /* margin-left: 8%; */
+  margin-top: 30px;
+  /* width: 30%; */
+}
 .link{
   color: aliceblue;
 }
 .footerd1{
-  /* margin: 40px; */
-
+  margin: 40px; 
+justify-content: space-evenly;
 display: flex;
 flex-direction: column;
+
 }
 .img-responsive2{
   height: 100%;
@@ -207,6 +254,29 @@ width: 100%;
   height: 11%;
   width: 21%;
   margin: 14px;
+}
+
+  .button_div_footer {
+    font-size: 16px;
+    font-weight: 600;
+    padding: 17px 0 17px 0;
+    height: 50px;
+    width: 170px;
+    margin: auto;
+    background-color: black !important;
+    color: rgb(143, 136, 136);
+    text-align: center;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+    text-decoration: underline rgb(0, 0, 0);
+
+}
+.all_footer_Links{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+
+  
 }
 
   /********** !!!!!sign in page css*/

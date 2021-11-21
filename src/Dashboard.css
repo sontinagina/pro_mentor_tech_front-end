@@ -8,15 +8,15 @@
     width: 100%;
     height: 100%;
     /* background-repeat: no-repeat; */
-    
+    background-size: cover;
    
 }
 .dash2{
-  background-image: url("../src/images/dash12.png");
+  background-image: url("../src/images/coach-mentor.jpeg");
   width: 100%;
   height: 350px;
   background-repeat: no-repeat;
-  
+  background-size: cover;
   
 }
 .dash3{
@@ -30,12 +30,15 @@
 }
 /*!!!!! mentor divs css  */
 .m1{
-  border: 2px solid white;
+  /* border: 2px solid white; */
   width: 90%;
   height: 100%;
   margin: 50px;
   /* text-align: center; */
   color: white;
+  background: linear-gradient(
+    180deg
+    , rgba(34,46,64,1) 0%, rgba(81,195,184,1) 100%);
 }
 .m2{
   /* border: 2px solid white; */
@@ -46,7 +49,6 @@
   align-content: center;
   justify-content: space-between;
   padding: 20px;
-  
   
   
 }
@@ -80,25 +82,47 @@
 
 }
 .m4{
-  border: 2px solid white;
+  /* border: 2px solid white; */
   width: 90%;
-  height: 150px;
+  height: 100%;
   margin: 50px;
+  margin-right: 50px;
+  /* box-shadow: 2px 2px 10px rgb(38, 62, 71); */
+}
+
+.m4_1:hover{
+  transform: translate(1px, 1px);
+  box-shadow: 2px 8px 10px rgb(38, 62, 71);
+
 }
 .m5{
-  border: 2px solid white;
-  width: 90%;
-  height: 150px;
-  margin: 50px;
+  /* border: 2px solid white; */
+  width: 100%;
+  height: 100%;
+  /* margin: 50px; */
+  padding: 70px;
+  text-align: center;
+  color: white;
+font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+font-size: 1.2rem;
+transform: translate(1px, 1px);
+box-shadow: 2px 8px 10px rgb(38, 62, 71);
+
+}
+.two-Button{
+  padding-top: 75px;
 }
 .m6{
-  border: 2px solid white;
-  width: 90%;
-  height: 150px;
+  /* border: 2px solid white; */
+  width: 70%;
+  height: 100%;
   margin: 50px;
+  margin-left: 90px;
+  margin-right: 50px;
+  justify-content: center;
 }
 .m7{
-  border: 2px solid white;
+  /* border: 2px solid white; */
   width: 90%;
   height: 150px;
   margin: 50px;
@@ -294,4 +318,47 @@ border: 2px solid green;
 .rating{
   color: black;
   justify-content: space-between;
+}
+.entir-review{
+background-color: white;
+justify-content: space-between;
+text-align: center;
+padding: 50px;
+height: 100%;
+
+}
+.inner-rew{
+  padding: 20px;
+  margin: 20px;
+  text-align: center;
+  font-size: 1.2rem;
+  box-shadow: 8px 1px 2px  rgb(245, 244, 244);
+
+}
+.Review_grids{
+  border: 2px solid white;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  
+  /* background-color: #262626; */
+  background-color: white;
+  height: 100%;
+  width: 100%;
+  justify-content: space-evenly;
+  margin: 70px;
+}
+.review-grid-columns{
+  border: 4px solid #0da099;
+height: 100%;
+margin: 40px;
+background-color: #eaeaea;
+padding: 20px;
+/* margin-top: 50px; */
+/* border-radius:  50% 20% / 10% 40%; */
+justify-content: space-around;
+}
+.review-grid-columns:hover{
+  transform: translate(1px, 1px);
+  box-shadow: 2px 8px 10px rgb(38, 62, 71);
+border-radius:  50% 20% / 10% 40%;
 }
