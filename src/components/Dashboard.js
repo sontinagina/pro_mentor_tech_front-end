@@ -1,6 +1,9 @@
 import React from "react";
 import { Button } from "semantic-ui-react";
 import "semantic-ui-css/semantic.min.css";
+import { Link } from "react-router-dom";
+import weblogo from "../images/newone.jpg";
+import footer1 from "../images/1final.jpg";
 
 import {
    Form,
@@ -9,9 +12,16 @@ import {
    NavDropdown,
    FormControl,
    Carousel,
-   ProgressBar
+   ProgressBar,
+   Card,
+   Image,
 } from "react-bootstrap";
+import "bootstrap/dist/css/bootstrap.min.css";
+import { AiTwotoneFileText } from "react-icons/ai";
+import StarRatings from "react-star-ratings";
+
 import Profile from "./Profile";
+import viewProfile from "./viewProfile";
 class Dashboard extends React.Component {
    constructor(props) {
       super(props);
@@ -23,6 +33,22 @@ class Dashboard extends React.Component {
          showProfile: true,
          progress: 10,
          show3: false,
+
+         rating: 0,
+         name: "Addi ",
+         experience: "2 year",
+         fee: "$120/month",
+         field: "Software Engineer",
+         companay: "Amazon",
+         s1: "Web developer",
+         s2: "Front-end",
+         s3: "Javascript",
+         s4: "Html",
+         s5: "React.js",
+         s6: "Css",
+         s7: "Front end",
+         s8: "Back-end",
+         viewProfile_Var: "notview",
       };
       console.log("dashboard constructor");
    }
@@ -134,6 +160,11 @@ class Dashboard extends React.Component {
                               <NavDropdown
                                  className="ml-auto paddingLeft5"
                                  id="dropdown-menu-align-right"
+                                 onClick={() => {
+                                    this.setState({
+                                       viewProfile_Var: "view",
+                                    });
+                                 }}
                               >
                                  <NavDropdown.Item>
                                     <Button
@@ -141,6 +172,11 @@ class Dashboard extends React.Component {
                                        circular
                                        color="blue"
                                        icon="user"
+                                       onClick={() => {
+                                          this.setState({
+                                             viewProfile_Var: "view",
+                                          });
+                                       }}
                                     ></Button>
                                     {this.state.userInfo != undefined
                                        ? this.state.userInfo[0].USERNAME
@@ -198,11 +234,13 @@ class Dashboard extends React.Component {
                                  </NavDropdown.Item>
                                  <br />
 
-                                 <NavDropdown.Item  onClick={() => {
-                                          this.setState({
-                                             show3: true,
-                                          });
-                                       }}>
+                                 <NavDropdown.Item
+                                    onClick={() => {
+                                       this.setState({
+                                          show3: true,
+                                       });
+                                    }}
+                                 >
                                     <Button
                                        size="small"
                                        circular
@@ -254,6 +292,8 @@ class Dashboard extends React.Component {
                      </Form>
                   </Navbar.Collapse>
                </Navbar>
+
+               {/* dashboard start */}
                <div className="dash2">
                   <div className="dash3">
                      <h2>
@@ -308,15 +348,223 @@ class Dashboard extends React.Component {
                   </Carousel>
                </div>
             </div>
-            <div className="m2"></div>
-            <div className="m3"></div>
+            <div className="m1">
+               <h1>Featured Mentors</h1>
+               <div>
+                  <Carousel className="dashcarousel">
+                     <Carousel.Item>
+                        <h3>First slide label</h3>
+                        <p>Nulla vitae elit libe</p>
+                        <Carousel.Caption></Carousel.Caption>
+                     </Carousel.Item>
+                     <Carousel.Item>
+                        <h3>Second slide label</h3>
+                        <p>
+                           Lorem ipsum dolor sit amet, consectetur adipiscing
+                           elit.
+                        </p>
+
+                        <Carousel.Caption></Carousel.Caption>
+                     </Carousel.Item>
+                     <Carousel.Item>
+                        <h3>Third slide label</h3>
+                        <p>
+                           Praesent commodo cursus magna, vel scelerisque nisl
+                           consectetur.
+                        </p>
+
+                        <Carousel.Caption></Carousel.Caption>
+                     </Carousel.Item>
+                  </Carousel>
+               </div>
+            </div>
+            <div className="m2">
+               <div className="Card">
+                  <Card style={{ width: "20rem" }}>
+                     <Card.Img
+                        className="cardImg"
+                        variant="top"
+                        src="https://codingblocks.com/assets/images/cb/logosc/color_java.svg"
+                     />
+                     <Card.Body>
+                        <Card.Title>
+                           <h2 class="sub-heading">Crux</h2>
+                        </Card.Title>
+                        <Card.Text>
+                           <p class="price">
+                              <h2>₹17,000</h2>
+                           </p>
+                           <p class="lectures">(24-26 lectures)</p>
+                           <a href="RegistrationForm.html">
+                              <div class="button">
+                                 <Button variant="warning">RAGISTER NOW</Button>
+                              </div>
+                           </a>
+                        </Card.Text>
+                        <p class="course-details">
+                           Programming Fundamentals, OOPS <br />
+                           Data Structures &amp; Algorithms in Java <br />
+                           Online Code Submission <br />
+                           300+ Problems, Hackathons
+                        </p>
+                     </Card.Body>
+                  </Card>
+               </div>
+               <div className="Card">
+                  <Card style={{ width: "20rem" }}>
+                     <Card.Img
+                        className="cardImg"
+                        variant="top"
+                        src="https://codingblocks.com/assets/images/cb/logosc/color_cpp.svg"
+                     />
+                     <Card.Body>
+                        <Card.Title>
+                           <h2>Launchpad</h2>
+                        </Card.Title>
+                        <Card.Text>
+                           <p class="price">
+                              <h2>₹17,000</h2>
+                           </p>
+                           <p class="lectures">(24-26 lectures)</p>
+                           <a href="RegistrationForm.html">
+                              <div class="button">
+                                 <Button variant="warning">RAGISTER NOW</Button>
+                              </div>
+                           </a>
+                        </Card.Text>
+                        <p class="course-details">
+                           Programming Fundamentals, OOPS <br />
+                           Data Structures &amp; Algorithms in C++ <br />
+                           300+ Problems, Hackathons <br />
+                           Online Code Submission
+                        </p>
+                     </Card.Body>
+                  </Card>
+               </div>
+               <div className="Card">
+                  <Card style={{ width: "20rem" }}>
+                     <Card.Img
+                        className="cardImg"
+                        variant="top"
+                        src="https://pngimg.com/uploads/android_logo/android_logo_PNG26.png"
+                     />
+                     <Card.Body>
+                        <Card.Title>
+                           <h2>Pandora</h2>
+                        </Card.Title>
+                        <Card.Text>
+                           <p class="price">
+                              <h2>₹20,000</h2>
+                           </p>
+                           <p class="lectures">(24-26 lectures)</p>
+
+                           <Button variant="primary">RAGISTER NOW</Button>
+                        </Card.Text>
+                        <p class="course-details">
+                           Building Android Apps <br />
+                           UI and Animations <br />
+                           Database &amp; Internet Connected Apps <br />
+                           LIVE Project &amp; Pitching Session
+                        </p>
+                     </Card.Body>
+                  </Card>
+               </div>
+            </div>
+            <div className="m3">
+               <div className="Card">
+                  <Card style={{ width: "20rem" }}>
+                     <Card.Img
+                        className="cardImg"
+                        variant="top"
+                        src="	https://codingblocks.com/assets/images/cb/logosc/color_nodejs.svg"
+                     />
+                     <Card.Body>
+                        <Card.Title>
+                           <h2 class="sub-heading">Elixir</h2>
+                        </Card.Title>
+                        <Card.Text>
+                           <p class="price">
+                              <h2>₹20,000</h2>
+                           </p>
+                           <p class="lectures">(22 lectures)</p>
+                           <a href="RegistrationForm.html">
+                              <div class="button">
+                                 <Button variant="warning">RAGISTER NOW</Button>
+                              </div>
+                           </a>
+                        </Card.Text>
+                        <p class="course-details">
+                           Web Design <br />
+                           Real time Web Apps <br />
+                           Deployment &amp; System Adminstration <br />
+                           LIVE Project &amp; Hackathon
+                        </p>
+                     </Card.Body>
+                  </Card>
+               </div>
+               <div className="Card">
+                  <Card style={{ width: "20rem" }}>
+                     <Card.Img
+                        className="cardImg"
+                        variant="top"
+                        src="https://codingblocks.com/assets/images/cb/logosc/color_algo.svg"
+                     />
+                     <Card.Body>
+                        <Card.Title>
+                           <h2>Algo++</h2>
+                        </Card.Title>
+                        <Card.Text>
+                           <p class="price">
+                              <h2>₹12,000</h2>
+                           </p>
+                           <p class="lectures">(15 lectures)</p>
+                           <a href="RegistrationForm.html">
+                              <div class="button">
+                                 <Button variant="warning">RAGISTER NOW</Button>
+                              </div>
+                           </a>
+                        </Card.Text>
+                        <p class="course-details">
+                           Adv Data Structures &amp; Algo in C++ <br />
+                           Complex Problem Solving <br />
+                           Algorithmic Analysis <br />
+                           Interview Preparation
+                        </p>
+                     </Card.Body>
+                  </Card>
+               </div>
+               <div className="Card">
+                  <Card style={{ width: "20rem" }}>
+                     <Card.Img
+                        className="cardImg"
+                        variant="top"
+                        src="https://codingblocks.com/assets/images/cb/logosc/color_ml.svg"
+                     />
+                     <Card.Body>
+                        <Card.Title>
+                           <h2>Perceptron</h2>
+                        </Card.Title>
+                        <Card.Text>
+                           <p class="price">
+                              <h2>₹22,000</h2>
+                           </p>
+                           <p class="lectures">(23 lectures)</p>
+
+                           <Button variant="primary">RAGISTER NOW</Button>
+                        </Card.Text>
+                        <p class="course-details">
+                           Code Machine Learning Algorithms <br />
+                           Artificial Intelligence <br />
+                           Natural Language Processing <br />3 Live Projects
+                           &amp; Hackathon
+                        </p>
+                     </Card.Body>
+                  </Card>
+               </div>
+            </div>
             <div className="m4"></div>
             <div className="m5"></div>
             <div className="m6"></div>
-            <div className="m7"></div>
-            <div className="m8"></div>
-            <div className="m9"></div>
-            <div className="m10"></div>
 
             <Profile
                show={this.state.show3}
@@ -326,6 +574,51 @@ class Dashboard extends React.Component {
                   });
                }}
             />
+
+            {/* footer */}
+            <div className="footer">
+               <div className="footerhead">
+                  {" "}
+                  <h4>
+                     Your trusted source to find highly-vetted mentors &
+                     industry professionals to move your career ahead.
+                  </h4>
+               </div>
+               <div className="image111">
+                  <img
+                     src={weblogo}
+                     alt="/"
+                     className="img-responsive2"
+                     onClick={"/"}
+                  />
+               </div>
+               <div className="footerd1">
+                  <ul>
+                     <Button variant="light">Home</Button>
+                  </ul>
+                  <Link to="/">home</Link>
+
+                  <Link to="/">home</Link>
+
+                  <Link to="/">home</Link>
+
+                  <Link to="/">home</Link>
+
+                  <Link to="/">home</Link>
+
+                  <Link to="/">home</Link>
+               </div>
+               <div></div>
+               <div></div>
+               <div>
+                  <img
+                     src={footer1}
+                     alt="/"
+                     className="footerimg"
+                     onClick={"/"}
+                  />
+               </div>
+            </div>
          </div>
       );
    }
