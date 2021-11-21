@@ -293,7 +293,7 @@ class Dashboard extends React.Component {
                   </Navbar.Collapse>
                </Navbar>
 
-               {/* dashboard start */}
+               {/* dashboard  */}
                <div className="dash2">
                   <div className="dash3">
                      <h2>
