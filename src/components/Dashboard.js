@@ -4,6 +4,7 @@ import weblogo from "../images/newone.jpg";
 import footer1 from "../images/1final.jpg";
 import New_LCD from "../images/New_LCD.png";
 import blue_LCD from "../images/blue_LCD.jpg";
+import img14 from "../images/my1.png";
 
 import {
    Form,
@@ -255,7 +256,6 @@ class Dashboard extends React.Component {
                                     />
                                  </NavDropdown.Item>
                                  <br />
-
                                  <NavDropdown.Item
                                     variant="info"
                                     onClick={() => {
@@ -285,9 +285,7 @@ class Dashboard extends React.Component {
                                     </Button>{" "}
                                     Plan
                                  </NavDropdown.Item>
-
                                  {/*  */}
-
                                  <NavDropdown.Item>
                                     <Button
                                        color="brown"
@@ -318,6 +316,14 @@ class Dashboard extends React.Component {
 
                {/* dashboard  */}
                <div className="dash2">
+                  {/* img(src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/221808/sky.jpg").background
+    p.message all your dreams can come true<br/>if you have the courage to pursue them
+    - for (i = 1; i <= 100; i++)
+      .circle-container
+        .circle */}
+                  <div className="circle-container">
+                     <div className="circle"></div>
+                  </div>
                   <div className="dash3">
                      <h2>
                         <b>Welcome to Pro-Mentor-Techs </b>
@@ -346,25 +352,141 @@ class Dashboard extends React.Component {
                <div>
                   <Carousel className="dashcarousel">
                      <Carousel.Item>
-                        <h3>First slide label</h3>
-                        <p>Nulla vitae elit libe</p>
+                        <h3>Software Developers</h3>
+                        <div className="carousel-Mento">
+                           <div className="carousel-mentor-boxes">
+                              <Image
+                                 src={img14}
+                                 style={{
+                                    width: 70,
+                                    height: 70,
+                                    borderRadius: 300 / 2,
+                                 }}
+                              ></Image>
+                              <br /> <IoMdThumbsUp />
+                              <br />
+                              "Diana is the type of mentor you want to keep for
+                              a long time if you are looking for someone to
+                              guide you through the coding world. She
+                              immediately identified my goals and helped me find
+                              a learning path."
+                              <br /> <h5> - Jerrica, a JavaScript mentee.</h5>
+                           </div>
+                           {/* <p>Nulla vitae elit libe</p> */}
+                           <div className="carousel-mentor-boxes">
+                              <Image
+                                 src={img14}
+                                 style={{
+                                    width: 70,
+                                    height: 70,
+                                    borderRadius: 300 / 2,
+                                 }}
+                              ></Image>
+                              <br />
+                              <IoMdThumbsUp />
+                              <br />
+                              "Diana is the type of mentor you want to keep for
+                              a long time if you are looking for someone to
+                              guide you through the coding world. She
+                              immediately identified my goals and helped me find
+                              a learning path."
+                              <br /> <h5> - Jerrica, a JavaScript mentee.</h5>
+                           </div>
+                           {/* <p>Nulla vitae elit libe</p> */}
+                        </div>
                         <Carousel.Caption></Carousel.Caption>
                      </Carousel.Item>
                      <Carousel.Item>
-                        <h3>Second slide label</h3>
-                        <p>
-                           Lorem ipsum dolor sit amet, consectetur adipiscing
-                           elit.
-                        </p>
+                        <h3>System Design Experts</h3>
+                        <div className="carousel-Mento">
+                           <div className="carousel-mentor-boxes">
+                              <Image
+                                 src={img14}
+                                 style={{
+                                    width: 70,
+                                    height: 70,
+                                    borderRadius: 300 / 2,
+                                 }}
+                              ></Image>
+                              <br />
+                              <IoMdThumbsUp />
+                              <br />
+                              "Diana is the type of mentor you want to keep for
+                              a long time if you are looking for someone to
+                              guide you through the coding world. She
+                              immediately identified my goals and helped me find
+                              a learning path."
+                              <br /> <h5> - Jerrica, a JavaScript mentee.</h5>
+                           </div>
+                           {/* <p>Nulla vitae elit libe</p> */}
+                           <div className="carousel-mentor-boxes">
+                              <Image
+                                 src={img14}
+                                 style={{
+                                    width: 70,
+                                    height: 70,
+                                    borderRadius: 300 / 2,
+                                 }}
+                              ></Image>
+                              <br />
+                              <IoMdThumbsUp />
+                              <br />
+                              "Diana is the type of mentor you want to keep for
+                              a long time if you are looking for someone to
+                              guide you through the coding world. She
+                              immediately identified my goals and helped me find
+                              a learning path."
+                              <br /> <h5> - Jerrica, a JavaScript mentee.</h5>
+                           </div>
+                           {/* <p>Nulla vitae elit libe</p> */}
+                        </div>
 
                         <Carousel.Caption></Carousel.Caption>
                      </Carousel.Item>
                      <Carousel.Item>
-                        <h3>Third slide label</h3>
-                        <p>
-                           Praesent commodo cursus magna, vel scelerisque nisl
-                           consectetur.
-                        </p>
+                        <h3>Full Stack Developer</h3>
+                        <div className="carousel-Mento">
+                           <div className="carousel-mentor-boxes">
+                              <Image
+                                 src={img14}
+                                 style={{
+                                    width: 70,
+                                    height: 70,
+                                    borderRadius: 300 / 2,
+                                 }}
+                              ></Image>
+                              <br />
+                              <IoMdThumbsUp />
+                              <br />
+                              "Diana is the type of mentor you want to keep for
+                              a long time if you are looking for someone to
+                              guide you through the coding world. She
+                              immediately identified my goals and helped me find
+                              a learning path."
+                              <br /> <h5> - Jerrica, a JavaScript mentee.</h5>
+                           </div>
+                           {/* <p>Nulla vitae elit libe</p> */}
+                           <div className="carousel-mentor-boxes">
+                              <Image
+                                 src={img14}
+                                 style={{
+                                    width: 70,
+                                    height: 70,
+                                    borderRadius: 300 / 2,
+                                 }}
+                              ></Image>
+                              <br />
+                              <IoMdThumbsUp />
+                              <br />
+                              "Diana is the type of mentor you want to keep for
+                              a long time if you are looking for someone to
+                              guide you through the coding world. She
+                              immediately identified my goals and helped me find
+                              a learning path."
+                              <br /> <h5> - Jerrica, a JavaScript mentee.</h5>
+                           </div>
+                           {/* <p>Nulla vitae elit libe</p> */}
+                        </div>
 
                         <Carousel.Caption></Carousel.Caption>
                      </Carousel.Item>
@@ -372,217 +494,336 @@ class Dashboard extends React.Component {
                </div>
             </div>
             <div className="m1">
-               <h1>Featured Mentors</h1>
+               <h1>Industry Experts </h1>
                <div>
                   <Carousel className="dashcarousel">
                      <Carousel.Item>
-                        <h3>First slide label</h3>
-                        <p>Nulla vitae elit libe</p>
+                        <h3>Bussiness Experts</h3>
+                        <div className="carousel-Mento">
+                           <div className="carousel-mentor-boxes">
+                              <Image
+                                 src={img14}
+                                 style={{
+                                    width: 70,
+                                    height: 70,
+                                    borderRadius: 300 / 2,
+                                 }}
+                              ></Image>
+                              <br />
+                              <IoMdThumbsUp />
+                              <br />
+                              "Diana is the type of mentor you want to keep for
+                              a long time if you are looking for someone to
+                              guide you through the coding world. She
+                              immediately identified my goals and helped me find
+                              a learning path."
+                              <br /> <h5> - Jerrica, a JavaScript mentee.</h5>
+                           </div>
+                           {/* <p>Nulla vitae elit libe</p> */}
+                           <div className="carousel-mentor-boxes">
+                              <Image
+                                 src={img14}
+                                 style={{
+                                    width: 70,
+                                    height: 70,
+                                    borderRadius: 300 / 2,
+                                 }}
+                              ></Image>
+                              <br />
+                              <IoMdThumbsUp />
+                              <br />
+                              "Diana is the type of mentor you want to keep for
+                              a long time if you are looking for someone to
+                              guide you through the coding world. She
+                              immediately identified my goals and helped me find
+                              a learning path."
+                              <br /> <h5> - Jerrica, a JavaScript mentee.</h5>
+                           </div>
+                           {/* <p>Nulla vitae elit libe</p> */}
+                        </div>
                         <Carousel.Caption></Carousel.Caption>
                      </Carousel.Item>
                      <Carousel.Item>
-                        <h3>Second slide label</h3>
-                        <p>
-                           Lorem ipsum dolor sit amet, consectetur adipiscing
-                           elit.
-                        </p>
+                        <h3>Personal Coachs</h3>
+                        <div className="carousel-Mento">
+                           <div className="carousel-mentor-boxes">
+                              <Image
+                                 src={img14}
+                                 style={{
+                                    width: 70,
+                                    height: 70,
+                                    borderRadius: 300 / 2,
+                                 }}
+                              ></Image>
+                              <br />
+                              <IoMdThumbsUp />
+                              <br />
+                              "Diana is the type of mentor you want to keep for
+                              a long time if you are looking for someone to
+                              guide you through the coding world. She
+                              immediately identified my goals and helped me find
+                              a learning path."
+                              <br /> <h5> - Jerrica, a JavaScript mentee.</h5>
+                           </div>
+                           {/* <p>Nulla vitae elit libe</p> */}
+                           <div className="carousel-mentor-boxes">
+                              <Image
+                                 src={img14}
+                                 style={{
+                                    width: 70,
+                                    height: 70,
+                                    borderRadius: 300 / 2,
+                                 }}
+                              ></Image>
+                              <br />
+                              <IoMdThumbsUp />
+                              <br />
+                              "Diana is the type of mentor you want to keep for
+                              a long time if you are looking for someone to
+                              guide you through the coding world. She
+                              immediately identified my goals and helped me find
+                              a learning path."
+                              <br /> <h5> - Jerrica, a JavaScript mentee.</h5>
+                           </div>
+                           {/* <p>Nulla vitae elit libe</p> */}
+                        </div>
 
                         <Carousel.Caption></Carousel.Caption>
                      </Carousel.Item>
                      <Carousel.Item>
-                        <h3>Third slide label</h3>
-                        <p>
-                           Praesent commodo cursus magna, vel scelerisque nisl
-                           consectetur.
-                        </p>
+                        <h3>Arts & Designer</h3>
+                        <div className="carousel-Mento">
+                           <div className="carousel-mentor-boxes">
+                              <Image
+                                 src={img14}
+                                 style={{
+                                    width: 70,
+                                    height: 70,
+                                    borderRadius: 300 / 2,
+                                 }}
+                              ></Image>
+                              <br />
+                              <IoMdThumbsUp />
+                              <br />
+                              "Diana is the type of mentor you want to keep for
+                              a long time if you are looking for someone to
+                              guide you through the coding world. She
+                              immediately identified my goals and helped me find
+                              a learning path."
+                              <br /> <h5> - Jerrica, a JavaScript mentee.</h5>
+                           </div>
+                           {/* <p>Nulla vitae elit libe</p> */}
+                           <div className="carousel-mentor-boxes">
+                              <Image
+                                 src={img14}
+                                 style={{
+                                    width: 70,
+                                    height: 70,
+                                    borderRadius: 300 / 2,
+                                 }}
+                              ></Image>
+                              <br />
+                              <IoMdThumbsUp />
+                              <br />
+                              "Diana is the type of mentor you want to keep for
+                              a long time if you are looking for someone to
+                              guide you through the coding world. She
+                              immediately identified my goals and helped me find
+                              a learning path."
+                              <br /> <h5> - Jerrica, a JavaScript mentee.</h5>
+                           </div>
+                           {/* <p>Nulla vitae elit libe</p> */}
+                        </div>
 
                         <Carousel.Caption></Carousel.Caption>
                      </Carousel.Item>
                   </Carousel>
                </div>
             </div>
-            <div className="m2">
-               <div className="Card">
-                  <Card style={{ width: "20rem" }}>
-                     <Card.Img
-                        className="cardImg"
-                        variant="top"
-                        src="https://codingblocks.com/assets/images/cb/logosc/color_java.svg"
-                     />
-                     <Card.Body>
-                        <Card.Title>
-                           <h2 class="sub-heading">Crux</h2>
-                        </Card.Title>
-                        <Card.Text>
-                           <p class="price">
-                              <h2>₹17,000</h2>
+            <div className="All-courses">
+               <div className="m2">
+                  <div className="Card">
+                     <Card style={{ width: "20rem" }}>
+                        <Card.Img
+                           className="cardImg"
+                           variant="top"
+                           src="https://codingblocks.com/assets/images/cb/logosc/color_java.svg"
+                        />
+                        <Card.Body>
+                           <Card.Title>
+                              <h2 class="sub-heading">Crux</h2>
+                           </Card.Title>
+                           <Card.Text>
+                              <p class="price">
+                                 <h2>₹17,000</h2>
+                              </p>
+                              <p class="lectures">(24-26 lectures)</p>
+                              <a href="RegistrationForm.html">
+                                 <div class="button">
+                                    <Button variant="dark">RAGISTER NOW</Button>
+                                 </div>
+                              </a>
+                           </Card.Text>
+                           <p class="course-details">
+                              Programming Fundamentals, OOPS <br />
+                              Data Structures &amp; Algorithms in Java <br />
+                              Online Code Submission <br />
+                              300+ Problems, Hackathons
                            </p>
-                           <p class="lectures">(24-26 lectures)</p>
-                           <a href="RegistrationForm.html">
-                              <div class="button">
-                                 <Button variant="dark">RAGISTER NOW</Button>
-                              </div>
-                           </a>
-                        </Card.Text>
-                        <p class="course-details">
-                           Programming Fundamentals, OOPS <br />
-                           Data Structures &amp; Algorithms in Java <br />
-                           Online Code Submission <br />
-                           300+ Problems, Hackathons
-                        </p>
-                     </Card.Body>
-                  </Card>
-               </div>
-               <div className="Card">
-                  <Card style={{ width: "20rem" }}>
-                     <Card.Img
-                        className="cardImg"
-                        variant="top"
-                        src="https://codingblocks.com/assets/images/cb/logosc/color_cpp.svg"
-                     />
-                     <Card.Body>
-                        <Card.Title>
-                           <h2>Launchpad</h2>
-                        </Card.Title>
-                        <Card.Text>
-                           <p class="price">
-                              <h2>₹17,000</h2>
+                        </Card.Body>
+                     </Card>
+                  </div>
+                  <div className="Card">
+                     <Card style={{ width: "20rem" }}>
+                        <Card.Img
+                           className="cardImg"
+                           variant="top"
+                           src="https://codingblocks.com/assets/images/cb/logosc/color_cpp.svg"
+                        />
+                        <Card.Body>
+                           <Card.Title>
+                              <h2>Launchpad</h2>
+                           </Card.Title>
+                           <Card.Text>
+                              <p class="price">
+                                 <h2>₹17,000</h2>
+                              </p>
+                              <p class="lectures">(24-26 lectures)</p>
+                              <a href="RegistrationForm.html">
+                                 <div class="button">
+                                    <Button variant="dark">RAGISTER NOW</Button>
+                                 </div>
+                              </a>
+                           </Card.Text>
+                           <p class="course-details">
+                              Programming Fundamentals, OOPS <br />
+                              Data Structures &amp; Algorithms in C++ <br />
+                              300+ Problems, Hackathons <br />
+                              Online Code Submission
                            </p>
-                           <p class="lectures">(24-26 lectures)</p>
-                           <a href="RegistrationForm.html">
-                              <div class="button">
-                                 <Button variant="dark">RAGISTER NOW</Button>
-                              </div>
-                           </a>
-                        </Card.Text>
-                        <p class="course-details">
-                           Programming Fundamentals, OOPS <br />
-                           Data Structures &amp; Algorithms in C++ <br />
-                           300+ Problems, Hackathons <br />
-                           Online Code Submission
-                        </p>
-                     </Card.Body>
-                  </Card>
-               </div>
-               <div className="Card">
-                  <Card style={{ width: "20rem" }}>
-                     <Card.Img
-                        className="cardImg"
-                        variant="top"
-                        src="https://pngimg.com/uploads/android_logo/android_logo_PNG26.png"
-                     />
-                     <Card.Body>
-                        <Card.Title>
-                           <h2>Pandora</h2>
-                        </Card.Title>
-                        <Card.Text>
-                           <p class="price">
-                              <h2>₹20,000</h2>
-                           </p>
-                           <p class="lectures">(24-26 lectures)</p>
+                        </Card.Body>
+                     </Card>
+                  </div>
+                  <div className="Card">
+                     <Card style={{ width: "20rem" }}>
+                        <Card.Img
+                           className="cardImg"
+                           variant="top"
+                           src="https://pngimg.com/uploads/android_logo/android_logo_PNG26.png"
+                        />
+                        <Card.Body>
+                           <Card.Title>
+                              <h2>Pandora</h2>
+                           </Card.Title>
+                           <Card.Text>
+                              <p class="price">
+                                 <h2>₹20,000</h2>
+                              </p>
+                              <p class="lectures">(24-26 lectures)</p>
 
-                           <Button variant="dark">RAGISTER NOW</Button>
-                        </Card.Text>
-                        <p class="course-details">
-                           Building Android Apps <br />
-                           UI and Animations <br />
-                           Database &amp; Internet Connected Apps <br />
-                           LIVE Project &amp; Pitching Session
-                        </p>
-                     </Card.Body>
-                  </Card>
-               </div>
-            </div>
-            <div className="m3">
-               <div className="Card">
-                  <Card style={{ width: "20rem" }}>
-                     <Card.Img
-                        className="cardImg"
-                        variant="top"
-                        src="	https://codingblocks.com/assets/images/cb/logosc/color_nodejs.svg"
-                     />
-                     <Card.Body>
-                        <Card.Title>
-                           <h2 class="sub-heading">Elixir</h2>
-                        </Card.Title>
-                        <Card.Text>
-                           <p class="price">
-                              <h2>₹20,000</h2>
+                              <Button variant="dark">RAGISTER NOW</Button>
+                           </Card.Text>
+                           <p class="course-details">
+                              Building Android Apps <br />
+                              UI and Animations <br />
+                              Database &amp; Internet Connected Apps <br />
+                              LIVE Project &amp; Pitching Session
                            </p>
-                           <p class="lectures">(22 lectures)</p>
-                           <a href="RegistrationForm.html">
-                              <div class="button">
-                                 <Button variant="dark">RAGISTER NOW</Button>
-                              </div>
-                           </a>
-                        </Card.Text>
-                        <p class="course-details">
-                           Web Design <br />
-                           Real time Web Apps <br />
-                           Deployment &amp; System Adminstration <br />
-                           LIVE Project &amp; Hackathon
-                        </p>
-                     </Card.Body>
-                  </Card>
+                        </Card.Body>
+                     </Card>
+                  </div>
                </div>
-               <div className="Card">
-                  <Card style={{ width: "20rem" }}>
-                     <Card.Img
-                        className="cardImg"
-                        variant="top"
-                        src="https://codingblocks.com/assets/images/cb/logosc/color_algo.svg"
-                     />
-                     <Card.Body>
-                        <Card.Title>
-                           <h2>Algo++</h2>
-                        </Card.Title>
-                        <Card.Text>
-                           <p class="price">
-                              <h2>₹12,000</h2>
+               <div className="m3">
+                  <div className="Card">
+                     <Card style={{ width: "20rem" }}>
+                        <Card.Img
+                           className="cardImg"
+                           variant="top"
+                           src="	https://codingblocks.com/assets/images/cb/logosc/color_nodejs.svg"
+                        />
+                        <Card.Body>
+                           <Card.Title>
+                              <h2 class="sub-heading">Elixir</h2>
+                           </Card.Title>
+                           <Card.Text>
+                              <p class="price">
+                                 <h2>₹20,000</h2>
+                              </p>
+                              <p class="lectures">(22 lectures)</p>
+                              <a href="RegistrationForm.html">
+                                 <div class="button">
+                                    <Button variant="dark">RAGISTER NOW</Button>
+                                 </div>
+                              </a>
+                           </Card.Text>
+                           <p class="course-details">
+                              Web Design <br />
+                              Real time Web Apps <br />
+                              Deployment &amp; System Adminstration <br />
+                              LIVE Project &amp; Hackathon
                            </p>
-                           <p class="lectures">(15 lectures)</p>
-                           <a href="RegistrationForm.html">
-                              <div class="button">
-                                 <Button variant="dark">RAGISTER NOW</Button>
-                              </div>
-                           </a>
-                        </Card.Text>
-                        <p class="course-details">
-                           Adv Data Structures &amp; Algo in C++ <br />
-                           Complex Problem Solving <br />
-                           Algorithmic Analysis <br />
-                           Interview Preparation
-                        </p>
-                     </Card.Body>
-                  </Card>
-               </div>
-               <div className="Card">
-                  <Card style={{ width: "20rem" }}>
-                     <Card.Img
-                        className="cardImg"
-                        variant="top"
-                        src="https://codingblocks.com/assets/images/cb/logosc/color_ml.svg"
-                     />
-                     <Card.Body>
-                        <Card.Title>
-                           <h2>Perceptron</h2>
-                        </Card.Title>
-                        <Card.Text>
-                           <p class="price">
-                              <h2>₹22,000</h2>
+                        </Card.Body>
+                     </Card>
+                  </div>
+                  <div className="Card">
+                     <Card style={{ width: "20rem" }}>
+                        <Card.Img
+                           className="cardImg"
+                           variant="top"
+                           src="https://codingblocks.com/assets/images/cb/logosc/color_algo.svg"
+                        />
+                        <Card.Body>
+                           <Card.Title>
+                              <h2>Algo++</h2>
+                           </Card.Title>
+                           <Card.Text>
+                              <p class="price">
+                                 <h2>₹12,000</h2>
+                              </p>
+                              <p class="lectures">(15 lectures)</p>
+                              <a href="RegistrationForm.html">
+                                 <div class="button">
+                                    <Button variant="dark">RAGISTER NOW</Button>
+                                 </div>
+                              </a>
+                           </Card.Text>
+                           <p class="course-details">
+                              Adv Data Structures &amp; Algo in C++ <br />
+                              Complex Problem Solving <br />
+                              Algorithmic Analysis <br />
+                              Interview Preparation
                            </p>
-                           <p class="lectures">(23 lectures)</p>
+                        </Card.Body>
+                     </Card>
+                  </div>
+                  <div className="Card">
+                     <Card style={{ width: "20rem" }}>
+                        <Card.Img
+                           className="cardImg"
+                           variant="top"
+                           src="https://codingblocks.com/assets/images/cb/logosc/color_ml.svg"
+                        />
+                        <Card.Body>
+                           <Card.Title>
+                              <h2>Perceptron</h2>
+                           </Card.Title>
+                           <Card.Text>
+                              <p class="price">
+                                 <h2>₹22,000</h2>
+                              </p>
+                              <p class="lectures">(23 lectures)</p>
 
-                           <Button variant="dark">RAGISTER NOW</Button>
-                        </Card.Text>
-                        <p class="course-details">
-                           Code Machine Learning Algorithms <br />
-                           Artificial Intelligence <br />
-                           Natural Language Processing <br />3 Live Projects
-                           &amp; Hackathon
-                        </p>
-                     </Card.Body>
-                  </Card>
+                              <Button variant="dark">RAGISTER NOW</Button>
+                           </Card.Text>
+                           <p class="course-details">
+                              Code Machine Learning Algorithms <br />
+                              Artificial Intelligence <br />
+                              Natural Language Processing <br />3 Live Projects
+                              &amp; Hackathon
+                           </p>
+                        </Card.Body>
+                     </Card>
+                  </div>
                </div>
             </div>
             <div className="m4">
