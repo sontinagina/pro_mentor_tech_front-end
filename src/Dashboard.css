@@ -52,6 +52,38 @@
   width: 100%;
   
 }
+.dash-box-buttons{
+  height: 200px;
+  /* border: 2px solid white; */
+  margin: 100px;
+  margin-top: 13px;
+  display: grid;
+  grid-template-columns: repeat(4, auto);
+  grid-auto-rows: minmax(20px, auto);
+  /* grid-template-columns: auto auto auto; */
+  padding: 30px;
+  justify-content: center;
+  column-gap: 50px;
+  row-gap: 1em;
+  box-shadow: 15px 15px 10px #041620;
+  transition: 0.3s;
+  background-color: #041620;
+}
+.dash-search{
+height:50px;
+border: 2px solid white;
+margin-top: 100px;
+margin-left: 100px;
+margin-right: 100px;
+background-color: #041620;
+box-shadow: 15px 15px 10px #041620;
+transition: 0.3s;
+color: white;
+width: 85%;
+font-size: larger;
+padding: 20px;
+font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
 /*!!!!! mentor divs css  */
 .m1{
   /* border: 2px solid white; */
@@ -60,7 +92,7 @@
   margin: 50px;
   /* text-align: center; */
   color: white;
-  margin-top: 150px;
+  /* margin-top: 150px; */
 }
 .m2{
   /* border: 2px solid white; */
@@ -113,7 +145,7 @@ margin-bottom: 180px;
   width: 80%;
   height: 100%;
   margin: 50px;
-  margin-right: 50px;
+  /* margin-right: 50px; */
   margin-left: 170px;
   margin-top: 150px;
   margin-bottom: 100px;
@@ -123,6 +155,10 @@ margin-bottom: 180px;
 .m4_1:hover{
   transform: translate(1px, 1px);
   box-shadow: 2px 8px 10px rgb(38, 62, 71);
+  /* width: 70%; */
+}
+.m4_Image{
+  width: 70%;
 
 }
 .m5{

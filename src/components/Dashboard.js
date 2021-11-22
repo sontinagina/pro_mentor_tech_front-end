@@ -5,6 +5,19 @@ import footer1 from "../images/1final.jpg";
 import New_LCD from "../images/New_LCD.png";
 import blue_LCD from "../images/blue_LCD.jpg";
 import img14 from "../images/my1.png";
+import mento1 from "../images/mentor-Image-one.jfif";
+import mento8 from "../images/mentor-image-eight.jpg";
+import mento11 from "../images/mentor-image-eleone.jfif";
+import mento5 from "../images/mentor-image-five.jpg";
+import mento4 from "../images/mentor-image-four.jpg";
+import mento9 from "../images/mentor-image-nine.jfif";
+import mento7 from "../images/mentor-image-seven.webp";
+import mento6 from "../images/mentor-image-six.jpg";
+import mento10 from "../images/mentor-image-ten.jpeg";
+import mento3 from "../images/mentor-image-three.jfif";
+import mento2 from "../images/mentor-image-two.jpg";
+import mento12 from "../images/mentor-image-twoelve.jfif";
+// import mento12 from "../images/mentor-image-twoelve.jfif";
 
 import {
    Form,
@@ -29,7 +42,7 @@ import { IoIosLogOut } from "react-icons/io";
 import { IoLogoInstagram } from "react-icons/io";
 import { IoMdCreate } from "react-icons/io";
 import { IoMdThumbsUp } from "react-icons/io";
-
+import { BsSearch } from "react-icons/bs";
 import { IoLogoFacebook } from "react-icons/io";
 import { IoLogoFirefox } from "react-icons/io5";
 import { IoLogoGithub } from "react-icons/io5";
@@ -321,9 +334,7 @@ class Dashboard extends React.Component {
     - for (i = 1; i <= 100; i++)
       .circle-container
         .circle */}
-                  <div className="circle-container">
-                     <div className="circle"></div>
-                  </div>
+
                   <div className="dash3">
                      <h2>
                         <b>Welcome to Pro-Mentor-Techs </b>
@@ -347,6 +358,24 @@ class Dashboard extends React.Component {
                   <li>footer</li>
                </ul> */}
             </div>
+            {/* <div className="dash-search"> */}
+            <input
+               className="dash-search"
+               placeholder="Search `mentors`"
+            ></input>
+
+            {/* </div> */}
+            <div className="dash-box-buttons">
+               <Button variant="light" size="sm">
+                  PYTHON MENTORS
+               </Button>
+               <Button variant="light">JAVA SCRIPT MENTORS</Button>
+               <Button variant="light">JAVA MENTORS</Button>
+               <Button variant="light">DESIGN MENTORS</Button>
+               <Button variant="light">BUSINESS MENTORS</Button>
+               <Button variant="light">MACHINE LEARNING MENTORS</Button>
+               <Button variant="light">PRODUCT MANAGEMENT MENTORS</Button>
+            </div>
             <div className="m1">
                <h1>Featured Mentors</h1>
                <div>
@@ -356,7 +385,7 @@ class Dashboard extends React.Component {
                         <div className="carousel-Mento">
                            <div className="carousel-mentor-boxes">
                               <Image
-                                 src={img14}
+                                 src={mento11}
                                  style={{
                                     width: 70,
                                     height: 70,
@@ -375,7 +404,7 @@ class Dashboard extends React.Component {
                            {/* <p>Nulla vitae elit libe</p> */}
                            <div className="carousel-mentor-boxes">
                               <Image
-                                 src={img14}
+                                 src={mento1}
                                  style={{
                                     width: 70,
                                     height: 70,
@@ -401,7 +430,7 @@ class Dashboard extends React.Component {
                         <div className="carousel-Mento">
                            <div className="carousel-mentor-boxes">
                               <Image
-                                 src={img14}
+                                 src={mento8}
                                  style={{
                                     width: 70,
                                     height: 70,
@@ -421,7 +450,7 @@ class Dashboard extends React.Component {
                            {/* <p>Nulla vitae elit libe</p> */}
                            <div className="carousel-mentor-boxes">
                               <Image
-                                 src={img14}
+                                 src={mento12}
                                  style={{
                                     width: 70,
                                     height: 70,
@@ -448,7 +477,7 @@ class Dashboard extends React.Component {
                         <div className="carousel-Mento">
                            <div className="carousel-mentor-boxes">
                               <Image
-                                 src={img14}
+                                 src={mento5}
                                  style={{
                                     width: 70,
                                     height: 70,
@@ -468,7 +497,7 @@ class Dashboard extends React.Component {
                            {/* <p>Nulla vitae elit libe</p> */}
                            <div className="carousel-mentor-boxes">
                               <Image
-                                 src={img14}
+                                 src={mento9}
                                  style={{
                                     width: 70,
                                     height: 70,
@@ -502,7 +531,7 @@ class Dashboard extends React.Component {
                         <div className="carousel-Mento">
                            <div className="carousel-mentor-boxes">
                               <Image
-                                 src={img14}
+                                 src={mento4}
                                  style={{
                                     width: 70,
                                     height: 70,
@@ -522,7 +551,7 @@ class Dashboard extends React.Component {
                            {/* <p>Nulla vitae elit libe</p> */}
                            <div className="carousel-mentor-boxes">
                               <Image
-                                 src={img14}
+                                 src={mento2}
                                  style={{
                                     width: 70,
                                     height: 70,
@@ -548,7 +577,7 @@ class Dashboard extends React.Component {
                         <div className="carousel-Mento">
                            <div className="carousel-mentor-boxes">
                               <Image
-                                 src={img14}
+                                 src={mento7}
                                  style={{
                                     width: 70,
                                     height: 70,
@@ -568,7 +597,7 @@ class Dashboard extends React.Component {
                            {/* <p>Nulla vitae elit libe</p> */}
                            <div className="carousel-mentor-boxes">
                               <Image
-                                 src={img14}
+                                 src={mento3}
                                  style={{
                                     width: 70,
                                     height: 70,
@@ -595,7 +624,7 @@ class Dashboard extends React.Component {
                         <div className="carousel-Mento">
                            <div className="carousel-mentor-boxes">
                               <Image
-                                 src={img14}
+                                 src={mento10}
                                  style={{
                                     width: 70,
                                     height: 70,
@@ -615,7 +644,7 @@ class Dashboard extends React.Component {
                            {/* <p>Nulla vitae elit libe</p> */}
                            <div className="carousel-mentor-boxes">
                               <Image
-                                 src={img14}
+                                 src={mento6}
                                  style={{
                                     width: 70,
                                     height: 70,
