@@ -64,10 +64,10 @@ class Profile extends React.Component {
          });
    }
    isNullOrUndefined(val) {
-      return val == null || val == undefined || val == "" ? false : true;
+      return val === null || val === undefined || val === "" ? false : true;
    }
    Validation = () => {
-      if (this.state.editProfileFields == "page1") {
+      if (this.state.editProfileFields ==="page1") {
          let isERR = false;
          let myerror = {};
          // console.log(this.state.pimg);
@@ -97,7 +97,7 @@ class Profile extends React.Component {
             return false;
          } else return true;
       }
-      if (this.state.editProfileFields == "page2") {
+      if (this.state.editProfileFields === "page2") {
          let isValidData = false;
          let isERR = false;
          let myerror = {};
@@ -134,7 +134,7 @@ class Profile extends React.Component {
             return false;
          } else return true;
       }
-      if (this.state.editProfileFields == "page3") {
+      if (this.state.editProfileFields === "page3") {
          let isValidData = false;
          let isERR = false;
          let myerror = {};
@@ -172,7 +172,7 @@ class Profile extends React.Component {
             return false;
          } else return true;
       }
-      if (this.state.editProfileFields == "page4") {
+      if (this.state.editProfileFields === "page4") {
          let isValidData = false;
          let isERR = false;
          let myerror = {};
@@ -181,9 +181,7 @@ class Profile extends React.Component {
             this.isNullOrUndefined(this.state.pjobType)
                ? true
                : false;
-         {
-            /**&&(this.isNullOrUndefined(this.state.p))&&(this.isNullOrUndefined(this.state.pmobileno)) */
-         }
+         
          if (!this.isNullOrUndefined(this.state.pcurrentDeg)) {
             myerror["pcurrentDeg"] = "current Designation";
             isERR = true;
@@ -253,7 +251,7 @@ class Profile extends React.Component {
    };
    componentDidMount() {}
    render() {
-      // let genderError;
+      
 
       return (
          <div className="profileModal">

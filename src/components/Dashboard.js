@@ -4,7 +4,7 @@ import weblogo from "../images/newone.jpg";
 import footer1 from "../images/1final.jpg";
 import New_LCD from "../images/New_LCD.png";
 import blue_LCD from "../images/blue_LCD.jpg";
-import img14 from "../images/my1.png";
+// import img14 from "../images/my1.png";
 import mento1 from "../images/mentor-Image-one.jfif";
 import mento8 from "../images/mentor-image-eight.jpg";
 import mento11 from "../images/mentor-image-eleone.jfif";
@@ -18,6 +18,7 @@ import mento3 from "../images/mentor-image-three.jfif";
 import mento2 from "../images/mentor-image-two.jpg";
 import mento12 from "../images/mentor-image-twoelve.jfif";
 // import mento12 from "../images/mentor-image-twoelve.jfif";
+import StarRatings from "react-star-ratings";
 
 import {
    Form,
@@ -32,8 +33,7 @@ import {
    Button,
 } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { AiTwotoneFileText } from "react-icons/ai";
-import StarRatings from "react-star-ratings";
+// import StarRatings from "react-star-ratings";
 import { BsChatDotsFill } from "react-icons/bs";
 import { BsFillInfoCircleFill } from "react-icons/bs";
 import { BsFillPersonFill } from "react-icons/bs";
@@ -42,15 +42,31 @@ import { IoIosLogOut } from "react-icons/io";
 import { IoLogoInstagram } from "react-icons/io";
 import { IoMdCreate } from "react-icons/io";
 import { IoMdThumbsUp } from "react-icons/io";
-import { BsSearch } from "react-icons/bs";
+// import { BsSearch } from "react-icons/bs";
 import { IoLogoFacebook } from "react-icons/io";
 import { IoLogoFirefox } from "react-icons/io5";
 import { IoLogoGithub } from "react-icons/io5";
 import { IoLogoTwitter } from "react-icons/io5";
 import { IoLogoLinkedin } from "react-icons/io5";
 import { MdOutlineSettings } from "react-icons/md";
+import { BsFillTelephoneFill } from "react-icons/bs";
+import { BsApple } from "react-icons/bs";
+import { BsPatchCheck } from "react-icons/bs";
+import { BsGoogle } from "react-icons/bs";
+import { BsTwitter } from "react-icons/bs";
+import { BsYoutube } from "react-icons/bs";
+import { BsWhatsapp } from "react-icons/bs";
+import { BsSpotify } from "react-icons/bs";
+import { BsStack } from "react-icons/bs";
+import { BsStackOverflow } from "react-icons/bs";
+import { BsSkype } from "react-icons/bs";
+import { BsSnapchat } from "react-icons/bs";
+import { BsFillDropletFill } from "react-icons/bs";
+import { BsFillLayersFill } from "react-icons/bs";
+import { BsEnvelopeOpenFill } from "react-icons/bs";
+import { BsTelephoneForward } from "react-icons/bs";
 import Profile from "./Profile";
-import viewProfile from "./viewProfile";
+// import viewProfile from "./viewProfile"; 
 class Dashboard extends React.Component {
    constructor(props) {
       super(props);
@@ -210,11 +226,11 @@ class Dashboard extends React.Component {
                                     >
                                        <BsFillPersonFill />
                                     </Button>
-                                    {this.state.userInfo != undefined
+                                    {this.state.userInfo !== undefined
                                        ? this.state.userInfo[0].USERNAME
                                        : ""}
                                     <br />
-                                    {this.state.userEmailId != undefined
+                                    {this.state.userEmailId !== undefined
                                        ? this.state.userEmailId[0].EMAILID
                                        : "not found"}
                                  </NavDropdown.Item>
@@ -352,11 +368,7 @@ class Dashboard extends React.Component {
                      </h4>
                   </div>
                </div>
-               {/* <ul>
-                  <li>home</li>
-                  <li>reto</li>
-                  <li>footer</li>
-               </ul> */}
+               
             </div>
             {/* <div className="dash-search"> */}
             <input
@@ -383,91 +395,178 @@ class Dashboard extends React.Component {
                      <Carousel.Item>
                         <h3>Software Developers</h3>
                         <div className="carousel-Mento">
-                           <div className="carousel-mentor-boxes">
-                              <Image
+                           
+                           <div className="flip">
+                             <div class="flip-box">
+                                 <div class="flip-box-inner">
+                                    <div class="flip-box-front">
+                                       
+                                       <Image
                                  src={mento11}
                                  style={{
-                                    width: 70,
-                                    height: 70,
+                                    width: 90,
+                                    height: 90,
                                     borderRadius: 300 / 2,
-                                 }}
-                              ></Image>
-                              <br /> <IoMdThumbsUp />
+                                 }}></Image>
                               <br />
-                              "Diana is the type of mentor you want to keep for
-                              a long time if you are looking for someone to
-                              guide you through the coding world. She
-                              immediately identified my goals and helped me find
-                              a learning path."
-                              <br /> <h5> - Jerrica, a JavaScript mentee.</h5>
-                           </div>
-                           {/* <p>Nulla vitae elit libe</p> */}
-                           <div className="carousel-mentor-boxes">
-                              <Image
+                              <h2>Aayush Ghosh</h2>
+                              <IoMdThumbsUp />
+                              <br/>
+                              <h5>Software Developer at Apple{" "}<BsApple/></h5>
+                              <div className="rating">
+                             <StarRatings
+                              rating={4.5}
+                              changeRating={this.changeRating}
+                              starRatedColor="#ffd700"
+                              starEmptyColor="rgb(203, 211, 227)"
+                              starHoverColor="#ffd700"
+                              starSpacing="4px"
+                              starDimension="22px"
+                              starSelectingHoverColor="#FFFF00"
+                              />
+                              <span>(220 review)</span><br/>
+                              <BsChatDotsFill/>{" "}Chat
+                                 {" .."} <BsFillTelephoneFill/>{" "}Regular Calls{" .. "}<BsPatchCheck/>{" "}Tasks
+                             </div>
+                                    </div>
+                                    <div class="flip-box-back">
+                                       <h2>Experience</h2>
+                                       Aayush is a Apple Developer Expert for Web Technologies. he is a field Marshal of Frontend Applications, thriving to innovate frontend with accessible Interfaces. An innovation strategist and Massachusetts Institute of Technology Bootcamper graduate, he brings 4+ years of experience in Web Development, Accessibility with his expertise in Angular Framework. …
+
+                                    </div>
+                                 </div>
+                              </div>
+                           
+                           
+                              <div class="flip-box">
+                                 <div class="flip-box-inner">
+                                    <div class="flip-box-front">
+                                       
+                                       <Image
                                  src={mento1}
                                  style={{
-                                    width: 70,
-                                    height: 70,
+                                    width: 90,
+                                    height: 90,
                                     borderRadius: 300 / 2,
-                                 }}
-                              ></Image>
+                                 }}></Image>
                               <br />
+                              <h2>Claire Lyles </h2>
                               <IoMdThumbsUp />
-                              <br />
-                              "Diana is the type of mentor you want to keep for
-                              a long time if you are looking for someone to
-                              guide you through the coding world. She
-                              immediately identified my goals and helped me find
-                              a learning path."
-                              <br /> <h5> - Jerrica, a JavaScript mentee.</h5>
-                           </div>
-                           {/* <p>Nulla vitae elit libe</p> */}
+                              <br/>
+                              <h5>Software Developer at Google{" "}<BsGoogle/></h5>
+                              <div className="rating">
+                             <StarRatings
+                              rating={3.5}
+                              changeRating={this.changeRating}
+                              starRatedColor="#ffd700"
+                              starEmptyColor="rgb(203, 211, 227)"
+                              starHoverColor="#ffd700"
+                              starSpacing="4px"
+                              starDimension="22px"
+                              starSelectingHoverColor="#FFFF00"
+                              />
+                              <span>(20 review)</span><br/>
+                              <BsChatDotsFill/>{" "}Chat
+                                 {" .."} <BsFillTelephoneFill/>{" "}Regular Calls{" .. "}<BsPatchCheck/>{" "}Tasks
+                             </div>
+                                    </div>
+                                    <div class="flip-box-back">
+                                       <h2>Experience</h2>
+                                       Hi there, I’m Claire 👋 I have 8+ years of experience in design and most recently worked at Google. If you’re anything like me, you also had a “non-traditional” path into design. Over the years I've had the opportunity to work on products ranging from wearables and travel, to consumer …
+
+                                    </div>
+                                 </div>
+                              </div>
+                            </div>
+                            
                         </div>
                         <Carousel.Caption></Carousel.Caption>
                      </Carousel.Item>
                      <Carousel.Item>
                         <h3>System Design Experts</h3>
                         <div className="carousel-Mento">
-                           <div className="carousel-mentor-boxes">
-                              <Image
-                                 src={mento8}
-                                 style={{
-                                    width: 70,
-                                    height: 70,
-                                    borderRadius: 300 / 2,
-                                 }}
-                              ></Image>
-                              <br />
-                              <IoMdThumbsUp />
-                              <br />
-                              "Diana is the type of mentor you want to keep for
-                              a long time if you are looking for someone to
-                              guide you through the coding world. She
-                              immediately identified my goals and helped me find
-                              a learning path."
-                              <br /> <h5> - Jerrica, a JavaScript mentee.</h5>
-                           </div>
-                           {/* <p>Nulla vitae elit libe</p> */}
-                           <div className="carousel-mentor-boxes">
-                              <Image
+                        <div className="flip">
+                             <div class="flip-box">
+                                 <div class="flip-box-inner">
+                                    <div class="flip-box-front">
+                                       
+                                       <Image
                                  src={mento12}
                                  style={{
-                                    width: 70,
-                                    height: 70,
+                                    width: 90,
+                                    height: 90,
                                     borderRadius: 300 / 2,
-                                 }}
-                              ></Image>
+                                 }}></Image>
                               <br />
+                              <h2>Austin Wilson</h2>
                               <IoMdThumbsUp />
+                              <br/>
+                              <h5>Platform Architect at It Works! Twitter{" "}<BsTwitter/></h5>
+                              <div className="rating">
+                             <StarRatings
+                              rating={4.5}
+                              changeRating={this.changeRating}
+                              starRatedColor="#ffd700"
+                              starEmptyColor="rgb(203, 211, 227)"
+                              starHoverColor="#ffd700"
+                              starSpacing="4px"
+                              starDimension="22px"
+                              starSelectingHoverColor="#FFFF00"
+                              />
+                              <span>(220 review)</span><br/>
+                              <BsChatDotsFill/>{" "}Chat
+                                 {" .."} <BsFillTelephoneFill/>{" "}Regular Calls{" .. "}<BsPatchCheck/>{" "}Tasks
+                             </div>
+                                    </div>
+                                    <div class="flip-box-back">
+                                       <h2>Experience</h2>
+                                       My first 4 years in development were code first ask questions later. Then I found a job under someone who could truly mentor me in the principles of good code. This change in my career propelled me from a year one developer into a professional software engineer and I would …
+
+                                    </div>
+                                 </div>
+                              </div>
+                           
+                           
+                              <div class="flip-box">
+                                 <div class="flip-box-inner">
+                                    <div class="flip-box-front">
+                                       
+                                       <Image
+                                 src={mento8}
+                                 style={{
+                                    width: 90,
+                                    height: 90,
+                                    borderRadius: 300 / 2,
+                                 }}></Image>
                               <br />
-                              "Diana is the type of mentor you want to keep for
-                              a long time if you are looking for someone to
-                              guide you through the coding world. She
-                              immediately identified my goals and helped me find
-                              a learning path."
-                              <br /> <h5> - Jerrica, a JavaScript mentee.</h5>
-                           </div>
-                           {/* <p>Nulla vitae elit libe</p> */}
+                              <h2>Nilesh Arnaiya </h2>
+                              <IoMdThumbsUp />
+                              <br/>
+                              <h5>Android Developer at Youtube{" "}<BsYoutube/></h5>
+                              <div className="rating">
+                             <StarRatings
+                              rating={5}
+                              changeRating={this.changeRating}
+                              starRatedColor="#ffd700"
+                              starEmptyColor="rgb(203, 211, 227)"
+                              starHoverColor="#ffd700"
+                              starSpacing="4px"
+                              starDimension="22px"
+                              starSelectingHoverColor="#FFFF00"
+                              />
+                              <span>(400 review)</span><br/>
+                              <BsChatDotsFill/>{" "}Chat
+                                 {" .."} <BsFillTelephoneFill/>{" "}Regular Calls{" .. "}<BsPatchCheck/>{" "}Tasks
+                             </div>
+                                    </div>
+                                    <div class="flip-box-back">
+                                       <h2>Experience</h2>
+                                       Hello, I'm Nilesh Arnaiya. I've been mentoring on this platform for 3+ years now and I've previously worked as a Data scientist at Genuin Inc and currently a senior Android Developer at Aventior. I was also a Mentor at Udacity where I applied my extensive mentorship experience in AI and …
+
+                                    </div>
+                                 </div>
+                              </div>
+                            </div>
                         </div>
 
                         <Carousel.Caption></Carousel.Caption>
@@ -475,46 +574,88 @@ class Dashboard extends React.Component {
                      <Carousel.Item>
                         <h3>Full Stack Developer</h3>
                         <div className="carousel-Mento">
-                           <div className="carousel-mentor-boxes">
-                              <Image
+                        <div className="flip">
+                             <div class="flip-box">
+                                 <div class="flip-box-inner">
+                                    <div class="flip-box-front">
+                                       
+                                       <Image
                                  src={mento5}
                                  style={{
-                                    width: 70,
-                                    height: 70,
+                                    width: 90,
+                                    height: 90,
                                     borderRadius: 300 / 2,
-                                 }}
-                              ></Image>
+                                 }}></Image>
                               <br />
+                              <h2>Richard Bunkham </h2>
                               <IoMdThumbsUp />
-                              <br />
-                              "Diana is the type of mentor you want to keep for
-                              a long time if you are looking for someone to
-                              guide you through the coding world. She
-                              immediately identified my goals and helped me find
-                              a learning path."
-                              <br /> <h5> - Jerrica, a JavaScript mentee.</h5>
-                           </div>
-                           {/* <p>Nulla vitae elit libe</p> */}
-                           <div className="carousel-mentor-boxes">
-                              <Image
+                              <br/>
+                              <h5>Executive Career Coach at Whatsapp{" "}<BsWhatsapp/></h5>
+                              <div className="rating">
+                             <StarRatings
+                              rating={4.5}
+                              changeRating={this.changeRating}
+                              starRatedColor="#ffd700"
+                              starEmptyColor="rgb(203, 211, 227)"
+                              starHoverColor="#ffd700"
+                              starSpacing="4px"
+                              starDimension="22px"
+                              starSelectingHoverColor="#FFFF00"
+                              />
+                              <span>(220 review)</span><br/>
+                              <BsChatDotsFill/>{" "}Chat
+                                 {" .."} <BsFillTelephoneFill/>{" "}Regular Calls{" .. "}<BsPatchCheck/>{" "}Tasks
+                             </div>
+                                    </div>
+                                    <div class="flip-box-back">
+                                       <h2>Experience</h2>
+                                       I am a qualified HR professional and experienced career coach, my approach is pragmatic and action focused together we will find you your dream job and pass the interview. I have over 20 years experience recruiting in varied sectors globally, I have an insight into what employers are looking for 
+
+                                    </div>
+                                 </div>
+                              </div>
+                           
+                           
+                              <div class="flip-box">
+                                 <div class="flip-box-inner">
+                                    <div class="flip-box-front">
+                                       
+                                       <Image
                                  src={mento9}
                                  style={{
-                                    width: 70,
-                                    height: 70,
+                                    width: 90,
+                                    height: 90,
                                     borderRadius: 300 / 2,
-                                 }}
-                              ></Image>
+                                 }}></Image>
                               <br />
+                              <h2>Tobias Steffen</h2>
                               <IoMdThumbsUp />
-                              <br />
-                              "Diana is the type of mentor you want to keep for
-                              a long time if you are looking for someone to
-                              guide you through the coding world. She
-                              immediately identified my goals and helped me find
-                              a learning path."
-                              <br /> <h5> - Jerrica, a JavaScript mentee.</h5>
-                           </div>
-                           {/* <p>Nulla vitae elit libe</p> */}
+                              <br/>
+                              <h5>Software Developer at Spotify{" "}<BsSpotify/></h5>
+                              <div className="rating">
+                             <StarRatings
+                              rating={4.5}
+                              changeRating={this.changeRating}
+                              starRatedColor="#ffd700"
+                              starEmptyColor="rgb(203, 211, 227)"
+                              starHoverColor="#ffd700"
+                              starSpacing="4px"
+                              starDimension="22px"
+                              starSelectingHoverColor="#FFFF00"
+                              />
+                              <span>(220 review)</span><br/>
+                              <BsChatDotsFill/>{" "}Chat
+                                 {" .."} <BsFillTelephoneFill/>{" "}Regular Calls{" .. "}<BsPatchCheck/>{" "}Tasks
+                             </div>
+                                    </div>
+                                    <div class="flip-box-back">
+                                       <h2>Experience</h2>
+                                       Hi there, 👋 You love webdesign and want to want to become better in using Webflow? Great! I can accompany you in getting familiar with the basics and also teach you advanced techniques. Reach out to me so we can dive right into your project! 🥥 About me in a …
+
+                                    </div>
+                                 </div>
+                              </div>
+                            </div>
                         </div>
 
                         <Carousel.Caption></Carousel.Caption>
@@ -529,92 +670,178 @@ class Dashboard extends React.Component {
                      <Carousel.Item>
                         <h3>Bussiness Experts</h3>
                         <div className="carousel-Mento">
-                           <div className="carousel-mentor-boxes">
-                              <Image
+                        <div className="flip">
+                             <div class="flip-box">
+                                 <div class="flip-box-inner">
+                                    <div class="flip-box-front">
+                                       
+                                       <Image
                                  src={mento4}
                                  style={{
-                                    width: 70,
-                                    height: 70,
+                                    width: 90,
+                                    height: 90,
                                     borderRadius: 300 / 2,
-                                 }}
-                              ></Image>
+                                 }}></Image>
                               <br />
+                              <h2>Everton Paula </h2>
                               <IoMdThumbsUp />
-                              <br />
-                              "Diana is the type of mentor you want to keep for
-                              a long time if you are looking for someone to
-                              guide you through the coding world. She
-                              immediately identified my goals and helped me find
-                              a learning path."
-                              <br /> <h5> - Jerrica, a JavaScript mentee.</h5>
-                           </div>
-                           {/* <p>Nulla vitae elit libe</p> */}
-                           <div className="carousel-mentor-boxes">
-                              <Image
+                              <br/>
+                              <h5>Business Consultant at Andrade Gutierrez Engineering{" "}<BsStack/></h5>
+                              <div className="rating">
+                             <StarRatings
+                              rating={3}
+                              changeRating={this.changeRating}
+                              starRatedColor="#ffd700"
+                              starEmptyColor="rgb(203, 211, 227)"
+                              starHoverColor="#ffd700"
+                              starSpacing="4px"
+                              starDimension="22px"
+                              starSelectingHoverColor="#FFFF00"
+                              />
+                              <span>(220 review)</span><br/>
+                              <BsChatDotsFill/>{" "}Chat
+                                 {" .."} <BsFillTelephoneFill/>{" "}Regular Calls{" .. "}<BsPatchCheck/>{" "}Tasks
+                             </div>
+                                    </div>
+                                    <div class="flip-box-back">
+                                       <h2>Experience</h2>
+                                       Bachelor Degree in Quality Management, Data Scientist, a specialist in Operational Excellence and Lean and Six Sigma Training, Quality Engineer Certified by the American Society for Quality, Master Black Belt certified by the Florida Atlantic University and Technician in Mechanical Industrial. Experienced in Industrial Operations and Services, Quality Management and …
+
+                                    </div>
+                                 </div>
+                              </div>
+                           
+                           
+                              <div class="flip-box">
+                                 <div class="flip-box-inner">
+                                    <div class="flip-box-front">
+                                       
+                                       <Image
                                  src={mento2}
                                  style={{
-                                    width: 70,
-                                    height: 70,
+                                    width: 90,
+                                    height: 90,
                                     borderRadius: 300 / 2,
-                                 }}
-                              ></Image>
+                                 }}></Image>
                               <br />
+                              <h2>Lea Marolt Sonnenschein
+</h2>
                               <IoMdThumbsUp />
-                              <br />
-                              "Diana is the type of mentor you want to keep for
-                              a long time if you are looking for someone to
-                              guide you through the coding world. She
-                              immediately identified my goals and helped me find
-                              a learning path."
-                              <br /> <h5> - Jerrica, a JavaScript mentee.</h5>
-                           </div>
-                           {/* <p>Nulla vitae elit libe</p> */}
+                              <br/>
+                              <h5>Senior Product Manager at StackOverflow{" "}<BsStackOverflow/></h5>
+                              <div className="rating">
+                             <StarRatings
+                              rating={4.5}
+                              changeRating={this.changeRating}
+                              starRatedColor="#ffd700"
+                              starEmptyColor="rgb(203, 211, 227)"
+                              starHoverColor="#ffd700"
+                              starSpacing="4px"
+                              starDimension="22px"
+                              starSelectingHoverColor="#FFFF00"
+                              />
+                              <span>(220 review)</span><br/>
+                              <BsChatDotsFill/>{" "}Chat
+                                 {" .."} <BsFillTelephoneFill/>{" "}Regular Calls{" .. "}<BsPatchCheck/>{" "}Tasks
+                             </div>
+                                    </div>
+                                    <div class="flip-box-back">
+                                       <h2>Experience</h2>
+                                       I'm an iOS engineer turned product manager trained in New York and London. As a career switcher (back and forth between engineering and product a few times), I know how tricky it can be to get your foot in the door and re-package yourself and your skillset. I love all …
+
+                                    </div>
+                                 </div>
+                              </div>
+                            </div>
+                         
                         </div>
                         <Carousel.Caption></Carousel.Caption>
                      </Carousel.Item>
                      <Carousel.Item>
                         <h3>Personal Coachs</h3>
                         <div className="carousel-Mento">
-                           <div className="carousel-mentor-boxes">
-                              <Image
+                        <div className="flip">
+                             <div class="flip-box">
+                                 <div class="flip-box-inner">
+                                    <div class="flip-box-front">
+                                       
+                                       <Image
                                  src={mento7}
                                  style={{
-                                    width: 70,
-                                    height: 70,
+                                    width: 90,
+                                    height: 90,
                                     borderRadius: 300 / 2,
-                                 }}
-                              ></Image>
+                                 }}></Image>
                               <br />
+                              <h2>Andrii Khliakin </h2>
                               <IoMdThumbsUp />
-                              <br />
-                              "Diana is the type of mentor you want to keep for
-                              a long time if you are looking for someone to
-                              guide you through the coding world. She
-                              immediately identified my goals and helped me find
-                              a learning path."
-                              <br /> <h5> - Jerrica, a JavaScript mentee.</h5>
-                           </div>
-                           {/* <p>Nulla vitae elit libe</p> */}
-                           <div className="carousel-mentor-boxes">
-                              <Image
+                              <br/>
+                              <h5>Senior Product Manager at Jooble{" "}<BsSkype/></h5>
+                              <div className="rating">
+                             <StarRatings
+                              rating={5}
+                              changeRating={this.changeRating}
+                              starRatedColor="#ffd700"
+                              starEmptyColor="rgb(203, 211, 227)"
+                              starHoverColor="#ffd700"
+                              starSpacing="4px"
+                              starDimension="22px"
+                              starSelectingHoverColor="#FFFF00"
+                              />
+                              <span>(220 review)</span><br/>
+                              <BsChatDotsFill/>{" "}Chat
+                                 {" .."} <BsFillTelephoneFill/>{" "}Regular Calls{" .. "}<BsPatchCheck/>{" "}Tasks
+                             </div>
+                                    </div>
+                                    <div class="flip-box-back">
+                                       <h2>Experience</h2>
+                                       I'm a Product Manager with 15 years of overall experience focused on delivering high-impact results in web products. I have strong experience in both B2B and B2C areas. I worked in Jooble — #2 job aggregator in the World with millions users audience. And previously, I built from a scratch …
+
+                                    </div>
+                                 </div>
+                              </div>
+                           
+                           
+                              <div class="flip-box">
+                                 <div class="flip-box-inner">
+                                    <div class="flip-box-front">
+                                       
+                                       <Image
                                  src={mento3}
                                  style={{
-                                    width: 70,
-                                    height: 70,
+                                    width: 90,
+                                    height: 90,
                                     borderRadius: 300 / 2,
-                                 }}
-                              ></Image>
+                                 }}></Image>
                               <br />
+                              <h2>Megan Casebier </h2>
                               <IoMdThumbsUp />
-                              <br />
-                              "Diana is the type of mentor you want to keep for
-                              a long time if you are looking for someone to
-                              guide you through the coding world. She
-                              immediately identified my goals and helped me find
-                              a learning path."
-                              <br /> <h5> - Jerrica, a JavaScript mentee.</h5>
-                           </div>
-                           {/* <p>Nulla vitae elit libe</p> */}
+                              <br/>
+                              <h5>UX Designer & Researcher at Snapchat{" "}<BsSnapchat/></h5>
+                              <div className="rating">
+                             <StarRatings
+                              rating={4}
+                              changeRating={this.changeRating}
+                              starRatedColor="#ffd700"
+                              starEmptyColor="rgb(203, 211, 227)"
+                              starHoverColor="#ffd700"
+                              starSpacing="4px"
+                              starDimension="22px"
+                              starSelectingHoverColor="#FFFF00"
+                              />
+                              <span>(220 review)</span><br/>
+                              <BsChatDotsFill/>{" "}Chat
+                                 {" .."} <BsFillTelephoneFill/>{" "}Regular Calls{" .. "}<BsPatchCheck/>{" "}Tasks
+                             </div>
+                                    </div>
+                                    <div class="flip-box-back">
+                                       <h2>Experience</h2>
+                                       Hi! I'm Megan. I'm a UX Designer and Researcher working at a startup in the shipping & logistics industry. I'm also a non-traditional career switcher that leveraged my savvy storytelling skills to land my first UX role with ZERO industry experience and a background in Social Psychology, Digital Marketing and …
+
+                                    </div>
+                                 </div>
+                              </div>
+                            </div>
                         </div>
 
                         <Carousel.Caption></Carousel.Caption>
@@ -622,46 +849,88 @@ class Dashboard extends React.Component {
                      <Carousel.Item>
                         <h3>Arts & Designer</h3>
                         <div className="carousel-Mento">
-                           <div className="carousel-mentor-boxes">
-                              <Image
+                        <div className="flip">
+                             <div class="flip-box">
+                                 <div class="flip-box-inner">
+                                    <div class="flip-box-front">
+                                       
+                                       <Image
                                  src={mento10}
                                  style={{
-                                    width: 70,
-                                    height: 70,
+                                    width: 90,
+                                    height: 90,
                                     borderRadius: 300 / 2,
-                                 }}
-                              ></Image>
+                                 }}></Image>
                               <br />
+                              <h2>Niharika Arora </h2>
                               <IoMdThumbsUp />
-                              <br />
-                              "Diana is the type of mentor you want to keep for
-                              a long time if you are looking for someone to
-                              guide you through the coding world. She
-                              immediately identified my goals and helped me find
-                              a learning path."
-                              <br /> <h5> - Jerrica, a JavaScript mentee.</h5>
-                           </div>
-                           {/* <p>Nulla vitae elit libe</p> */}
-                           <div className="carousel-mentor-boxes">
-                              <Image
+                              <br/>
+                              <h5>Android Engineer at Google{" "}<BsGoogle/></h5>
+                              <div className="rating">
+                             <StarRatings
+                              rating={5}
+                              changeRating={this.changeRating}
+                              starRatedColor="#ffd700"
+                              starEmptyColor="rgb(203, 211, 227)"
+                              starHoverColor="#ffd700"
+                              starSpacing="4px"
+                              starDimension="22px"
+                              starSelectingHoverColor="#FFFF00"
+                              />
+                              <span>(220 review)</span><br/>
+                              <BsChatDotsFill/>{" "}Chat
+                                 {" .."} <BsFillTelephoneFill/>{" "}Regular Calls{" .. "}<BsPatchCheck/>{" "}Tasks
+                             </div>
+                                    </div>
+                                    <div class="flip-box-back">
+                                       <h2>Experience</h2>
+                                       Niharika Arora, also known as theDroidLady, is working as an Android Engineer at Google and has been into Android for the last 6 years. She is a former Google Developer Expert for Android and one of the core contributors to the Government of India's Contact tracing App "AarogyaSetu" to fight …
+
+                                    </div>
+                                 </div>
+                              </div>
+                           
+                           
+                              <div class="flip-box">
+                                 <div class="flip-box-inner">
+                                    <div class="flip-box-front">
+                                       
+                                       <Image
                                  src={mento6}
                                  style={{
-                                    width: 70,
-                                    height: 70,
+                                    width: 90,
+                                    height: 90,
                                     borderRadius: 300 / 2,
-                                 }}
-                              ></Image>
+                                 }}></Image>
                               <br />
+                              <h2>Kiran Kumar</h2>
                               <IoMdThumbsUp />
-                              <br />
-                              "Diana is the type of mentor you want to keep for
-                              a long time if you are looking for someone to
-                              guide you through the coding world. She
-                              immediately identified my goals and helped me find
-                              a learning path."
-                              <br /> <h5> - Jerrica, a JavaScript mentee.</h5>
-                           </div>
-                           {/* <p>Nulla vitae elit libe</p> */}
+                              <br/>
+                              <h5>Engineering Manager at MediBuddy{" "}<BsFillDropletFill/></h5>
+                              <div className="rating">
+                             <StarRatings
+                              rating={4.5}
+                              changeRating={this.changeRating}
+                              starRatedColor="#ffd700"
+                              starEmptyColor="rgb(203, 211, 227)"
+                              starHoverColor="#ffd700"
+                              starSpacing="4px"
+                              starDimension="22px"
+                              starSelectingHoverColor="#FFFF00"
+                              />
+                              <span>(220 review)</span><br/>
+                              <BsChatDotsFill/>{" "}Chat
+                                 {" .."} <BsFillTelephoneFill/>{" "}Regular Calls{" .. "}<BsPatchCheck/>{" "}Tasks
+                             </div>
+                                    </div>
+                                    <div class="flip-box-back">
+                                       <h2>Experience</h2>
+                                       Coming from India's one of the most premium institutes (IIT Kharagpur) and having over seven years of experience, building scalable & stable products that can solve real life problems is something I enjoy. I have worked in fast-paced startups to now a growing unicorn enterprise in the healthcare space along …
+
+                                    </div>
+                                 </div>
+                              </div>
+                            </div>
                         </div>
 
                         <Carousel.Caption></Carousel.Caption>
@@ -670,6 +939,10 @@ class Dashboard extends React.Component {
                </div>
             </div>
             <div className="All-courses">
+               <div className="course-box">
+                  <h2>Explore Our Courses Section</h2>
+                  <p>Take the first step in building a strong foundation for your career</p>
+               </div>
                <div className="m2">
                   <div className="Card">
                      <Card style={{ width: "20rem" }}>
@@ -904,6 +1177,12 @@ class Dashboard extends React.Component {
                   our word for it – here’s what some of them had to say about
                   Pro-Mentor-Techs.
                </div>
+               <div className="review-box1">
+                  <h1>Our Success Stories</h1>
+                  <p>1800+ students on DS ,Algo , OS & Web Development with detailed get benifited
+Completely Level 1 of DS Algo series ,<br/>it's seriously all you need to crack 80% of tech interviews.
+Works best for students/working<br/> professionals who:</p>
+               </div>
                <div className="Review_grids">
                   <div className="review-grid-columns">
                      <IoMdThumbsUp />
@@ -966,7 +1245,23 @@ class Dashboard extends React.Component {
                   });
                }}
             />
-
+               <div className="Consultend-page">
+                  <div><h1>Do you have any doubts?</h1>
+                  <p>Do you have any doubts?Get a free consultation with our specialists</p>
+                  <div><h3><BsFillTelephoneFill/>{" "}Call Us {" "} +91 11 4019 4461</h3>
+                  {" "}<h3><BsTelephoneForward/>{" "}Tele Us {" "}+91 11 5019 2276</h3>
+                  <h4><BsEnvelopeOpenFill/>{" "}support.no.reply@gmail.com</h4>
+                  </div>
+                  </div>
+                  <div className="Consultant-input">
+                     <BsFillLayersFill/>
+                     <input  className="input-conso" type="text" placeholder="Your Name"></input>
+                     <input className="input-conso" type="email" placeholder="Your Email"></input>
+                     <input className="input-conso" type="number" placeholder="Your Number"></input>
+                     <input className="input-conso" type="number" placeholder="Your Graduation"></input>
+                     <Button variant="warning">Request CallBack</Button>
+                  </div>
+               </div>
             {/* footer */}
             <div className="footer">
                <div className="footerhead">

@@ -15,11 +15,9 @@ import footer1 from "../images/1final.jpg";
 import { IoLogoInstagram } from "react-icons/io";
 import { IoMdCreate } from "react-icons/io";
 import { IoLogoFacebook } from "react-icons/io";
-import { IoLogoFirefox } from "react-icons/io5";
 import { IoLogoGithub } from "react-icons/io5";
 import { IoLogoTwitter } from "react-icons/io5";
 import { IoLogoLinkedin } from "react-icons/io5";
-import { MdOutlineSettings } from "react-icons/md";
 import { Button } from "react-bootstrap";
 function Home(props) {
    return (
@@ -133,7 +131,7 @@ function Home(props) {
             </pre>
          </div>
          <div>
-            <img src={homehero} className="homehero"></img>
+            <img src={homehero} alt="not found" className="homehero"></img>
          </div>
          <div className="homecontent">
             <b>GET MENTORED BY INDUSTRY VETERANS</b>
@@ -225,7 +223,7 @@ function Home(props) {
                </p>
             </div>
             <div className="endimg">
-               <img src={end11} className="endimg"></img>
+               <img src={end11} alt="not found" className="endimg"></img>
             </div>
          </div>
          {/**footer page started */}
