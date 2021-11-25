@@ -25,7 +25,7 @@ class App extends React.Component {
       this.getUserInfo();
    }
    logout() {
-      fetch("http://localhost:8081/logout", {
+      fetch("https://pro-mentor-techs-backend.herokuapp.com/logout", {
          method: "GET",
          credentials: "include",
       }).then((r) => {
@@ -35,7 +35,7 @@ class App extends React.Component {
       });
    }
    getUserInfo() {
-      fetch("http://localhost:8081/userinfo", { credentials: "include" }).then(
+      fetch("https://pro-mentor-techs-backend.herokuapp.com/userinfo", { credentials: "include" }).then(
          (r) => {
             if (r.ok) {
                this.props.history.push("/Dashboard");

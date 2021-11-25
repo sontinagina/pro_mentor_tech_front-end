@@ -66,16 +66,20 @@ function FGPModal(props) {
             setSpinnerbtn(true);
             // --------------------
             const params = "type=email";
-            fetch("http://localhost:8081/forgotpass?" + params, {
-               method: "POST",
-               headers: {
-                  "Content-Type": "application/json",
-               },
-               body: JSON.stringify({
-                  email: props.email,
-               }),
-               credentials: "include",
-            })
+            fetch(
+               "https://pro-mentor-techs-backend.herokuapp.com/forgotpass?" +
+                  params,
+               {
+                  method: "POST",
+                  headers: {
+                     "Content-Type": "application/json",
+                  },
+                  body: JSON.stringify({
+                     email: props.email,
+                  }),
+                  credentials: "include",
+               }
+            )
                .then((r) => {
                   setSpinnerbtn(false);
                   return r.json();
@@ -106,17 +110,21 @@ function FGPModal(props) {
          let params = "type=otp";
          console.log("======================", props.otp);
 
-         fetch("http://localhost:8081/forgotpass?" + params, {
-            method: "POST",
-            headers: {
-               "Content-Type": "application/json",
-            },
-            body: JSON.stringify({
-               email: props.email,
-               otp: props.otp,
-            }),
-            credentials: "include",
-         })
+         fetch(
+            "https://pro-mentor-techs-backend.herokuapp.com/forgotpass?" +
+               params,
+            {
+               method: "POST",
+               headers: {
+                  "Content-Type": "application/json",
+               },
+               body: JSON.stringify({
+                  email: props.email,
+                  otp: props.otp,
+               }),
+               credentials: "include",
+            }
+         )
             .then((r) => {
                return r.json();
             })
@@ -157,17 +165,21 @@ function FGPModal(props) {
             } else {
                // ---------------
                const params = "type=confirmpass";
-               fetch("http://localhost:8081/forgotpass?" + params, {
-                  method: "POST",
-                  headers: {
-                     "Content-Type": "application/json",
-                  },
-                  body: JSON.stringify({
-                     email: props.email,
-                     password: props.pass2,
-                  }),
-                  credentials: "include",
-               })
+               fetch(
+                  "https://pro-mentor-techs-backend.herokuapp.com/forgotpass?" +
+                     params,
+                  {
+                     method: "POST",
+                     headers: {
+                        "Content-Type": "application/json",
+                     },
+                     body: JSON.stringify({
+                        email: props.email,
+                        password: props.pass2,
+                     }),
+                     credentials: "include",
+                  }
+               )
                   .then((r) => {
                      console.log("pass1: " + r);
                      console.log(r);
