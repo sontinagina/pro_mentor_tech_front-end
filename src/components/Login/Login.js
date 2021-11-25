@@ -90,7 +90,7 @@ function Signin(props) {
          console.log("error");
       } else {
          if (props.flag === "signup") {
-            fetch("http://localhost:8081/signup", {
+            fetch("https://pro-mentor-techs-backend.herokuapp.com/signup", {
                method: "POST",
                headers: {
                   "Content-Type": "application/json",
@@ -129,7 +129,7 @@ function Signin(props) {
                });
          }
          if (props.flag === "signin") {
-            fetch("http://localhost:8081/signin", {
+            fetch("https://pro-mentor-techs-backend.herokuapp.com/signin", {
                method: "POST",
                headers: {
                   "Content-Type": "application/json",
