@@ -49,7 +49,7 @@ class Profile extends React.Component {
          headers: {
             "Content-Type": "application/json",
          },
-         credentials: "include",
+         
       })
          .then((r) => {
             console("profile result::", r);
@@ -229,7 +229,7 @@ class Profile extends React.Component {
             dob: this.state.pdob,
             mobilenumber: this.state.pmobileno,
          }),
-         credentials: "include",
+         
       })
          .then((r) => {
             console(r, "--------------this is r");

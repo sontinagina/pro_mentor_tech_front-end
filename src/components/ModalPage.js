@@ -77,7 +77,6 @@ function FGPModal(props) {
                   body: JSON.stringify({
                      email: props.email,
                   }),
-                  credentials: "include",
                }
             )
                .then((r) => {
@@ -122,7 +121,6 @@ function FGPModal(props) {
                   email: props.email,
                   otp: props.otp,
                }),
-               credentials: "include",
             }
          )
             .then((r) => {
@@ -177,7 +175,6 @@ function FGPModal(props) {
                         email: props.email,
                         password: props.pass2,
                      }),
-                     credentials: "include",
                   }
                )
                   .then((r) => {

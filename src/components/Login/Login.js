@@ -101,7 +101,6 @@ function Signin(props) {
                   email: userEmail,
                   password: userPassword,
                }),
-               credentials: "include",
             })
                .then((r) => {
                   return r.json();
@@ -139,7 +138,6 @@ function Signin(props) {
                   email: userEmail,
                   password: userPassword,
                }),
-               credentials: "include",
             })
                .then((r) => {
                   return r.json();

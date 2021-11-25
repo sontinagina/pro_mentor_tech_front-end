@@ -26,8 +26,10 @@ class App extends React.Component {
    }
    logout() {
       fetch("https://pro-mentor-techs-backend.herokuapp.com/logout", {
-         method: "GET"
-         
+         method: "GET",
+         headers: {
+            "Content-Type": "application/json",
+         },
       }).then((r) => {
          if (r.ok) {
             this.props.history.push("/");
@@ -37,6 +39,9 @@ class App extends React.Component {
    getUserInfo() {
       fetch("https://pro-mentor-techs-backend.herokuapp.com/userinfo", {
          method: "GET",
+         headers: {
+            "Content-Type": "application/json",
+         },
       })
          .then((r) => {
             if (r.ok) {

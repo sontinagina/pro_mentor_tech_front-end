@@ -115,12 +115,11 @@ class Dashboard extends React.Component {
    };
 
    componentDidMount() {
-      fetch("https://pro-mentor-techs-backend.herokuapp.com/getUsername", {
+      fetch("http://localhost:8081/getUsername", {
          method: "GET",
          headers: {
             "Content-Type": "application/json",
          },
-         credentials: "include",
       })
          .then((r) => {
             return r.json();
