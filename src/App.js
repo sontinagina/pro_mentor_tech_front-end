@@ -26,8 +26,8 @@ class App extends React.Component {
    }
    logout() {
       fetch("https://pro-mentor-techs-backend.herokuapp.com/logout", {
-         method: "GET",
-         credentials: "include",
+         method: "GET"
+         
       }).then((r) => {
          if (r.ok) {
             this.props.history.push("/");
@@ -37,14 +37,17 @@ class App extends React.Component {
    getUserInfo() {
       fetch("https://pro-mentor-techs-backend.herokuapp.com/userinfo", {
          method: "GET",
-         credentials: "include",
-      }).then((r) => {
-         if (r.ok) {
-            this.props.history.push("/Dashboard");
-         } else {
-            this.props.history.push("/");
-         }
-      });
+      })
+         .then((r) => {
+            if (r.ok) {
+               this.props.history.push("/Dashboard");
+            } else {
+               this.props.history.push("/");
+            }
+         })
+         .catch((err) => {
+            console.log("error:", err);
+         });
    }
    changeLoginFlag = (val) => {
       this.setState({
