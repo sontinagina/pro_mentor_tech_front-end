@@ -35,15 +35,16 @@ class App extends React.Component {
       });
    }
    getUserInfo() {
-      fetch("https://pro-mentor-techs-backend.herokuapp.com/userinfo", { credentials: "include" }).then(
-         (r) => {
-            if (r.ok) {
-               this.props.history.push("/Dashboard");
-            } else {
-               this.props.history.push("/");
-            }
+      fetch("https://pro-mentor-techs-backend.herokuapp.com/userinfo", {
+         method: "GET",
+         credentials: "include",
+      }).then((r) => {
+         if (r.ok) {
+            this.props.history.push("/Dashboard");
+         } else {
+            this.props.history.push("/");
          }
-      );
+      });
    }
    changeLoginFlag = (val) => {
       this.setState({
