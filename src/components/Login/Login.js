@@ -90,7 +90,10 @@ function Signin(props) {
          console.log("error");
       } else {
          if (props.flag === "signup") {
-            fetch("https://pro-mentor-techs-backend.herokuapp.com/signup", {
+            const url1 = props.URL + "signup";
+            console.log(url1);
+            fetch(url1, {
+               credentials: true,
                method: "POST",
                headers: {
                   "Content-Type": "application/json",
@@ -128,7 +131,10 @@ function Signin(props) {
                });
          }
          if (props.flag === "signin") {
-            fetch("https://pro-mentor-techs-backend.herokuapp.com/signin", {
+            const url2 = props.URL + "signin";
+            console.log(url2);
+            fetch(url2, {
+               credentials: true,
                method: "POST",
                headers: {
                   "Content-Type": "application/json",
@@ -162,13 +168,11 @@ function Signin(props) {
    return (
       <div className="signinpage">
          <div className="logopagesignin">
-          <div className="signlogo">
-                  <img src={weblogo} alt="/" className="img-responsive1" />
-               </div><img
-                     className="signimg33"
-                     src={image1}
-                     alt="not found"
-                  /></div>
+            <div className="signlogo">
+               <img src={weblogo} alt="/" className="img-responsive1" />
+            </div>
+            <img className="signimg33" src={image1} alt="not found" />
+         </div>
 
          <div className="inputboth">
             <div className="subheader">
@@ -384,6 +388,7 @@ function Signin(props) {
             setInfo={setInfo}
             match={match}
             setMatch={setMatch}
+            URL={props.URL}
          />
          <Modal
             size="sm"

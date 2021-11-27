@@ -115,7 +115,10 @@ class Dashboard extends React.Component {
    };
 
    componentDidMount() {
-      fetch("http://localhost:8081/getUsername", {
+      const url3 = this.props.URL + "getUsername";
+      console.log("url3::", url3);
+      fetch(url3, {
+         credentials:'include',
          method: "GET",
          headers: {
             "Content-Type": "application/json",
@@ -125,11 +128,15 @@ class Dashboard extends React.Component {
             return r.json();
          })
          .then((r) => {
+            console.log("res::->", r);
             console.log("get username value: ", r.user.length);
             this.setState({
                userInfo: [...r.user],
                userEmailId: [...r.user],
             });
+         })
+         .catch((err) => {
+            console.log(err);
          });
    }
    render() {

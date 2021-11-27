@@ -66,19 +66,16 @@ function FGPModal(props) {
             setSpinnerbtn(true);
             // --------------------
             const params = "type=email";
-            fetch(
-               "https://pro-mentor-techs-backend.herokuapp.com/forgotpass?" +
-                  params,
-               {
-                  method: "POST",
-                  headers: {
-                     "Content-Type": "application/json",
-                  },
-                  body: JSON.stringify({
-                     email: props.email,
-                  }),
-               }
-            )
+            fetch(props.URL + "forgotpass?" + params, {
+               credentials: true,
+               method: "POST",
+               headers: {
+                  "Content-Type": "application/json",
+               },
+               body: JSON.stringify({
+                  email: props.email,
+               }),
+            })
                .then((r) => {
                   setSpinnerbtn(false);
                   return r.json();
@@ -109,20 +106,17 @@ function FGPModal(props) {
          let params = "type=otp";
          console.log("======================", props.otp);
 
-         fetch(
-            "https://pro-mentor-techs-backend.herokuapp.com/forgotpass?" +
-               params,
-            {
-               method: "POST",
-               headers: {
-                  "Content-Type": "application/json",
-               },
-               body: JSON.stringify({
-                  email: props.email,
-                  otp: props.otp,
-               }),
-            }
-         )
+         fetch(props.URL + "forgotpass?" + params, {
+            credentials: true,
+            method: "POST",
+            headers: {
+               "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+               email: props.email,
+               otp: props.otp,
+            }),
+         })
             .then((r) => {
                return r.json();
             })
@@ -163,20 +157,17 @@ function FGPModal(props) {
             } else {
                // ---------------
                const params = "type=confirmpass";
-               fetch(
-                  "https://pro-mentor-techs-backend.herokuapp.com/forgotpass?" +
-                     params,
-                  {
-                     method: "POST",
-                     headers: {
-                        "Content-Type": "application/json",
-                     },
-                     body: JSON.stringify({
-                        email: props.email,
-                        password: props.pass2,
-                     }),
-                  }
-               )
+               fetch(props.URL + "forgotpass?" + params, {
+                  credentials: true,
+                  method: "POST",
+                  headers: {
+                     "Content-Type": "application/json",
+                  },
+                  body: JSON.stringify({
+                     email: props.email,
+                     password: props.pass2,
+                  }),
+               })
                   .then((r) => {
                      console.log("pass1: " + r);
                      console.log(r);

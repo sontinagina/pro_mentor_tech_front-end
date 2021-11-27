@@ -44,7 +44,8 @@ class Profile extends React.Component {
    }
    componentDidMount() {
       console.log("================================called..........");
-      fetch("https://pro-mentor-techs-backend.herokuapp.com/getProfile", {
+      fetch(this.props.URL+"getProfile", {
+         credentials: true,
          method: "GET",
          headers: {
             "Content-Type": "application/json",
@@ -203,7 +204,8 @@ class Profile extends React.Component {
    };
    saveProfileFun = () => {
       console.log("where is get method");
-      fetch("https://pro-mentor-techs-backend.herokuapp.com/saveProfile", {
+      fetch(this.props.URL+"saveProfile", {
+         credentials: true,
          method: "POST",
          headers: {
             "Content-Type": "application/json",

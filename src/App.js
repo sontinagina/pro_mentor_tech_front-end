@@ -16,6 +16,8 @@ class App extends React.Component {
       super();
       this.state = {
          loginFlag: "signin",
+         URL:"http://localhost:3001/",
+         // URL:"https://pro-mentor-techs-backend.herokuapp.com/",
       };
       this.getUserInfo = this.getUserInfo.bind(this);
       this.logout = this.logout.bind(this);
@@ -25,7 +27,8 @@ class App extends React.Component {
       this.getUserInfo();
    }
    logout() {
-      fetch("https://pro-mentor-techs-backend.herokuapp.com/logout", {
+      fetch(this.state.URL+"logout", {
+         credentials:'include',
          method: "GET",
          headers: {
             "Content-Type": "application/json",
@@ -37,7 +40,8 @@ class App extends React.Component {
       });
    }
    getUserInfo() {
-      fetch("https://pro-mentor-techs-backend.herokuapp.com/userinfo", {
+      fetch(this.state.URL+"userinfo", {
+         credentials:'include',
          method: "GET",
          headers: {
             "Content-Type": "application/json",
@@ -69,21 +73,21 @@ class App extends React.Component {
          <div>
             <div>
                <Route exact path="/Dashboard">
-                  <Dashboard logout={this.logout}></Dashboard>
+                  <Dashboard logout={this.logout} URL={this.state.URL}></Dashboard>
                </Route>
                <Route exact path="/">
-                  <Home loginHandler={this.changeLoginFlag}></Home>
+                  <Home loginHandler={this.changeLoginFlag} URL={this.state.URL}></Home>
                </Route>
                <Route exact path="/Signin">
                   <Signin
                      loginHandler={this.changeLoginFlag}
-                     flag={this.state.loginFlag}
+                     flag={this.state.loginFlag} URL={this.state.URL}
                   ></Signin>
                </Route>
                <Route exact path="/Signup">
                   <Signin
                      loginHandler={this.changeLoginFlag}
-                     flag={this.state.loginFlag}
+                     flag={this.state.loginFlag} URL={this.state.URL}
                   ></Signin>
                </Route>
                {/* <Route exact path="/Profile">
