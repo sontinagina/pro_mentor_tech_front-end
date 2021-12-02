@@ -118,7 +118,7 @@ class Dashboard extends React.Component {
       const url3 = this.props.URL + "getUsername";
       console.log("url3::", url3);
       fetch(url3, {
-         credentials:'include',
+         // credentials:'include',
          method: "GET",
          headers: {
             "Content-Type": "application/json",

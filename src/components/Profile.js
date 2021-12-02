@@ -45,7 +45,7 @@ class Profile extends React.Component {
    componentDidMount() {
       console.log("================================called..........");
       fetch(this.props.URL+"getProfile", {
-         credentials: true,
+         // credentials: true,
          method: "GET",
          headers: {
             "Content-Type": "application/json",
@@ -205,7 +205,7 @@ class Profile extends React.Component {
    saveProfileFun = () => {
       console.log("where is get method");
       fetch(this.props.URL+"saveProfile", {
-         credentials: true,
+         // credentials: true,
          method: "POST",
          headers: {
             "Content-Type": "application/json",

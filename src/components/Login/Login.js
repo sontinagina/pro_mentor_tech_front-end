@@ -93,7 +93,7 @@ function Signin(props) {
             const url1 = props.URL + "signup";
             console.log(url1);
             fetch(url1, {
-               credentials: true,
+               // credentials: true,
                method: "POST",
                headers: {
                   "Content-Type": "application/json",
@@ -134,7 +134,7 @@ function Signin(props) {
             const url2 = props.URL + "signin";
             console.log(url2);
             fetch(url2, {
-               credentials: true,
+               // credentials: true,
                method: "POST",
                headers: {
                   "Content-Type": "application/json",

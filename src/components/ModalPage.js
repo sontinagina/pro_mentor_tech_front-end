@@ -67,7 +67,7 @@ function FGPModal(props) {
             // --------------------
             const params = "type=email";
             fetch(props.URL + "forgotpass?" + params, {
-               credentials: true,
+               // credentials: true,
                method: "POST",
                headers: {
                   "Content-Type": "application/json",
@@ -107,7 +107,7 @@ function FGPModal(props) {
          console.log("======================", props.otp);
 
          fetch(props.URL + "forgotpass?" + params, {
-            credentials: true,
+            // credentials: true,
             method: "POST",
             headers: {
                "Content-Type": "application/json",
@@ -158,7 +158,7 @@ function FGPModal(props) {
                // ---------------
                const params = "type=confirmpass";
                fetch(props.URL + "forgotpass?" + params, {
-                  credentials: true,
+                  // credentials: true,
                   method: "POST",
                   headers: {
                      "Content-Type": "application/json",

@@ -2,6 +2,7 @@
    "name": "mentor_hub",
    "version": "0.1.0",
    "private": true,
+   "proxy": "https://pro-mentor-techs-backend.herokuapp.com/",
    "dependencies": {
       "@testing-library/jest-dom": "^5.14.1",
       "@testing-library/react": "^11.2.7",
