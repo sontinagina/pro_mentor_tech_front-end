@@ -17,7 +17,7 @@ class App extends React.Component {
       this.state = {
          loginFlag: "signin",
          URL: "/",
-         //http://localhost:3001/
+         // URL: "http://localhost:3000",
          // URL: "https://pro-mentor-techs-backend.herokuapp.com/",
       };
       this.getUserInfo = this.getUserInfo.bind(this);

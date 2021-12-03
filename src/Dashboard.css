@@ -8,13 +8,13 @@
     width: 100%;
     height: 100%;
     /* background-repeat: no-repeat; */
-    background-size: cover;
+    background-size: 100%;
    
 }
 .dash2{
   background-image: url("../src/images/coach-mentor.jpeg");
   width: 100%;
-  height: 600px;
+  height: 100vh;
   background-repeat: no-repeat;
   background-size: cover;
   
@@ -27,15 +27,15 @@
 
 }
 .flip{
-  margin: 50px;
+  margin: 5%;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
 }
 .carousel-mentor-boxes{
   border: 4px solid #0da099;
-  height: 300px;
-  margin: 40px;
+  height: 30%;
+  margin: 10%;
   background-color: #ffffff;
   padding: 20px;
   /* margin-top: 50px; */
@@ -93,10 +93,10 @@ font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 /*!!!!! mentor divs css  */
 .m1{
-  /* border: 2px solid white; */
+  /* border: 2px solid rgb(233, 27, 188); */
   width: 90%;
   height: 100%;
-  margin: 50px;
+  margin: 3%;
   /* text-align: center; */
   color: white;
   /* margin-top: 150px; */
@@ -105,7 +105,7 @@ font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   /* border: 2px solid white; */
   width:90%;
   height: 100%;
-  margin: 50px;
+  margin: 5%;
   display: flex;
   align-content: center;
   justify-content: space-between;
@@ -114,7 +114,7 @@ font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   
 }
 .cardImg {
-  height: 200px;
+  height: 40%;
   aspect-ratio: auto 200 / 200;
   /* width: 200px; */
   background-color: lightblue;
@@ -125,37 +125,48 @@ font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   box-shadow: 15px 15px 10px rgb(38, 62, 71) ;
   transition: 0.3s;
   text-align: center;
+  /* border: 2px solid red; */
+  height:20%;
+  margin: 2%;
+  margin-top: 2%;
+  position: static;
 }
 .Card:hover {
   box-shadow: 2px 2px 10px rgb(38, 62, 71);
   transform: translate(1px, 1px);
 }
-.m3{
-  /* border: 2px solid white; */
-  width:90%;
+.All-courses{
+  /* margin: 10%; */
+  /* margin-top: 10%; */
+  /* margin-bottom: 10%; */
   height: 100%;
-  margin: 50px;
+  width: 100%;
+  /* border: 2px solid rgb(9, 255, 0); */
+
+  }
+.m3{
+  /* border: 2px solid rgb(226, 21, 106); */
+  width:100%;
+  height: 90%;
+  margin-top: 7%;
   display: flex;
   align-content: center;
-  justify-content: space-between;
-  padding: 20px;
-  
+  /* justify-content: space-between; */
+  /* padding: 4%; */
+  justify-items: center;
+  justify-content: center;
 
 }
-.All-courses{
-margin: 50px;
-margin-top: 130px;
-margin-bottom: 180px;
-}
+
 .m4{
   /* border: 2px solid white; */
   width: 80%;
   height: 100%;
-  margin: 50px;
+  margin: 10%;
   /* margin-right: 50px; */
-  margin-left: 170px;
-  margin-top: 150px;
-  margin-bottom: 100px;
+  margin-left: 15%;
+  margin-top: 15%;
+  margin-bottom: 10%;
   /* box-shadow: 2px 2px 10px rgb(38, 62, 71); */
 }
 
@@ -265,7 +276,8 @@ margin-left: 80px;
 }
 .dashcarousel{
   width: 90%;
-  margin: 20px;
+  margin: 3%;
+  /* border: 2px solid pink; */
 }
 /*profile component css*/
 .odal{
@@ -402,7 +414,8 @@ justify-content: space-between;
 text-align: center;
 padding: 50px;
 height: 100%;
-
+width: 100%;
+/* border: 2px solid rgb(71, 27, 141) ; */
 }
 .inner-rew{
   padding: 20px;
@@ -416,17 +429,19 @@ height: 100%;
   border: 2px solid white;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
+  /* border: 1px solid #d11071; */
   
   /* background-color: #262626; */
-  background-color: white;
+  background-color: rgb(255, 255, 255);
   height: 100%;
   width: 100%;
   justify-content: space-evenly;
-  margin: 70px;
+  /* margin: 70px; */
+  margin-top: 5%;
 }
 .review-grid-columns{
   border: 4px solid #0da099;
-height: 100%;
+height: 80%;
 margin: 40px;
 background-color: #eaeaea;
 padding: 20px;
@@ -441,15 +456,15 @@ border-radius:  50% 20% / 10% 40%;
 }
 .flip-box {
   background-color: transparent;
-  width: 380px;
-  height: 285px;
+  width: 300px;
+  height: 300px;
   /* border: 1px solid #f1f1f1; */
   perspective: 1000px;
   justify-content: center;
   /* margin: 40px; */
-  margin-left: 80px;
+  margin-left: 90px;
   align-items: center;
-
+/* border: 2px solid rgb(81, 255, 0); */
 }
 
 .flip-box-inner {
@@ -459,6 +474,7 @@ border-radius:  50% 20% / 10% 40%;
   text-align: center;
   transition: transform 0.8s;
   transform-style: preserve-3d;
+/* border: 2px solid rgb(218, 233, 18); */
   
 }
 
@@ -486,7 +502,11 @@ border-radius:  50% 20% / 10% 40%;
   transform: rotateY(180deg);
 }
 .course-box{
-  height:100px;
+  height:10%;
+  width: 100%;
+justify-self: center;
+  /* margin:5% ; */
+  margin-right: 2%;
   /* border: 2px solid white; */
   color: white;
   text-align: center;

@@ -1086,9 +1086,9 @@ class Dashboard extends React.Component {
                      your career
                   </p>
                </div>
-               <div className="m2">
+               <div className="m3">
                   <div className="Card">
-                     <Card style={{ width: "20rem" }}>
+                     <Card style={{ width: "20rem", height: "100%" }}>
                         <Card.Img
                            className="cardImg"
                            variant="top"
@@ -1119,7 +1119,7 @@ class Dashboard extends React.Component {
                      </Card>
                   </div>
                   <div className="Card">
-                     <Card style={{ width: "20rem" }}>
+                     <Card style={{ width: "20rem", height: "100%" }}>
                         <Card.Img
                            className="cardImg"
                            variant="top"
@@ -1150,7 +1150,7 @@ class Dashboard extends React.Component {
                      </Card>
                   </div>
                   <div className="Card">
-                     <Card style={{ width: "20rem" }}>
+                     <Card style={{ width: "20rem", height: "100%" }}>
                         <Card.Img
                            className="cardImg"
                            variant="top"
@@ -1180,7 +1180,7 @@ class Dashboard extends React.Component {
                </div>
                <div className="m3">
                   <div className="Card">
-                     <Card style={{ width: "20rem" }}>
+                     <Card style={{ width: "20rem", height: "100%" }}>
                         <Card.Img
                            className="cardImg"
                            variant="top"
@@ -1202,16 +1202,14 @@ class Dashboard extends React.Component {
                               </a>
                            </Card.Text>
                            <p class="course-details">
-                              Web Design <br />
-                              Real time Web Apps <br />
-                              Deployment &amp; System Adminstration <br />
-                              LIVE Project &amp; Hackathon
+                              Web Design Real time Web Apps Deployment &amp;
+                              System Adminstration LIVE Project &amp; Hackathon
                            </p>
                         </Card.Body>
                      </Card>
                   </div>
                   <div className="Card">
-                     <Card style={{ width: "20rem" }}>
+                     <Card style={{ width: "20rem", height: "100%" }}>
                         <Card.Img
                            className="cardImg"
                            variant="top"
@@ -1233,16 +1231,15 @@ class Dashboard extends React.Component {
                               </a>
                            </Card.Text>
                            <p class="course-details">
-                              Adv Data Structures &amp; Algo in C++ <br />
-                              Complex Problem Solving <br />
-                              Algorithmic Analysis <br />
-                              Interview Preparation
+                              Adv Data Structures &amp; Algo in C++ Complex
+                              Problem Solving Algorithmic Analysis Interview
+                              Preparation
                            </p>
                         </Card.Body>
                      </Card>
                   </div>
                   <div className="Card">
-                     <Card style={{ width: "20rem" }}>
+                     <Card style={{ width: "20rem", height: "100%" }}>
                         <Card.Img
                            className="cardImg"
                            variant="top"
@@ -1261,10 +1258,9 @@ class Dashboard extends React.Component {
                               <Button variant="dark">RAGISTER NOW</Button>
                            </Card.Text>
                            <p class="course-details">
-                              Code Machine Learning Algorithms <br />
-                              Artificial Intelligence <br />
-                              Natural Language Processing <br />3 Live Projects
-                              &amp; Hackathon
+                              Code Machine Learning Algorithms Artificial
+                              Intelligence Natural Language Processing 3 Live
+                              Projects &amp; Hackathon
                            </p>
                         </Card.Body>
                      </Card>
